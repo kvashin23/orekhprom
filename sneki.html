@@ -1,0 +1,321 @@
+<!doctype html>
+<html lang="ru">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Гастрономические снеки ЕМ! — кешью с ресторанными вкусами | Орехпром</title>
+<meta name="description" content="Гастро-снеки ЕМ!: кешью со вкусом гребешков в чесночном соусе, белых грибов и лисичек в сметане. Фасовка 50 и 180 г для сетей и импульсных продаж.">
+<link rel="preconnect" href="https://fonts.googleapis.com"><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Geologica:wght@250;300;400;500;600&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="assets/site.css">
+<style>
+  /* ---------- HERO ---------- */
+  .sn-hero{position:relative; padding:0; min-height:calc(100vh - 128px); min-height:calc(100svh - 128px); display:flex; flex-direction:column; justify-content:flex-end; overflow:hidden; background:#fff;}
+  .sn-hero video{position:absolute; inset:0; width:100%; height:100%; object-fit:cover;}
+  .sn-hero .ttl{position:relative; z-index:1; font-family:var(--font-head); font-weight:600; font-size:clamp(48px,9.2vw,148px); line-height:.86; letter-spacing:-.035em; text-transform:lowercase; padding:0 40px; margin-bottom:28px; mix-blend-mode:multiply;}
+  .sn-hero .ttl span{display:block;}
+  .sn-hero .ttl span:last-child{text-align:right;}
+  .sn-bar{position:relative; z-index:2; display:grid; grid-template-columns:repeat(3,1fr) auto; gap:10px; padding:0 40px 28px;}
+  .sn-bar .p{background:rgba(255,255,255,.92); backdrop-filter:blur(10px); border-radius:18px; padding:14px 16px; display:grid; grid-template-columns:1fr 56px; gap:12px; align-items:center; transition:transform .25s;}
+  .sn-bar .p:hover{transform:translateY(-3px);}
+  .sn-bar .p b{font-family:var(--font-head); font-weight:600; font-size:19px; line-height:1.1; display:block;}
+  .sn-bar .p .w{display:flex; gap:6px; margin-top:10px;}
+  .sn-bar .p .w span{font-size:12px; padding:3px 10px; border-radius:100px; border:1px solid var(--line);}
+  .sn-bar .p img{width:56px; height:76px; object-fit:contain;}
+  .sn-bar .ctas{display:flex; flex-direction:column; gap:8px; justify-content:center;}
+  @media (max-width:1100px){ .sn-bar{grid-template-columns:1fr 1fr 1fr;} .sn-bar .ctas{grid-column:1/-1; flex-direction:row;} .sn-bar .ctas .btn{flex:1;} }
+  @media (max-width:720px){
+    .sn-hero{min-height:0; padding-top:56vh;}
+    .sn-hero .ttl{padding:0 20px; font-size:44px;}
+    .sn-bar{grid-template-columns:1fr; padding:0 20px 20px;}
+    .sn-bar .p{display:none;}
+    .sn-bar .p:first-child{display:grid;}
+    .sn-bar .ctas{flex-direction:column;}
+  }
+
+  /* ---------- FACTS SLIDER (ТЗ: блок «снековый рынок растёт» в виде слайдера) ---------- */
+  .facts{background:var(--panel); overflow:hidden;}
+  .fx{display:grid; grid-template-columns:minmax(0,1fr) minmax(0,1.15fr); gap:64px; align-items:stretch;}
+  .fx-left{display:flex; flex-direction:column; justify-content:space-between; gap:40px;}
+  .fx-left h2{font-size:72px; line-height:.92; text-transform:lowercase; letter-spacing:-.03em;}
+  .fx-left .two{display:grid; grid-template-columns:1fr 1fr; gap:24px; margin-top:28px; max-width:520px;}
+  .fx-left .two p{font-size:15px; color:var(--ink-70); line-height:1.45;}
+  .fx-tabs{display:flex; flex-direction:column; border-top:1px solid var(--line);}
+  .fx-tabs button{all:unset; box-sizing:border-box; cursor:pointer; display:grid; grid-template-columns:40px 1fr auto; gap:14px; align-items:center; padding:16px 0; border-bottom:1px solid var(--line); position:relative; color:var(--ink-35); transition:color .25s;}
+  .fx-tabs button .n{font-size:12px; letter-spacing:.08em;}
+  .fx-tabs button .t{font-family:var(--font-head); font-size:20px; line-height:1.15;}
+  .fx-tabs button .v{font-family:var(--font-head); font-size:20px;}
+  .fx-tabs button.on, .fx-tabs button:hover{color:var(--ink);}
+  .fx-tabs button i{position:absolute; left:0; bottom:-1px; height:2px; width:0; background:var(--ink);}
+  .fx-tabs button.on i{animation:fxprog var(--dur,6s) linear forwards;}
+  .fx-tabs.paused button.on i{animation-play-state:paused;}
+  @keyframes fxprog{from{width:0} to{width:100%}}
+
+  .fx-stage{position:relative; display:grid; grid-template-columns:minmax(0,1fr) minmax(0,.85fr); gap:28px; min-height:600px; touch-action:pan-y;}
+  .fx-media{position:relative; border-radius:28px; overflow:hidden; background:#ddd;}
+  .fx-media img{position:absolute; inset:0; width:100%; height:100%; object-fit:cover; opacity:0; transform:scale(1.06); transition:opacity .7s ease, transform 1.2s cubic-bezier(.2,.7,.2,1);}
+  .fx-media img.on{opacity:1; transform:none;}
+  .fx-media .cnt{position:absolute; left:20px; top:18px; z-index:2; background:#fff; border-radius:100px; padding:6px 14px; font-size:13px; font-variant-numeric:tabular-nums;}
+  .fx-text{display:flex; flex-direction:column; justify-content:space-between; padding:8px 0;}
+  .fx-slide{display:none;}
+  .fx-slide.on{display:block; animation:fxin .6s cubic-bezier(.2,.7,.2,1);}
+  @keyframes fxin{from{opacity:0; transform:translateY(18px)} to{opacity:1; transform:none}}
+  .fx-slide .big{font-family:var(--font-head); font-weight:600; font-size:150px; line-height:.85; letter-spacing:-.04em;}
+  .fx-slide .big small{font-size:.45em; vertical-align:top; margin-left:4px;}
+  .fx-slide .big.word{font-size:64px; line-height:.95; letter-spacing:-.02em;}
+  .fx-slide h3{font-size:30px; line-height:1.08; margin:22px 0 18px; text-transform:lowercase;}
+  .fx-slide p{color:var(--ink-70); font-size:16px; line-height:1.5; padding-top:18px; border-top:1px solid var(--line);}
+  .fx-nav{display:flex; align-items:center; justify-content:space-between; gap:16px;}
+  .fx-nav .src{font-size:12px; color:var(--ink-55); max-width:22ch;}
+  @media (max-width:1180px){ .fx{grid-template-columns:1fr; gap:48px;} .fx-left h2{font-size:56px;} }
+  @media (max-width:760px){
+    .fx-stage{grid-template-columns:1fr; min-height:0;}
+    .fx-media{aspect-ratio:4/5; border-radius:20px;}
+    .fx-slide .big{font-size:96px;}
+    .fx-slide .big.word{font-size:40px;}
+    .fx-slide h3{font-size:24px;}
+    .fx-left h2{font-size:42px;}
+    .fx-left .two{grid-template-columns:1fr; gap:10px;}
+    .fx-tabs{display:none;}
+  }
+
+  /* ---------- FLAVORS ---------- */
+  .flv{display:grid; grid-template-columns:repeat(3,1fr); gap:20px;}
+  .fl{position:relative; border-radius:28px; overflow:hidden; display:flex; flex-direction:column; color:#fff; min-height:640px; isolation:isolate;}
+  .fl::before{content:""; position:absolute; inset:0; background:var(--c); z-index:-2;}
+  .fl .ph{flex:1; display:grid; place-items:center; padding:40px 30px 0;}
+  .fl .ph img{max-height:380px; width:auto; filter:drop-shadow(0 30px 30px rgba(0,0,0,.28)); transition:transform .6s cubic-bezier(.2,.7,.2,1);}
+  .fl:hover .ph img{transform:translateY(-10px) rotate(-3deg);}
+  .fl .bd{padding:28px 30px 30px; display:flex; flex-direction:column; gap:14px;}
+  .fl h3{font-size:34px; line-height:1;}
+  .fl p{color:rgba(255,255,255,.82); font-size:15px; min-height:66px;}
+  .fl .row{display:flex; justify-content:space-between; align-items:center; gap:12px;}
+  .fl .packs{display:flex; gap:6px;}
+  .fl .packs button{all:unset; cursor:pointer; padding:8px 16px; border-radius:100px; border:1px solid rgba(255,255,255,.45); font-size:14px; font-weight:500;}
+  .fl .packs button.on{background:#fff; color:var(--ink); border-color:#fff;}
+  @media (max-width:1000px){ .flv{grid-template-columns:1fr;} .fl{min-height:0; display:grid; grid-template-columns:.8fr 1fr;} .fl .ph{padding:24px;} .fl .ph img{max-height:260px;} }
+  @media (max-width:560px){ .fl{grid-template-columns:1fr;} .fl .ph img{max-height:240px;} }
+
+  /* ---------- SHELF ---------- */
+  .shelf{display:grid; grid-template-columns:1fr 1fr; gap:20px;}
+  .shelf .k{background:var(--card); border-radius:24px; padding:36px; display:flex; flex-direction:column; justify-content:space-between; min-height:300px;}
+  .shelf .k .num{font-family:var(--font-head); font-size:110px; line-height:.85; letter-spacing:-.04em;}
+  .shelf .k .lbl{font-size:18px; color:var(--ink-70);}
+  .shelf .wide{grid-column:1/-1; background:var(--ink); color:#fff; border-radius:24px; padding:40px; display:grid; grid-template-columns:1fr 1.2fr; gap:48px; align-items:center;}
+  .shelf .wide ul{list-style:none; margin:0; padding:0;}
+  .shelf .wide li{font-family:var(--font-head); font-size:30px; padding:14px 0; border-bottom:1px solid rgba(255,255,255,.15); display:flex; gap:16px; align-items:baseline;}
+  .shelf .wide li::before{content:"✦"; font-size:16px; color:#C7D39C;}
+  .shelf .wide p{color:rgba(255,255,255,.72); font-size:17px;}
+  @media (max-width:900px){ .shelf{grid-template-columns:1fr;} .shelf .k{min-height:220px; padding:26px;} .shelf .k .num{font-size:72px;} .shelf .wide{grid-template-columns:1fr; padding:28px; gap:24px;} .shelf .wide li{font-size:22px;} }
+
+  /* ---------- REVIEWS ---------- */
+  .rvw{display:flex; gap:20px; width:max-content; animation:mq 60s linear infinite;}
+  .rvw-wrap:hover .rvw{animation-play-state:paused;}
+  @keyframes mq{to{transform:translateX(-50%)}}
+  .rc{width:400px; flex:none; background:var(--card); border-radius:24px; padding:30px; display:grid; grid-template-columns:auto 1fr; gap:24px;}
+  .rc .r{display:flex; flex-direction:column; align-items:center; gap:10px;}
+  .rc .r b{font-family:'Geologica'; font-weight:250; font-size:72px; line-height:1;}
+  .rc .r i{font-style:normal; font-size:22px;}
+  .rc p{font-family:var(--font-head); font-size:18px; line-height:1.35;}
+  .rc .nm{font-size:14px; color:var(--ink-55); margin-top:14px;}
+  @media (max-width:600px){ .rc{width:300px; padding:22px;} .rc .r b{font-size:48px;} .rc p{font-size:16px;} }
+  @media (prefers-reduced-motion:reduce){ .rvw{animation:none;} }
+
+  .faq-title{font-size:72px; text-transform:lowercase; text-align:right; margin-bottom:60px;}
+  @media (max-width:720px){ .faq-title{font-size:38px; margin-bottom:28px;} }
+
+  .perks{display:flex; gap:24px; margin-top:28px; flex-wrap:wrap;}
+  .perks span{display:flex; gap:10px; align-items:center; color:rgba(255,255,255,.8);}
+  .perks span::before{content:"✓"; width:28px; height:28px; border-radius:50%; background:rgba(255,255,255,.12); display:grid; place-items:center; font-size:13px;}
+
+  /* order modal options */
+  .opt{display:grid; grid-template-columns:1fr; gap:8px; margin-bottom:6px;}
+  .opt label{display:grid; grid-template-columns:44px 1fr auto; gap:14px; align-items:center; padding:10px 14px; border:1px solid var(--line); border-radius:14px; cursor:pointer; background:#fff;}
+  .opt label img{width:44px; height:58px; object-fit:contain;}
+  .opt label .q{display:flex; gap:6px;}
+  .opt label .q span{font-size:12px; padding:4px 10px; border-radius:100px; border:1px solid var(--line);}
+  .opt input{position:absolute; opacity:0; pointer-events:none;}
+  .opt label:has(input:checked){border-color:var(--ink); box-shadow:inset 0 0 0 1px var(--ink);}
+</style>
+</head>
+<body data-page="sneki" data-nav="sneki">
+<main>
+  <!-- HERO -->
+  <section class="sn-hero">
+    <video src="https://orekhprom.ru/upload/video/hero.mp4" autoplay muted loop playsinline></video>
+    <h1 class="ttl"><span>вкус как новая</span><span>валюта внимания</span></h1>
+    <div class="sn-bar">
+      <a href="#flavors" class="p"><div><b>Гребешки в чесночном соусе</b><div class="w"><span>50 г</span><span>180 г</span></div></div><img src="https://orekhprom.ru/upload/resize_cache/iblock/050/100_100_1/y195dy2180eoox65p9ley8i64gzo01kj.webp" alt=""></a>
+      <a href="#flavors" class="p"><div><b>Белые грибы</b><div class="w"><span>50 г</span><span>180 г</span></div></div><img src="https://orekhprom.ru/upload/resize_cache/iblock/46c/100_100_1/393mdgjtqh2v8gkrklmhrx08itgybo6a.webp" alt=""></a>
+      <a href="#flavors" class="p"><div><b>Лисички в сметане</b><div class="w"><span>50 г</span><span>180 г</span></div></div><img src="https://orekhprom.ru/upload/resize_cache/iblock/e08/100_100_1/d6vayvqyesc3117zudlzzs6u4be9z9gr.webp" alt=""></a>
+      <div class="ctas"><button class="btn" data-modal="order">Сделать заказ</button><button class="btn outline" style="background:#fff" data-modal="price">Получить прайс</button></div>
+    </div>
+  </section>
+
+  <!-- FACTS SLIDER -->
+  <section class="facts" id="facts"><div class="wrap fx">
+    <div class="fx-left">
+      <div>
+        <span class="eyebrow">гастро-снеки ЕМ!</span>
+        <h2 style="margin-top:20px">снековый<br>рынок растёт</h2>
+        <div class="two">
+          <p>Потребители ищут новые вкусы, эмоции и гастрономические открытия</p>
+          <p>Снеки с необычными, но понятными профилями вкуса дают покупателю повод взять продукт здесь и сейчас</p>
+        </div>
+      </div>
+      <div class="fx-tabs" id="fxTabs"></div>
+      <div class="btn-row"><button class="btn" data-modal="order">Сделать заказ</button><button class="btn outline" data-modal="price">Получить прайс</button></div>
+    </div>
+
+    <div class="fx-stage" id="fxStage" aria-roledescription="слайдер" aria-label="Факты о рынке снеков">
+      <div class="fx-media" id="fxMedia"><span class="cnt" id="fxCnt">01 / 04</span></div>
+      <div class="fx-text">
+        <div id="fxSlides" aria-live="polite"></div>
+        <div class="fx-nav">
+          <span class="src">Свайпайте или используйте стрелки</span>
+          <div class="arrows"><button id="fxPrev" aria-label="Предыдущий факт">←</button><button id="fxNext" aria-label="Следующий факт">→</button></div>
+        </div>
+      </div>
+    </div>
+  </div></section>
+
+  <!-- FLAVORS -->
+  <section id="flavors"><div class="wrap">
+    <div class="sec-head"><div><span class="eyebrow">ассортимент вкусов</span><h2 class="h-l">Ресторанный эффект прямо в пачке</h2></div><p class="sub" style="max-width:40ch">Кешью проходит гастрономическую ароматизацию — орех впитывает сложный вкус, вдохновлённый ресторанными блюдами.</p></div>
+    <div class="flv" id="flv"></div>
+  </div></section>
+
+  <!-- SHELF -->
+  <section class="panel"><div class="wrap">
+    <div class="sec-head"><div><span class="eyebrow">почему это работает на полке</span><h2 class="h-l">Выгодно для сетей</h2></div>
+      <div class="btn-row"><button class="btn" data-modal="request">Получить КП</button><button class="btn outline" data-modal="request">Обсудить условия поставок</button></div></div>
+    <div class="shelf">
+      <div class="k rv"><span class="eyebrow">внимание к полке</span><div><div class="num">+1,7 сек</div><div class="lbl">дольше задерживается взгляд покупателя</div></div></div>
+      <div class="k rv"><span class="eyebrow">средний чек</span><div><div class="num">+12–15%</div><div class="lbl">к среднему чеку за счёт импульсных покупок</div></div></div>
+      <div class="wide rv">
+        <ul><li>высокий вау-эффект</li><li>понятная гастрономичность</li><li>рост импульсных продаж</li></ul>
+        <p>Новинки с нестандартными, но понятными вкусами привлекают внимание и увеличивают поток к полке за счёт яркого визуального и гастрономического контраста с привычными продуктами. Такие SKU помогают сети выделяться на фоне конкурентов и обеспечивают дополнительный рост продаж.</p>
+      </div>
+    </div>
+  </div></section>
+
+  <!-- REVIEWS -->
+  <section style="overflow:hidden"><div class="wrap">
+    <div class="sec-head"><div><span class="eyebrow">что думают покупатели</span><h2 class="h-l">Нас хвалят за вкус, сочетания и разнообразие</h2></div></div>
+  </div>
+  <div class="rvw-wrap"><div class="rvw" id="rvw"></div></div>
+  </section>
+
+  <!-- FAQ -->
+  <section class="panel"><div class="wrap">
+    <h2 class="faq-title">отвечаем на вопросы</h2>
+    <div class="faq-list">
+      <div class="faq-item"><button class="faq-q">Чем ваши вкусы отличаются от обычного кешью?<span class="c">+</span></button><div class="faq-a"><p>Наши орехи проходят гастрономическую ароматизацию — орех впитывает сложный вкус, вдохновлённый ресторанными блюдами, а не просто солью или специями. Это делает вкус более глубоким, ярким и запоминающимся.</p></div></div>
+      <div class="faq-item"><button class="faq-q">Какие варианты фасовок доступны?<span class="c">+</span></button><div class="faq-a"><p>Малая фасовка 50 г — для розницы и импульсных продаж, крупная 180 г — для сетей, семейного потребления и увеличенного среднего чека.</p></div></div>
+      <div class="faq-item"><button class="faq-q">Как быстро возможна поставка?<span class="c">+</span></button><div class="faq-a"><p>Сроки поставки согласуем индивидуально, учитывая объёмы, логистику и ваши операционные требования.</p></div></div>
+      <div class="faq-item"><button class="faq-q">Можно ли получить образцы?<span class="c">+</span></button><div class="faq-a"><p>Да. Отправим готовые образцы и можем разработать уникальный вкус, полностью адаптированный под потребности вашей сети.</p></div></div>
+    </div>
+  </div></section>
+
+  <!-- FORM -->
+  <section><div class="wrap">
+    <div class="cta-box">
+      <div>
+        <span class="eyebrow" style="color:rgba(255,255,255,.55)">для торговых сетей</span>
+        <h2 style="margin-top:18px">Готовы добавить гастро-снеки на вашу полку?</h2>
+        <div class="perks"><span>Ответим в течение часа</span><span>Отправим образцы</span></div>
+      </div>
+      <div class="on-dark">
+        <form class="form" novalidate>
+          <div class="field"><input required placeholder=" "><label>Имя</label></div>
+          <div class="field"><input placeholder=" "><label>Компания</label></div>
+          <div class="field"><input type="tel" required placeholder=" "><label>Телефон</label></div>
+          <div class="field"><input type="email" required placeholder=" "><label>E-mail</label></div>
+          <label class="check full"><input type="checkbox" required checked><span>Даю согласие на обработку <a href="#">персональных данных</a></span></label>
+          <div class="submit full"><button class="btn light" type="submit">Отправить запрос</button></div>
+        </form>
+        <div class="form-ok"><div class="ic">✓</div><h3>Запрос отправлен</h3><p style="color:rgba(255,255,255,.7)">Свяжемся с вами в течение часа.</p></div>
+      </div>
+    </div>
+  </div></section>
+
+  <!-- ORDER MODAL -->
+  <div class="modal" id="m-order" role="dialog" aria-modal="true" aria-label="Сделать заказ"><div class="box"><button class="x" data-close>✕</button>
+    <h3>Сделать заказ</h3><p class="sub">Отметьте вкусы — менеджер уточнит объёмы и условия поставки.</p>
+    <form class="form" novalidate>
+      <div class="opt full" id="ordOpt"></div>
+      <div class="field"><input required placeholder=" "><label>Имя</label></div>
+      <div class="field"><input placeholder=" "><label>Компания / сеть</label></div>
+      <div class="field"><input type="tel" required placeholder=" "><label>Телефон</label></div>
+      <div class="field"><input type="email" required placeholder=" "><label>E-mail</label></div>
+      <label class="check full"><input type="checkbox" required checked><span>Даю согласие на обработку <a href="#">персональных данных</a></span></label>
+      <div class="submit full"><button class="btn" type="submit">Отправить заказ</button></div>
+    </form>
+    <div class="form-ok"><div class="ic">✓</div><h3>Заказ принят</h3><p class="muted">Менеджер свяжется с вами в течение часа.</p></div>
+  </div></div>
+</main>
+
+<script>
+(function(){
+  const U='https://orekhprom.ru/upload/';
+  /* ===== facts slider ===== */
+  const F=[
+    {img:'iblock/1b0/hxqccm4u9821oys6p39cc5kcz8qauwrt.webp', big:'вау', word:true, tab:'выигрывают те, кто удивляют', t:'выигрывают те, кто удивляют', d:'Необычные сочетания, яркие вкусы и нестандартная подача превращают привычный перекус в маленькое открытие'},
+    {img:'iblock/e95/k182nc3warsbhlos4xy73dvwjcj6s2pn.webp', big:'41', tab:'импульсная доля покупок', t:'импульсивная доля покупок орехов составляет 41%', d:'Заметная выкладка, понятные вкусы и удобная фасовка помогают быстро принять решение и добавить товар в корзину без раздумий'},
+    {img:'iblock/c10/05kan03hq70zvcifnz333sxuqt60n47a.webp', big:'22', tab:'выбирают эмоцию во вкусе', t:'покупатели выбирают эмоцию во вкусе — 22%', d:'Пряные, сладкие, солёные и смелые миксы создают настроение и делают выбор не рациональным, а чувственным'},
+    {img:'iblock/8bd/p2jcbgqug08ml8abkfs3mnxnkvk687mo.webp', big:'22', tab:'рост интереса к гастроснекам', t:'рост интереса к гастроснекам — 22%', d:'Орехи с акцентом на гастрономию — это уже не просто перекус, а часть вкусового опыта, который конкурирует с десертами и закусками'},
+  ];
+  const DUR=6000;
+  const media=document.getElementById('fxMedia'), slides=document.getElementById('fxSlides'), tabs=document.getElementById('fxTabs'), cnt=document.getElementById('fxCnt'), stage=document.getElementById('fxStage');
+  media.insertAdjacentHTML('beforeend', F.map((f,i)=>`<img src="${U+f.img}" alt="" ${i?'loading="lazy"':''}>`).join(''));
+  slides.innerHTML=F.map(f=>`<div class="fx-slide"><div class="big ${f.word?'word':''}">${f.word?'выигрывают<br>те, кто<br>удивляют':f.big+'<small>%</small>'}</div>${f.word?'':`<h3>${f.t}</h3>`}<p>${f.d}</p></div>`).join('');
+  tabs.innerHTML=F.map((f,i)=>`<button style="--dur:${DUR}ms"><span class="n">0${i+1}</span><span class="t">${f.tab}</span><span class="v">${f.word?'':f.big+'%'}</span><i></i></button>`).join('');
+  const imgs=[...media.querySelectorAll('img')], sl=[...slides.children], tb=[...tabs.children];
+  let cur=0, timer=null, paused=false;
+  function go(i){
+    cur=(i+F.length)%F.length;
+    imgs.forEach((x,k)=>x.classList.toggle('on',k===cur));
+    sl.forEach((x,k)=>x.classList.toggle('on',k===cur));
+    tb.forEach((x,k)=>{ x.classList.remove('on'); void x.offsetWidth; if(k===cur) x.classList.add('on'); });
+    cnt.textContent=String(cur+1).padStart(2,'0')+' / '+String(F.length).padStart(2,'0');
+    restart();
+  }
+  function restart(){ clearTimeout(timer); if(!paused) timer=setTimeout(()=>go(cur+1),DUR); }
+  function pause(p){ paused=p; tabs.classList.toggle('paused',p); if(p) clearTimeout(timer); else restart(); }
+  tb.forEach((b,i)=>b.onclick=()=>go(i));
+  document.getElementById('fxPrev').onclick=()=>go(cur-1);
+  document.getElementById('fxNext').onclick=()=>go(cur+1);
+  stage.addEventListener('mouseenter',()=>pause(true)); stage.addEventListener('mouseleave',()=>pause(false));
+  /* свайп */
+  let x0=null;
+  stage.addEventListener('pointerdown',e=>{x0=e.clientX;});
+  stage.addEventListener('pointerup',e=>{ if(x0===null) return; const dx=e.clientX-x0; if(Math.abs(dx)>40) go(cur+(dx<0?1:-1)); x0=null; });
+  /* клавиатура, когда блок на экране; автопрокрутка только когда блок виден */
+  let visible=false;
+  new IntersectionObserver(es=>es.forEach(en=>{ visible=en.isIntersecting; if(visible) restart(); else clearTimeout(timer); }),{threshold:.35}).observe(stage);
+  document.addEventListener('keydown',e=>{ if(!visible || /input|textarea|select/i.test(document.activeElement.tagName)) return; if(e.key==='ArrowRight') go(cur+1); if(e.key==='ArrowLeft') go(cur-1); });
+  go(0);
+
+  /* ===== flavors ===== */
+  const FL=[
+    {t:'Гребешки в чесночном соусе', d:'Солёная морская нота и ароматное чесночное масло — ресторанный эффект прямо в пачке', img:'resize_cache/iblock/050/1000_1000_1/y195dy2180eoox65p9ley8i64gzo01kj.webp', th:'resize_cache/iblock/050/100_100_1/y195dy2180eoox65p9ley8i64gzo01kj.webp', c:'linear-gradient(160deg,#4FB3C9,#1F6F86)'},
+    {t:'Белые грибы', d:'Глубокий, благородный грибной вкус с высокой узнаваемостью', img:'resize_cache/iblock/46c/1000_1000_1/393mdgjtqh2v8gkrklmhrx08itgybo6a.webp', th:'resize_cache/iblock/46c/100_100_1/393mdgjtqh2v8gkrklmhrx08itgybo6a.webp', c:'linear-gradient(160deg,#9DB34A,#4F6420)'},
+    {t:'Лисички в сметане', d:'Нежный лесной акцент, который превращает орех в уютный гастро-момент', img:'resize_cache/iblock/e08/1000_1000_1/d6vayvqyesc3117zudlzzs6u4be9z9gr.webp', th:'resize_cache/iblock/e08/100_100_1/d6vayvqyesc3117zudlzzs6u4be9z9gr.webp', c:'linear-gradient(160deg,#F0A43A,#B4561C)'},
+  ];
+  const flv=document.getElementById('flv');
+  flv.innerHTML=FL.map((f,i)=>`<div class="fl rv" style="--c:${f.c}"><div class="ph"><img loading="lazy" src="${U+f.img}" alt="${f.t}"></div><div class="bd"><span class="eyebrow" style="color:rgba(255,255,255,.7)">кешью · вкус 0${i+1}</span><h3>${f.t}</h3><p>${f.d}</p><div class="row"><div class="packs"><button class="on">50 г</button><button>180 г</button></div><button class="btn light sm" data-order="${i}">Заказать</button></div></div></div>`).join('');
+  flv.addEventListener('click',e=>{
+    const p=e.target.closest('.packs button'); if(p){ [...p.parentElement.children].forEach(b=>b.classList.toggle('on',b===p)); return; }
+    const o=e.target.closest('[data-order]'); if(o){ document.querySelectorAll('#ordOpt input').forEach((c,k)=>c.checked=(k==o.dataset.order)); openModal('order'); }
+  });
+  document.getElementById('ordOpt').innerHTML=FL.map((f,i)=>`<label><input type="checkbox" ${i===0?'checked':''}><img src="${U+f.th}" alt=""><b style="font-weight:500">${f.t}</b><span class="q"><span>50 г</span><span>180 г</span></span></label>`).join('');
+
+  /* ===== reviews ===== */
+  const R=[['Очень!!! Очень вкусный кешью!!!','Дарья'],['Бомбезное сочетание, а главное, что «сезон лисичек» даже в орехах соблюли :) Нигде больше не продают такое','Екатерина'],['К пиву очень и очень','Ваня'],['Взял попробовать, оказалось очень вкусно. Обязательно куплю ещё','Владимир'],['Самые вкусные орешки, в других магазинах вообще не такие','Анастасия']];
+  const card=r=>`<div class="rc"><div class="r"><b>5</b><i>★</i></div><div><p>${r[0]}</p><div class="nm">${r[1]}</div></div></div>`;
+  document.getElementById('rvw').innerHTML=[...R,...R].map(card).join('');
+})();
+</script>
+<script src="assets/site.js"></script>
+</body>
+</html>

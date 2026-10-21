@@ -12,6 +12,7 @@ const PAGES = [
   {id:'home',        t:'Главная',              href:'https://orekhprom.ru/', ext:true},
   {id:'em',          t:'Пасты ЕМ!',            href:'em.html'},
   {id:'about',       t:'О компании',           href:'about.html'},
+  {id:'production',  t:'Производство',         href:'production.html'},
   {id:'b2b',         t:'B2B',                  href:'b2b.html'},
   {id:'nuts',        t:'B2B · Орехи',          href:'b2b-nuts.html'},
   {id:'pastes',      t:'B2B · Пасты',          href:'b2b-pastes.html'},
@@ -19,6 +20,7 @@ const PAGES = [
   {id:'fillings',    t:'B2B · Начинки',        href:'b2b-fillings.html'},
   {id:'brands',      t:'Бренды',               href:'brands.html'},
   {id:'kraft',       t:'Линейка «Крафт»',      href:'brand-kraft.html'},
+  {id:'sneki',       t:'Гастро-снеки',         href:'sneki.html'},
   {id:'blog',        t:'Блог',                 href:'blog.html'},
   {id:'article',     t:'Статья',               href:'article.html'},
   {id:'recipes',     t:'Рецепты',              href:'recipes.html'},
@@ -36,7 +38,7 @@ const NAV = [
   {id:'brands', t:'Бренды', href:'brands.html', dd:[
     ['Твердый знак','brands.html#tz'],['Твердый знак · Крафт','brand-kraft.html'],['Ем!','brands.html#em'],['Ем! · Пасты и начинки','em.html']
   ], all:['Все бренды','brands.html']},
-  {id:'sneki', t:'Гастро-снеки', href:'https://orekhprom.ru/sneki/'},
+  {id:'sneki', t:'Гастро-снеки', href:'sneki.html'},
   {id:'stm', t:'СТМ', href:'https://orekhprom.ru/stm/'},
   {id:'rd', t:'R&D', href:'https://orekhprom.ru/rd/'},
   {id:'recipes', t:'Рецепты', href:'recipes.html'},
@@ -105,9 +107,9 @@ function footer(){
         <p class="tag">Фабрика полного цикла переработки орехов и производитель пищевых ингредиентов с 1998 года</p>
         <div class="ft-social"><a href="https://vk.com/orekhprom" target="_blank" rel="noopener" aria-label="ВКонтакте">VK</a><a href="https://t.me/orekhprom" target="_blank" rel="noopener" aria-label="Telegram">TG</a><a href="https://dzen.ru/" target="_blank" rel="noopener" aria-label="Дзен">ДЗ</a></div>
       </div>
-      <div class="ft-col"><h4>Компания</h4><a href="about.html">О компании</a><a href="awards.html">Награды</a><a href="career.html">Карьера</a><a href="https://orekhprom.ru/rd/">R&amp;D</a><a href="blog.html">Блог</a><a href="recipes.html">Рецепты</a></div>
+      <div class="ft-col"><h4>Компания</h4><a href="about.html">О компании</a><a href="production.html">Производство</a><a href="awards.html">Награды</a><a href="career.html">Карьера</a><a href="https://orekhprom.ru/rd/">R&amp;D</a><a href="blog.html">Блог</a><a href="recipes.html">Рецепты</a></div>
       <div class="ft-col"><h4>B2B</h4><a href="b2b-nuts.html">Орехи</a><a href="b2b-pastes.html">Пасты</a><a href="b2b-ingredients.html">Ингредиенты</a><a href="b2b-fillings.html">Начинки</a><a href="https://orekhprom.ru/stm/">СТМ</a></div>
-      <div class="ft-col"><h4>Бренды</h4><a href="brands.html#tz">Твердый знак</a><a href="brands.html#em">Ем!</a><a href="em.html">Пасты и начинки ЕМ!</a><a href="https://orekhprom.ru/sneki/">Гастро-снеки</a><a href="https://orekhprom.shop/">Интернет-магазин</a></div>
+      <div class="ft-col"><h4>Бренды</h4><a href="brands.html#tz">Твердый знак</a><a href="brands.html#em">Ем!</a><a href="em.html">Пасты и начинки ЕМ!</a><a href="sneki.html">Гастро-снеки</a><a href="https://orekhprom.shop/">Интернет-магазин</a></div>
       <div class="ft-contacts">
         <a class="phone" href="tel:88005554161">8 (800) 555 41 61</a>
         <div class="note">Бесплатно по России, пн–пт 9:00–18:00</div>

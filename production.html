@@ -1,0 +1,292 @@
+<!doctype html>
+<html lang="ru">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Производство — полный цикл выращивания и переработки орехов | Орехпром</title>
+<meta name="description" content="Производство АО «Орехпром»: европейское оборудование Brovind, Jose Borel, Hornos Electricos Lago и печь BUHLER, 10 этапов переработки орехов, лаборатория и система безопасности HACCP с 2007 года.">
+<link rel="preconnect" href="https://fonts.googleapis.com"><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Geologica:wght@300;400;500;600&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="assets/site.css">
+<style>
+  /* hero */
+  .pr-hero{position:relative; padding:0; color:#fff; overflow:hidden; background:#1a1b1d;}
+  .pr-hero video, .pr-hero > img{position:absolute; inset:0; width:100%; height:100%; object-fit:cover;}
+  .pr-hero::after{content:""; position:absolute; inset:0; background:linear-gradient(180deg,rgba(0,0,0,.35),rgba(0,0,0,.1) 40%,rgba(0,0,0,.75));}
+  .pr-hero .wrap{position:relative; z-index:1; min-height:calc(100vh - 128px); min-height:calc(100svh - 128px); display:flex; flex-direction:column; justify-content:space-between; padding-top:24px; padding-bottom:40px;}
+  .pr-hero .wrap > div:last-child{margin-top:56px;}
+  .pr-hero .crumbs, .pr-hero .crumbs a{color:rgba(255,255,255,.7);}
+  .pr-hero .crumbs .cur{color:#fff;}
+  .pr-hero h1{font-size:76px; max-width:15ch; margin:18px 0 24px;}
+  .pr-hero .lead{color:rgba(255,255,255,.82); max-width:52ch;}
+  .pr-hero .stats{border-top-color:rgba(255,255,255,.25); margin-top:56px;}
+  .pr-hero .stats > div{border-right-color:rgba(255,255,255,.25);}
+  .pr-hero .stats .k{color:rgba(255,255,255,.6);}
+  .pr-hero .play{display:inline-flex; align-items:center; gap:12px; color:#fff; font-size:14px;}
+  .pr-hero .play i{width:52px; height:52px; border-radius:50%; background:#fff; color:var(--ink); display:grid; place-items:center; font-style:normal;}
+  @media (max-width:900px){ .pr-hero h1{font-size:40px;} .pr-hero .wrap{min-height:0; padding-top:20px; padding-bottom:28px;} .pr-hero .stats > div{border-top-color:rgba(255,255,255,.25);} }
+
+  /* equipment */
+  .eq{display:grid; grid-template-columns:1.05fr .95fr; gap:64px; align-items:center;}
+  .eq .ph{border-radius:28px; overflow:hidden; aspect-ratio:4/3.3; position:relative;}
+  .eq .ph img{width:100%; height:100%; object-fit:cover;}
+  .eq .ph .badge{position:absolute; right:20px; bottom:20px; background:#fff; border-radius:18px; padding:16px 20px; max-width:260px;}
+  .eq .ph .badge b{font-family:var(--font-head); font-size:22px; font-weight:600; display:block;}
+  .eq .ph .badge span{font-size:13px; color:var(--ink-70);}
+  .brands{display:grid; grid-template-columns:1fr 1fr; gap:0; border-top:1px solid var(--line); margin-top:32px;}
+  .brands > div{padding:18px 18px 18px 0; border-bottom:1px solid var(--line);}
+  .brands > div:nth-child(2n){padding-left:18px; border-left:1px solid var(--line);}
+  .brands b{font-family:var(--font-head); font-size:22px; font-weight:600; display:block;}
+  .brands span{font-size:13px; color:var(--ink-55); text-transform:uppercase; letter-spacing:.08em;}
+  .brands > div, .zones > div, .eq > *{min-width:0;}
+  @media (max-width:980px){ .eq{grid-template-columns:1fr; gap:36px;} }
+  @media (max-width:560px){ .brands{grid-template-columns:1fr;} .brands > div:nth-child(2n){padding-left:0; border-left:0;} .brands b{font-size:19px;} }
+
+  .facts3{display:grid; grid-template-columns:repeat(3,1fr); gap:16px;}
+  .facts3 > div{background:var(--card); border-radius:24px; padding:30px; min-height:240px; display:flex; flex-direction:column; justify-content:space-between;}
+  .facts3 .big-num{font-size:64px;}
+  .facts3 p{font-size:15px; color:var(--ink-70); margin-top:10px;}
+  .facts3 .dk{background:var(--ink); color:#fff;}
+  .facts3 .dk p{color:rgba(255,255,255,.7);}
+  @media (max-width:900px){ .facts3{grid-template-columns:1fr;} .facts3 > div{min-height:0; gap:28px;} .facts3 .big-num{font-size:48px;} }
+
+  /* stages scrollytelling */
+  .stg{display:grid; grid-template-columns:1fr 1fr; gap:72px; align-items:start;}
+  .stg-media{position:sticky; top:110px; height:calc(100vh - 150px); max-height:680px; border-radius:28px; overflow:hidden; background:var(--panel-2);}
+  .stg-media img{position:absolute; inset:0; width:100%; height:100%; object-fit:cover; opacity:0; transition:opacity .6s ease, transform 1s ease; transform:scale(1.04);}
+  .stg-media img.on{opacity:1; transform:none;}
+  .stg-media .lbl{position:absolute; left:20px; bottom:20px; z-index:2; background:#fff; border-radius:100px; padding:8px 16px; font-size:13px; font-weight:500;}
+  .stg-media .bar{position:absolute; left:20px; right:20px; top:20px; z-index:2; display:flex; gap:4px;}
+  .stg-media .bar i{flex:1; height:3px; border-radius:2px; background:rgba(255,255,255,.4); transition:background .3s;}
+  .stg-media .bar i.on{background:#fff;}
+  .stg-list .st{min-height:62vh; display:flex; flex-direction:column; justify-content:center; padding:32px 0; border-bottom:1px solid var(--line); opacity:.32; transition:opacity .4s;}
+  .stg-list .st.on{opacity:1;}
+  .stg-list .st:last-child{border-bottom:0;}
+  .stg-list .n{font-family:var(--font-head); font-size:18px; color:var(--accent); margin-bottom:14px;}
+  .stg-list h3{font-size:36px; margin-bottom:16px;}
+  .stg-list p{color:var(--ink-80); font-size:17px; max-width:52ch;}
+  .stg-list .chips{display:flex; gap:8px; flex-wrap:wrap; margin-top:18px;}
+  .stg-list .mimg{display:none;}
+  @media (max-width:900px){
+    .stg{grid-template-columns:1fr; gap:0;}
+    .stg-media{display:none;}
+    .stg-list .st{min-height:0; opacity:1; padding:28px 0;}
+    .stg-list .mimg{display:block; border-radius:18px; overflow:hidden; aspect-ratio:16/10; margin-bottom:20px;}
+    .stg-list .mimg img{width:100%; height:100%; object-fit:cover;}
+    .stg-list h3{font-size:26px;}
+    .stg-list p{font-size:16px;}
+  }
+
+  /* quality */
+  .q-mgmt{display:grid; grid-template-columns:.9fr 1.1fr; gap:64px;}
+  .certs{display:flex; gap:16px;}
+  .certs button{all:unset; cursor:zoom-in; flex:none; width:220px; aspect-ratio:3/4; background:#fff; border-radius:18px; padding:14px; box-sizing:border-box; box-shadow:0 10px 30px rgba(31,32,34,.06); transition:transform .3s;}
+  .certs button:hover{transform:translateY(-4px);}
+  .certs img{width:100%; height:100%; object-fit:contain;}
+  @media (max-width:980px){ .q-mgmt{grid-template-columns:1fr; gap:36px;} .certs button{width:170px;} }
+
+  .qsteps{display:grid; grid-template-columns:repeat(3,1fr); border-top:1px solid rgba(255,255,255,.18);}
+  .qsteps > div{padding:34px 34px 0 0;}
+  .qsteps > div + div{padding-left:34px; border-left:1px solid rgba(255,255,255,.18);}
+  .qsteps .n{font-family:var(--font-head); font-size:64px; color:rgba(255,255,255,.2); line-height:1;}
+  .qsteps h3{font-size:24px; margin:28px 0 12px;}
+  .qsteps p{color:rgba(255,255,255,.68); font-size:15px;}
+  @media (max-width:900px){ .qsteps{grid-template-columns:1fr;} .qsteps > div + div{padding-left:0; border-left:0; border-top:1px solid rgba(255,255,255,.18); margin-top:34px;} }
+  .lab{display:grid; grid-template-columns:1.2fr .8fr .8fr; gap:16px; margin-top:56px;}
+  .lab div{border-radius:20px; overflow:hidden; aspect-ratio:4/3;}
+  .lab img{width:100%; height:100%; object-fit:cover;}
+  @media (max-width:720px){ .lab{grid-template-columns:1fr 1fr;} .lab div:first-child{grid-column:1/-1;} }
+
+  .zones{display:grid; grid-template-columns:repeat(4,1fr); gap:12px; margin-top:28px;}
+  .zones div{border-radius:16px; padding:18px; background:var(--card); font-size:14px;}
+  .zones b{display:block; font-family:var(--font-head); font-size:20px; font-weight:600; margin-bottom:6px;}
+  @media (max-width:720px){ .zones{grid-template-columns:1fr 1fr;} }
+
+  .guar{display:grid; grid-template-columns:1.2fr .8fr; gap:56px; align-items:center;}
+  .guar .marks{display:flex; gap:20px; justify-content:center; flex-wrap:wrap;}
+  .guar .marks img{height:140px; width:auto; object-fit:contain; background:#fff; border-radius:20px; padding:16px;}
+  @media (max-width:900px){ .guar{grid-template-columns:1fr;} }
+
+  #m-cert .box{max-width:720px; padding:24px;}
+  #m-cert img{width:100%; max-height:80vh; object-fit:contain;}
+</style>
+</head>
+<body data-page="production" data-nav="about">
+<main>
+  <!-- HERO -->
+  <section class="pr-hero">
+    <video src="https://orekhprom.ru/upload/video/main/2_web.mp4" poster="https://orekhprom.ru/upload/iblock/1fe/atz2jv3cw12f5qvrrv12fkgchakoeajo.webp" autoplay muted loop playsinline></video>
+    <div class="wrap">
+      <div class="crumbs"><a href="https://orekhprom.ru/">Главная</a><span class="sep">/</span><a href="about.html">О компании</a><span class="sep">/</span><span class="cur">Производство</span></div>
+      <div>
+        <span class="eyebrow" style="color:rgba(255,255,255,.7)">производство</span>
+        <h1>От ореховой плантации до готового продукта</h1>
+        <p class="lead">АО «ОРЕХПРОМ» — единственное предприятие в России с полным циклом выращивания и переработки орехов. Европейское оборудование, 10 этапов переработки и контроль качества на каждом из них.</p>
+        <div class="btn-row" style="margin-top:32px"><a href="#stages" class="btn light">Этапы переработки ↓</a><button class="btn outline" style="color:#fff;border-color:rgba(255,255,255,.4)" data-modal="request">Запросить аудит / экскурсию</button></div>
+        <div class="stats">
+          <div><div class="k">площади</div><div class="v">10 000+ м²</div></div>
+          <div><div class="k">склады с климат-контролем</div><div class="v">62 000 м³</div></div>
+          <div><div class="k">ореховый сад</div><div class="v">1000 га</div></div>
+          <div><div class="k">эффективность сортировки</div><div class="v">99,9%</div></div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- EQUIPMENT -->
+  <section><div class="wrap eq">
+    <div class="ph rv"><img src="https://orekhprom.ru/upload/iblock/14b/akho8vaass5jdmr2j4cecer7hbg6u41m.jpg" alt="Технологическая линия"><div class="badge"><b>Печь BUHLER</b><span>Не имеет аналогов в России</span></div></div>
+    <div class="rv">
+      <span class="eyebrow">высокотехнологичное оборудование</span>
+      <h2 class="h-l" style="margin:18px 0 24px">Европейские линии и уникальная печь обжарки</h2>
+      <p class="muted" style="font-size:17px">Технология обжарки в печи BUHLER — залог наилучших вкусовых характеристик и более длительного хранения ореховой продукции.</p>
+      <div class="brands">
+        <div><b>Brovind S.A.</b><span>Италия</span></div>
+        <div><b>Jose Borel S.A.</b><span>Италия</span></div>
+        <div><b>Hornos Electricos Lago</b><span>Испания</span></div>
+        <div><b>BUHLER</b><span>печь обжарки</span></div>
+      </div>
+    </div>
+  </div></section>
+
+  <section class="panel tight"><div class="wrap">
+    <div class="facts3">
+      <div class="dk rv"><span class="eyebrow" style="color:rgba(255,255,255,.55)">полный цикл</span><div><div class="big-num">№1</div><p>Единственное предприятие в России с полным циклом выращивания и переработки орехов</p></div></div>
+      <div class="rv"><span class="eyebrow">площади</span><div><div class="big-num">10 000+ м²</div><p>производственных и складских помещений компании</p></div></div>
+      <div class="rv"><span class="eyebrow">хранение</span><div><div class="big-num">62 000 м³</div><p>складов с современной климатической системой — нужные условия для каждого продукта</p></div></div>
+    </div>
+  </div></section>
+
+  <!-- STAGES -->
+  <section id="stages"><div class="wrap">
+    <div class="sec-head"><div><span class="eyebrow">этапы переработки орехов</span><h2 class="h-l">10 шагов от урожая до упаковки</h2></div><p class="sub" style="max-width:38ch">Листайте — фото слева меняется вместе с этапом.</p></div>
+    <div class="stg">
+      <div class="stg-media" id="stgMedia"><div class="bar" id="stgBar"></div><span class="lbl" id="stgLbl"></span></div>
+      <div class="stg-list" id="stgList"></div>
+    </div>
+  </div></section>
+
+  <!-- QUALITY DEPARTMENT -->
+  <section class="panel" id="quality"><div class="wrap">
+    <div class="q-mgmt">
+      <div class="rv">
+        <span class="eyebrow">отдел качества</span>
+        <h2 class="h-l" style="margin:18px 0 24px">Эффективное управление безопасностью</h2>
+        <div class="btn-row"><span class="chip dark">HACCP с 2007 года</span><span class="chip">ISO 22000</span><span class="chip">FSSC 22000</span></div>
+      </div>
+      <div class="prose rv">
+        <p>Система управления безопасностью пищевой продукции АО «ОРЕХПРОМ», основанная на принципах HACCP, функционирует и сертифицирована с 2007 года. Она гарантирует выявление и контроль любых опасных факторов, которые могут угрожать производству безопасной продукции.</p>
+        <p>Фундамент системы — контекст организации на базовых принципах ISO 22000: понимание потребностей и ожиданий заинтересованных сторон. Все этапы планирования строятся на риск-ориентированном подходе, а управление рисками и возможностями — основа взвешенных стратегических решений.</p>
+      </div>
+    </div>
+    <div class="sec-head" style="margin:72px 0 28px"><div><span class="eyebrow">сертификаты</span></div><div class="arrows" data-for="certs"><button aria-label="Назад">←</button><button aria-label="Вперёд">→</button></div></div>
+    <div class="certs hscroll" id="certs"></div>
+  </div></section>
+
+  <!-- QUALITY CONTROL -->
+  <section class="dark"><div class="wrap">
+    <div class="sec-head"><div><span class="eyebrow">контроль качества и безопасности</span><h2 class="h-l" style="color:#fff">Многоуровневый контроль на всей цепочке</h2></div></div>
+    <div class="qsteps">
+      <div class="rv"><div class="n">01</div><h3>Контроль поступающего сырья</h3><p>Передовые методы лабораторного контроля на современном оборудовании.</p></div>
+      <div class="rv"><div class="n">02</div><h3>Компетентность персонала</h3><p>Постоянное повышение квалификации сотрудников лаборатории и внедрение современных методов анализа.</p></div>
+      <div class="rv"><div class="n">03</div><h3>Контроль готовой продукции</h3><p>Каждая партия проходит лабораторное исследование на соответствие нормативной документации и требованиям клиента.</p></div>
+    </div>
+    <div class="lab">
+      <div><img src="https://orekhprom.ru/upload/iblock/570/rh0s8eq1g0uje3akku0fd96hchmxdanl.jpg" alt=""></div>
+      <div><img src="https://orekhprom.ru/upload/iblock/431/7aelil0m3zsctmii35r1bka0tribwzho.jpg" alt=""></div>
+      <div><img src="https://orekhprom.ru/upload/uf/aef/drris3pxnsg5kwfkwnjqgvw9f0zzr7aq.jpg" alt=""></div>
+    </div>
+  </div></section>
+
+  <!-- ZONING -->
+  <section><div class="wrap split">
+    <div class="rv">
+      <span class="eyebrow">зонирование</span>
+      <h2 class="h-l" style="margin:18px 0 24px">Каждая зона — со своими требованиями</h2>
+      <p class="muted" style="font-size:17px">Производственные и складские территории разделены на зоны с требованиями, которые предотвращают контаминацию продукта окружающей средой, транспортом или человеком. Это существенно для безопасности и высокого качества продукции.</p>
+      <div class="zones">
+        <div><b>Микро&shy;биологическая</b>защита</div>
+        <div><b>Химическая</b>защита</div>
+        <div><b>Аллергенная</b>защита</div>
+        <div><b>Физическая</b>защита</div>
+      </div>
+    </div>
+    <div class="media rv"><img src="https://orekhprom.ru/upload/iblock/aaf/3m2vxnb96pkktfmkgt5innyu0yq1aa2e.jpg" alt=""></div>
+  </div></section>
+
+  <!-- GUARANTEES -->
+  <section class="panel"><div class="wrap guar">
+    <div class="rv">
+      <span class="eyebrow">мы предоставляем гарантии</span>
+      <h2 class="h-l" style="margin:18px 0 24px">Нас узнают по качеству продукции</h2>
+      <div class="prose">
+        <p>Мы инвестировали в индивидуальные и специально разработанные технологии производства, хранения и контроля качества.</p>
+        <p>Соответствие европейским стандартам и современные технологии позволяют ОРЕХПРОМ достойно представлять продукцию на российском и международном рынках, а оборудование, сочетающее все методы обнаружения и удаления инородных тел, гарантирует её безопасность.</p>
+      </div>
+    </div>
+    <div class="marks rv">
+      <img src="https://orekhprom.ru/upload/uf/f56/8e9tegewkrn5lug6y95b6hz23863e67h.png" alt="">
+      <img src="https://orekhprom.ru/upload/uf/b2a/phq58xx09gj56f8f4efm8ik5vufgsgw0.png" alt="">
+    </div>
+  </div></section>
+
+  <!-- CTA -->
+  <section><div class="wrap">
+    <div class="cta-box">
+      <div>
+        <span class="eyebrow" style="color:rgba(255,255,255,.55)">для партнёров</span>
+        <h2 style="margin-top:18px">Приезжайте на производство</h2>
+        <p>Проведём аудит или экскурсию по площадкам, покажем линии, лабораторию и склады.</p>
+        <div class="contacts"><a href="tel:88612125460">8 (861) 212 54 60</a><span>Краснодар, ул. Красных Партизан, д. 2/4 А</span></div>
+      </div>
+      <div class="on-dark">
+        <form class="form" novalidate>
+          <div class="field"><input required placeholder=" "><label>Имя</label></div>
+          <div class="field"><input placeholder=" "><label>Компания</label></div>
+          <div class="field"><input type="tel" required placeholder=" "><label>Телефон</label></div>
+          <div class="field"><input type="email" required placeholder=" "><label>E-mail</label></div>
+          <div class="field sel full"><select><option>Аудит производства</option><option>Экскурсия</option><option>Контрактное производство</option><option>Поставка ингредиентов</option></select><label>Цель визита</label></div>
+          <label class="check full"><input type="checkbox" required checked><span>Даю согласие на обработку <a href="#">персональных данных</a></span></label>
+          <div class="submit full"><button class="btn light" type="submit">Отправить заявку</button></div>
+        </form>
+        <div class="form-ok"><div class="ic">✓</div><h3>Заявка отправлена</h3><p style="color:rgba(255,255,255,.7)">Согласуем дату визита в течение рабочего дня.</p></div>
+      </div>
+    </div>
+  </div></section>
+
+  <div class="modal" id="m-cert" role="dialog" aria-modal="true" aria-label="Сертификат"><div class="box"><button class="x" data-close>✕</button><img id="certImg" src="" alt="Сертификат"></div></div>
+</main>
+<script>
+(function(){
+  const U='https://orekhprom.ru/upload/iblock/';
+  const S=[
+    ['Выращивание и сбор урожая','fed/myc6d3gl9hojevgncsmimz62vhgmejs3.jpg','Участок выбирают по климату, составу почвы, уровню грунтовых вод и рельефу. Комплекс агротехнических мероприятий обеспечивает стабильную урожайность. Сбор начинается в сентябре и длится около месяца.',['ОРЕХПРОМ АГРО','Адыгея','сентябрь']],
+    ['Очистка, сушка и калибровка в скорлупе','069/rbi9ztn6snvn0dnqn3pbqkw4zgwh6bmr.jpg','Сразу после сбора фундук подсушивают в проветриваемом месте — это продлевает срок хранения и снижает риск плесени. Предварительная калибровка ускоряет настройку оборудования для обрушивания.',['цех на плантации']],
+    ['Обрушивание','c61/x3axp4k4gpx5my3bda5061vm3k0ev2uf.jpg','Скорлупу отделяют от ядра на оборудовании валкового типа. Тонкая настройка даёт максимум целых ядер высокого качества, после чего орехи повторно калибруют и везут на завод.',['валковое оборудование']],
+    ['Автоматическая сортировка','2bc/n2qstwa0mon7t06kuisxbberu7v6elzr.jpg','Резонансный и оптический сортировщики отделяют орех от скорлупы и примесей. Камеры высокого разрешения удаляют дефекты по цвету и форме — максимум 1 кусок скорлупы на 2 тонны продукта.',['99,9% эффективности','1 / 2 т']],
+    ['Конвейерная ручная переборка','0d2/fe0y3tzylzyexpxlt7a0rugquy0g48dn.jpg','Визуальный контроль на конвейерной ленте — дополнительный, но обязательный этап производственного процесса.',['визуальный контроль']],
+    ['Обжарка орехов','d3d/fjq5qixe0wpq4bckvne26ebur5eaxcdi.jpg','Двухэтапный процесс: орех медленно и равномерно обжаривается при контролируемом испарении влаги. Системы циркуляции воздуха дают однородный цвет и стабильную влажность.',['BUHLER','2 этапа']],
+    ['Измельчение и дробление','6eb/mtdbusg2a2qwkl26vs64k7n7bryfpprp.jpg','Оснащение участка дробления позволяет получать продукцию различных фракций — от пыльцы до крупной крошки.',['фракции 0–9 мм']],
+    ['Производство ореховых паст','f9a/rn107rlfrm20ili35qibl28iwpkgrl0d.jpg','Автоматизированные линии перетирают орехи разной степени обжарки в пасты различной дисперсности. Мельницы стабильно работают на больших объёмах и дают частицы до 30 мкм.',['до 30 мкм']],
+    ['Карамелизация и дражирование','e74/z6vq1w7z24tsen2wbjx9gjbwhi2jh11c.jpg','Европейское оборудование периодического действия позволяет получать орехи в оболочке из шоколада или сахарной корочки.',['шоколад','карамель']],
+    ['Металлодетектор','c66/dsbrn9e27q414qzll377ywjvbdk62tps.jpg','На финальном этапе металлодетектор исключает попадание металлических частиц в готовый продукт; отсутствие металлопримесей контролируется на каждом этапе.',['финальный контроль']],
+  ];
+  const media=document.getElementById('stgMedia'), list=document.getElementById('stgList'), bar=document.getElementById('stgBar'), lbl=document.getElementById('stgLbl');
+  media.insertAdjacentHTML('beforeend', S.map((s,i)=>`<img src="${U+s[1]}" alt="${s[0]}" ${i>1?'loading="lazy"':''}>`).join(''));
+  bar.innerHTML=S.map(()=>'<i></i>').join('');
+  list.innerHTML=S.map((s,i)=>`<div class="st" data-i="${i}"><div class="mimg"><img loading="lazy" src="${U+s[1]}" alt=""></div><div class="n">${String(i+1).padStart(2,'0')} / 10</div><h3>${s[0]}</h3><p>${s[2]}</p><div class="chips">${s[3].map(c=>`<span class="chip">${c}</span>`).join('')}</div></div>`).join('');
+  const imgs=[...media.querySelectorAll('img')], steps=[...list.children], bars=[...bar.children];
+  function set(i){ imgs.forEach((x,k)=>x.classList.toggle('on',k===i)); steps.forEach((x,k)=>x.classList.toggle('on',k===i)); bars.forEach((x,k)=>x.classList.toggle('on',k<=i)); lbl.textContent=String(i+1).padStart(2,'0')+' · '+S[i][0]; }
+  set(0);
+  const io=new IntersectionObserver(es=>es.forEach(e=>{ if(e.isIntersecting) set(+e.target.dataset.i); }),{rootMargin:'-45% 0px -45% 0px'});
+  steps.forEach(s=>io.observe(s));
+
+  const C=['0b6/h6352a3qb48lh48e0z95fq05mhfczfa0.png','09f/s6sxo4meo3vedr5o102mb6m3fimzgj9m.jpg','602/cu7n1l00s65upkish2oivp20foo3goks.jpg','ff4/vyvjgvckem9dp57hjymuelzxi4njalea.jpg','184/f6o2uiqn2btsi8pcvm7z74jyk1gz9em1.jpg'];
+  const certs=document.getElementById('certs');
+  certs.innerHTML=C.map(c=>`<button data-src="${U+c}" aria-label="Открыть сертификат"><img loading="lazy" src="${U+c}" alt="Сертификат"></button>`).join('');
+  certs.onclick=e=>{ const b=e.target.closest('button'); if(!b) return; document.getElementById('certImg').src=b.dataset.src; openModal('cert'); };
+})();
+</script>
+<script src="assets/site.js"></script>
+</body>
+</html>
