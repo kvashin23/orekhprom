@@ -1,5 +1,5 @@
 :root{--switcher-h:44px;}
-   PAGE SWITCHER (над шапкой, только для макетов)
+/* PAGE SWITCHER (над шапкой, только для макетов)
    ========================================================= */
 .pg-switch{
   background:#111214; color:#fff; font-size:13px; position:relative; z-index:60;
