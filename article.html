@@ -1,0 +1,206 @@
+<!doctype html>
+<html lang="ru">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Актуальные тренды в кондитерской индустрии: от десертизации до мультисенсорных вкусов | Орехпром</title>
+<meta name="description" content="Десертизация, премиумизация и мультисенсорность — три тренда, которые формируют кондитерский рынок 2026 года, и роль орехов и ореховых паст в каждом из них.">
+<link rel="preconnect" href="https://fonts.googleapis.com"><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Geologica:wght@300;400;500;600&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="assets/site.css">
+<style>
+  .progress{position:fixed; left:0; top:0; height:3px; background:var(--accent); width:0; z-index:70; transition:width .1s;}
+  .ar-head{max-width:980px;}
+  .ar-head h1{font-size:60px; margin:22px 0 28px;}
+  .ar-head .meta{display:flex; gap:14px; align-items:center; flex-wrap:wrap; font-size:14px; color:var(--ink-55);}
+  .ar-head .meta .dot{width:3px; height:3px; border-radius:50%; background:var(--ink-35);}
+  .cover{margin-top:48px; border-radius:28px; overflow:hidden; aspect-ratio:21/9; background:var(--panel);}
+  .cover img{width:100%; height:100%; object-fit:cover;}
+  @media (max-width:900px){ .ar-head h1{font-size:34px;} .cover{aspect-ratio:4/3; border-radius:20px;} }
+
+  .ar-body{display:grid; grid-template-columns:240px minmax(0,720px) 1fr; gap:64px; margin-top:72px;}
+  .toc{position:sticky; top:120px; align-self:start;}
+  .toc .k{font-size:12px; text-transform:uppercase; letter-spacing:.1em; color:var(--ink-55); margin-bottom:16px;}
+  .toc a{display:block; padding:9px 0 9px 14px; font-size:14px; color:var(--ink-55); border-left:2px solid var(--line); transition:all .2s; line-height:1.35;}
+  .toc a.on{color:var(--ink); border-color:var(--ink);}
+  .share{display:flex; gap:8px; margin-top:28px;}
+  .share a, .share button{width:42px; height:42px; border-radius:50%; border:1px solid var(--line); display:grid; place-items:center; font-size:12px; font-weight:600; background:none;}
+  .share a:hover, .share button:hover{background:var(--ink); color:#fff;}
+  @media (max-width:1100px){ .ar-body{grid-template-columns:200px minmax(0,1fr); gap:48px;} .ar-aside{display:none;} }
+  @media (max-width:820px){ .ar-body{grid-template-columns:1fr; margin-top:40px;} .toc{position:static; display:none;} }
+
+  .content{font-size:18px; line-height:1.7;}
+  .content > p{margin:0 0 22px; color:var(--ink-80);}
+  .content h2{font-size:36px; margin:56px 0 22px; scroll-margin-top:110px;}
+  .content .lead-p{font-size:22px; line-height:1.55; color:var(--ink); margin-bottom:32px;}
+  .content ul{margin:0 0 26px; padding:0; list-style:none;}
+  .content ul li{padding:12px 0 12px 32px; border-bottom:1px solid var(--line-soft); position:relative; color:var(--ink-80);}
+  .content ul li::before{content:"→"; position:absolute; left:0; color:var(--accent);}
+  .content .src{font-size:13px; color:var(--ink-55); white-space:nowrap;}
+  .content .src a{text-decoration:underline;}
+  .quote{margin:40px 0; padding:36px 40px; background:var(--panel); border-radius:24px; font-family:var(--font-head); font-size:28px; line-height:1.25;}
+  .quote small{display:block; margin-top:18px; font-family:var(--font-sans); font-size:14px; color:var(--ink-55);}
+  .stat-row{display:grid; grid-template-columns:repeat(3,1fr); gap:12px; margin:36px 0;}
+  .stat-row div{background:var(--card); border-radius:18px; padding:22px;}
+  .stat-row b{display:block; font-family:var(--font-head); font-size:34px; font-weight:600; line-height:1; margin-bottom:8px;}
+  .stat-row span{font-size:13px; color:var(--ink-55); line-height:1.35; display:block;}
+  .pairs{display:flex; flex-wrap:wrap; gap:8px; margin:0 0 26px;}
+  .pairs span{height:40px; padding:0 18px; border-radius:100px; background:var(--accent-soft); color:#4C5536; display:inline-flex; align-items:center; font-size:15px; font-weight:500;}
+  .fig{margin:40px 0; border-radius:24px; overflow:hidden;}
+  .fig figcaption{font-size:13px; color:var(--ink-55); padding-top:12px;}
+  .prod-cta{display:grid; grid-template-columns:120px 1fr auto; gap:24px; align-items:center; background:var(--ink); color:#fff; border-radius:24px; padding:22px; margin:44px 0;}
+  .prod-cta img{width:120px; height:120px; object-fit:cover; border-radius:16px;}
+  .prod-cta h4{font-family:var(--font-head); font-size:24px; font-weight:600; margin:0 0 6px;}
+  .prod-cta p{color:rgba(255,255,255,.65); font-size:14px; margin:0;}
+  @media (max-width:720px){ .content{font-size:16px;} .content h2{font-size:26px;} .content .lead-p{font-size:18px;} .quote{font-size:21px; padding:24px;} .stat-row{grid-template-columns:1fr;} .prod-cta{grid-template-columns:80px 1fr;} .prod-cta img{width:80px; height:80px;} .prod-cta .btn{grid-column:1/-1;} }
+  .sources{margin-top:56px; padding-top:28px; border-top:1px solid var(--line); font-size:14px; color:var(--ink-55);}
+  .sources ol{padding-left:18px; margin:12px 0 0;}
+  .sources li{margin-bottom:6px;}
+  .sources a{text-decoration:underline;}
+  .tags{display:flex; gap:8px; flex-wrap:wrap; margin-top:32px;}
+
+  .ar-aside .box{position:sticky; top:120px; background:var(--card); border-radius:20px; padding:24px;}
+  .ar-aside .box h4{font-family:var(--font-head); font-weight:600; font-size:22px; margin:0 0 10px;}
+  .ar-aside .box p{font-size:14px; color:var(--ink-70); margin-bottom:18px;}
+
+  .rel{display:grid; grid-template-columns:repeat(3,1fr); gap:24px;}
+  .rel a{display:flex; flex-direction:column; gap:14px;}
+  .rel .ph{aspect-ratio:4/3; border-radius:20px; overflow:hidden;}
+  .rel img{width:100%; height:100%; object-fit:cover; transition:transform .6s;}
+  .rel a:hover img{transform:scale(1.04);}
+  .rel h3{font-size:22px; line-height:1.2;}
+  @media (max-width:900px){ .rel{grid-template-columns:1fr;} }
+</style>
+</head>
+<body data-page="article" data-nav="blog">
+<div class="progress" id="prog"></div>
+<main>
+  <div class="wrap crumbs"><a href="https://orekhprom.ru/">Главная</a><span class="sep">/</span><a href="blog.html">Блог</a><span class="sep">/</span><span class="cur">Тренды рынка</span></div>
+
+  <section style="padding:40px 0 0"><div class="wrap">
+    <div class="ar-head">
+      <span class="chip soft">Тренды рынка</span>
+      <h1>Актуальные тренды в кондитерской индустрии: от десертизации до мультисенсорных вкусов</h1>
+      <div class="meta"><span>23 марта 2026</span><span class="dot"></span><span>7 минут чтения</span><span class="dot"></span><span>Редакция Орехпром</span></div>
+    </div>
+    <div class="cover"><img src="https://orekhprom.ru/upload/iblock/519/1vhe0o8uuvlanmoucbno5a15clv3hvgl.png" alt=""></div>
+
+    <div class="ar-body">
+      <aside class="toc" id="toc">
+        <div class="k">Содержание</div>
+        <a href="#s1">Десертизация</a>
+        <a href="#s2">Премиумизация</a>
+        <a href="#s3">Мультисенсорность</a>
+        <a href="#s4">Какие тренды уходят</a>
+        <a href="#s5">Выводы</a>
+        <div class="share"><a href="https://t.me/share/url?url=https://orekhprom.ru/news/" target="_blank" rel="noopener" aria-label="Telegram">TG</a><a href="https://vk.com/share.php?url=https://orekhprom.ru/news/" target="_blank" rel="noopener" aria-label="ВКонтакте">VK</a><button onclick="toast('Ссылка скопирована')" aria-label="Скопировать ссылку">⧉</button></div>
+      </aside>
+
+      <article class="content">
+        <p class="lead-p">Мировой рынок кондитерских изделий продолжает устойчиво расти: по оценкам аналитиков, его объём увеличится с 217,9 млрд долларов в 2025 году до более чем 287 млрд долларов к 2033 году. <span class="src">(<a href="https://www.skyquestt.com/report/confectionery-market" target="_blank" rel="noopener">skyquestt.com</a>)</span></p>
+        <p>Драйвером роста становятся не столько объёмы производства, сколько инновации во вкусах, текстурах и ингредиентах. Производители всё активнее работают с концепцией «разумного удовольствия» — сочетания яркого вкусового опыта, премиального качества и функциональности продукта.</p>
+
+        <div class="stat-row">
+          <div><b>$287 млрд</b><span>объём рынка кондитерских изделий к 2033 году</span></div>
+          <div><b>$68 млрд</b><span>может превысить сегмент премиальных сладостей</span></div>
+          <div><b>3 тренда</b><span>десертизация, премиумизация, мультисенсорность</span></div>
+        </div>
+
+        <h2 id="s1">Десертизация: когда конфеты становятся десертами</h2>
+        <p>Один из самых заметных трендов последних лет — десертизация кондитерских изделий. Производители заимствуют вкусы и структуру популярных десертов и переносят их в шоколад, батончики, конфеты и начинки.</p>
+        <p>Такие продукты работают сразу на несколько запросов: ностальгию, насыщенный вкус и эффект «маленького праздника». Популярность получают многослойные изделия с кремовыми и хрустящими компонентами.</p>
+        <p>Здесь резко выросла роль ореховых ингредиентов. Фундук, миндаль, фисташка и кешью используются не только как включения, но и как структурообразующая основа кремов, пралине и паст.</p>
+        <div class="quote">Ореховые продукты становятся ключевым инструментом для создания десертных вкусов в компактных форматах.<small>— из обзора трендов кондитерской индустрии</small></div>
+
+        <div class="prod-cta">
+          <img src="https://orekhprom.ru/upload/iblock/fd6/z7dej1lkj632046xkt0os4jvw0k59l9n.jpg" alt="">
+          <div><h4>Пралине и ореховые начинки</h4><p>Миндально-фундучное, фундучное пралине и 12+ начинок для десертных вкусов.</p></div>
+          <a href="b2b-fillings.html" class="btn light sm">Смотреть</a>
+        </div>
+
+        <h2 id="s2">Премиумизация: ставка на качество ингредиентов</h2>
+        <p>Потребители всё чаще выбирают не большие объёмы сладостей, а небольшие порции более высокого качества. <span class="src">(<a href="https://www.confectionerynews.com/" target="_blank" rel="noopener">ConfectioneryNews</a>)</span> Это меняет продуктовую стратегию производителей:</p>
+        <ul>
+          <li>ингредиенты с выраженным происхождением — single-origin какао, редкие сорта орехов;</li>
+          <li>усложнение рецептур и текстур;</li>
+          <li>лимитированные коллекции и сезонные продукты.</li>
+        </ul>
+        <p>Орехи здесь играют стратегическую роль: фисташка — символ luxury-сегмента, фундук — основа пралине и кремовых начинок, миндаль — база для текстуры и вкуса.</p>
+        <p>Если несколько лет назад рынок переживал пик интереса к «дубайскому шоколаду» с фисташковой начинкой, то в 2026 году тренд эволюционирует к более сложным комбинациям:</p>
+        <div class="pairs"><span>фисташка + малина</span><span>фундук + солёная карамель</span><span>миндаль + юдзу</span><span>миндаль + матча</span></div>
+        <p>Орех становится не декоративным элементом, а центром вкусовой композиции.</p>
+
+        <figure class="fig"><img src="https://orekhprom.ru/upload/iblock/23c/b3ij7pk7zewv8819svifppwpti0bvpy0.jpg" alt=""><figcaption>Семифредо на основе фисташковой пасты ОРЕХПРОМ</figcaption></figure>
+
+        <h2 id="s3">Мультисенсорность: новый уровень потребительского опыта</h2>
+        <p>Потребители ищут продукты, которые удивляют не только вкусом, но и текстурой, ароматом и визуальным эффектом. Современные сладости всё чаще строятся на контрасте текстур.</p>
+        <p>Многослойные начинки, скрытые центры и текстурные вставки создают «эффект открытия» при первом укусе. <span class="src">(<a href="https://www.ircagroup.com/en/food-trends/food-trends-2026" target="_blank" rel="noopener">ircagroup.com</a>)</span></p>
+        <p>Орехи идеально вписываются в этот тренд. Они одновременно дают хруст (обжаренные и дроблёные ядра), кремовую текстуру (пасты и пралине) и глубину вкуса благодаря натуральным жировым компонентам.</p>
+
+        <div class="prod-cta">
+          <img src="https://orekhprom.ru/upload/iblock/a6e/ftjt2t9d2wcyjr7g30ovvcsf3d0zb09b.jpg" alt="">
+          <div><h4>Фракции и орехи в карамели</h4><p>От 0–2 до 6–9 мм — хруст и текстура для мультисенсорных десертов.</p></div>
+          <a href="b2b-nuts.html" class="btn light sm">Смотреть</a>
+        </div>
+
+        <h2 id="s4">Какие тренды уходят</h2>
+        <p>Параллельно индустрия постепенно отказывается от решений, популярных несколько лет назад:</p>
+        <ul>
+          <li>чрезмерно сладкие и тяжёлые десерты;</li>
+          <li>избыточные декоративные элементы без вкусовой ценности;</li>
+          <li>моно-вкусы без сложной текстурной структуры.</li>
+        </ul>
+        <p>Рынок смещается в сторону баланса вкуса, текстуры и качества ингредиентов, а также умеренных порций.</p>
+
+        <h2 id="s5">Выводы</h2>
+        <p>В 2026 году развитие кондитерской отрасли определяется не столько новыми форматами изделий, сколько переосмыслением вкуса и структуры десерта. Спрос растёт на ингредиенты, которые одновременно создают сложный вкус, текстуру и ощущение натуральности.</p>
+        <p>Поэтому орехи и ореховые пасты становятся одним из самых востребованных компонентов современной рецептуры — и стратегическим инструментом инноваций в кондитерской индустрии ближайших лет.</p>
+
+        <div class="tags"><span class="chip">#тренды</span><span class="chip">#кондитерка</span><span class="chip">#фисташка</span><span class="chip">#пралине</span><span class="chip">#B2B</span></div>
+
+        <div class="sources"><b>Источники</b>
+          <ol>
+            <li>Confectionery Market Insights and Forecast 2026–2033 — SkyQuest</li>
+            <li>Chocolate Confectionery Trends Whitepaper — SIGEP / Mintel</li>
+            <li>Top Confectionery Flavour Trends for 2026 — ConfectioneryNews</li>
+            <li>Premium Confectionery Market Growth Analysis — ConfectioneryNews</li>
+            <li>Food Trends 2026 — IRCA Group</li>
+            <li>Аналитика трендов кондитерской индустрии 2026 — Школа кондитерского искусства</li>
+          </ol>
+        </div>
+      </article>
+
+      <aside class="ar-aside"><div class="box">
+        <span class="eyebrow">для производителей</span>
+        <h4 style="margin-top:14px">Разработаем десертный вкус под ваш продукт</h4>
+        <p>Инновационный центр подберёт пасту, пралине или начинку и пришлёт образцы.</p>
+        <button class="btn sm" data-modal="request" style="width:100%">Оставить заявку</button>
+      </div></aside>
+    </div>
+  </div></section>
+
+  <section class="panel" style="margin-top:100px"><div class="wrap">
+    <div class="sec-head"><div><span class="eyebrow">читайте также</span><h2 class="h-m" style="margin-top:16px">Похожие материалы</h2></div><a href="blog.html" class="link-arrow">Все статьи →</a></div>
+    <div class="rel">
+      <a href="article.html" class="rv"><div class="ph"><img src="https://orekhprom.ru/upload/iblock/89d/amkxfwl2b9vrn0z2dr6f294ugky22b5s.png" alt=""></div><div class="meta small">Тренды рынка · 14.07.2026</div><h3>Вкусы 2026: фисташка, цитрус и контрастные ноты</h3></a>
+      <a href="article.html" class="rv"><div class="ph"><img src="https://orekhprom.ru/upload/iblock/467/eqvm2famy6s5ke9ly1imjwvr1m7kk91a.jpg" alt=""></div><div class="meta small">Тренды рынка · 23.12.2025</div><h3>Урожай фисташки 2025: Калифорния и Иран</h3></a>
+      <a href="article.html" class="rv"><div class="ph"><img src="https://orekhprom.ru/upload/iblock/f71/bxjf8smvmlwojjb4458pzvf3oyfe1113.jpg" alt=""></div><div class="meta small">Всё об орехах · 25.07.2025</div><h3>Продукты из фундука</h3></a>
+    </div>
+  </div></section>
+</main>
+<script>
+(function(){
+  const prog=document.getElementById('prog'), art=document.querySelector('.content'), links=[...document.querySelectorAll('#toc a')];
+  const hs=links.map(a=>document.querySelector(a.getAttribute('href')));
+  function upd(){
+    const r=art.getBoundingClientRect(), total=r.height-innerHeight;
+    prog.style.width=Math.min(100,Math.max(0,-r.top/total*100))+'%';
+    let cur=0; hs.forEach((h,i)=>{ if(h.getBoundingClientRect().top<200) cur=i; });
+    links.forEach((a,i)=>a.classList.toggle('on',i===cur));
+  }
+  addEventListener('scroll',upd,{passive:true}); upd();
+})();
+</script>
+<script src="assets/site.js"></script>
+</body>
+</html>

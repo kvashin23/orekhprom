@@ -1,0 +1,137 @@
+<!doctype html>
+<html lang="ru">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Рецепты с ореховыми пастами и начинками | Орехпром</title>
+<meta name="description" content="Рецепты десертов с ореховыми пастами, начинками и орехами Орехпром: дубайский шоколад, семифредо, тарты, трюфели и выпечка — для кондитеров и домашней кухни.">
+<link rel="preconnect" href="https://fonts.googleapis.com"><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Geologica:wght@300;400;500;600&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="assets/site.css">
+<style>
+  .rc-hero{display:grid; grid-template-columns:1fr 1fr; gap:20px; margin-top:44px;}
+  .rc-hero a{position:relative; border-radius:28px; overflow:hidden; min-height:500px; color:#fff; padding:36px; display:flex; flex-direction:column; justify-content:flex-end;}
+  .rc-hero a img{position:absolute; inset:0; width:100%; height:100%; object-fit:cover; transition:transform .7s;}
+  .rc-hero a:hover img{transform:scale(1.04);}
+  .rc-hero a::after{content:""; position:absolute; inset:0; background:linear-gradient(180deg,transparent 35%,rgba(0,0,0,.72));}
+  .rc-hero a > *:not(img){position:relative; z-index:1;}
+  .rc-hero h2{font-size:44px; margin:14px 0 12px; max-width:16ch;}
+  .rc-hero .info{display:flex; gap:16px; font-size:14px; color:rgba(255,255,255,.8);}
+  .rc-hero .lbl{align-self:flex-start; background:#fff; color:var(--ink); border-radius:100px; padding:6px 14px; font-size:12px; font-weight:500;}
+  @media (max-width:900px){ .rc-hero{grid-template-columns:1fr;} .rc-hero a{min-height:380px; padding:24px;} .rc-hero h2{font-size:30px;} }
+
+  .filters{display:flex; justify-content:space-between; gap:20px; flex-wrap:wrap; align-items:center; margin-bottom:40px; padding-bottom:24px; border-bottom:1px solid var(--line);}
+  .filters select{height:42px; border-radius:100px; border:1px solid var(--line); background:#fff; padding:0 36px 0 18px; font-size:14px; appearance:none; -webkit-appearance:none; background-image:linear-gradient(45deg,transparent 50%,var(--ink) 50%),linear-gradient(135deg,var(--ink) 50%,transparent 50%); background-position:calc(100% - 20px) 18px, calc(100% - 15px) 18px; background-size:5px 5px; background-repeat:no-repeat;}
+  .filters .r{display:flex; gap:10px; flex-wrap:wrap;}
+
+  .rcards{display:grid; grid-template-columns:repeat(3,1fr); gap:44px 24px;}
+  .rcard{display:flex; flex-direction:column; gap:14px;}
+  .rcard .ph{aspect-ratio:1/1; border-radius:22px; overflow:hidden; position:relative; background:var(--panel);}
+  .rcard .ph img{width:100%; height:100%; object-fit:cover; transition:transform .6s;}
+  .rcard:hover .ph img{transform:scale(1.05);}
+  .rcard .ph .time{position:absolute; left:14px; top:14px; background:#fff; border-radius:100px; padding:5px 12px; font-size:12px; font-weight:500;}
+  .rcard .ph .fav{position:absolute; right:14px; top:14px; width:40px; height:40px; border-radius:50%; background:#fff; border:0; font-size:16px; display:grid; place-items:center;}
+  .rcard .ph .fav.on{background:var(--ink); color:#fff;}
+  .rcard h3{font-size:24px; line-height:1.15;}
+  .rcard .prod{display:flex; align-items:center; gap:10px; font-size:13px; color:var(--ink-70);}
+  .rcard .prod i{width:26px; height:26px; border-radius:50%; overflow:hidden; flex:none;}
+  .rcard .prod img{width:100%; height:100%; object-fit:cover;}
+  .rcard .lvl{display:inline-flex; gap:3px; margin-left:auto;}
+  .rcard .lvl b{width:6px; height:14px; border-radius:2px; background:var(--line);}
+  .rcard .lvl b.f{background:var(--ink);}
+  @media (max-width:980px){ .rcards{grid-template-columns:1fr 1fr;} }
+  @media (max-width:600px){ .rcards{grid-template-columns:1fr;} }
+
+  .pro{display:grid; grid-template-columns:1fr 1fr; gap:0; border-radius:28px; overflow:hidden; background:var(--ink); color:#fff;}
+  .pro .ph{min-height:420px;}
+  .pro .ph video, .pro .ph img{width:100%; height:100%; object-fit:cover;}
+  .pro .bd{padding:56px; display:flex; flex-direction:column; justify-content:center; gap:20px;}
+  .pro h2{font-size:44px;}
+  .pro p{color:rgba(255,255,255,.7);}
+  @media (max-width:900px){ .pro{grid-template-columns:1fr;} .pro .ph{min-height:300px;} .pro .bd{padding:32px 24px;} .pro h2{font-size:30px;} }
+</style>
+</head>
+<body data-page="recipes" data-nav="recipes">
+<main>
+  <div class="wrap crumbs"><a href="https://orekhprom.ru/">Главная</a><span class="sep">/</span><span class="cur">Рецепты</span></div>
+
+  <section class="phero" style="padding-bottom:60px"><div class="wrap">
+    <div class="phero-grid" style="align-items:end">
+      <div><span class="eyebrow">рецепты</span><h1 class="h-xl" style="margin-bottom:0">Десерты с характером ореха</h1></div>
+      <p class="lead">Проверенные рецепты с пастами, начинками и орехами Орехпром — от трендового дубайского шоколада до классического пралине. Для кондитерских, кофеен и домашней кухни.</p>
+    </div>
+    <div class="rc-hero">
+      <a href="recipe.html"><img src="assets/em/img/dubai-dessert-lg.jpg" alt=""><span class="lbl">Рецепт недели</span><h2>Дубайский шоколад с фисташкой и катаифи</h2><div class="info"><span>⏱ 40 мин + 2 ч</span><span>· Средне</span><span>· 2 плитки</span></div></a>
+      <a href="recipe.html"><img src="https://orekhprom.ru/upload/iblock/23c/b3ij7pk7zewv8819svifppwpti0bvpy0.jpg" alt=""><span class="lbl">Без выпечки</span><h2>Фисташковое семифредо</h2><div class="info"><span>⏱ 30 мин + 6 ч</span><span>· Легко</span><span>· 8 порций</span></div></a>
+    </div>
+  </div></section>
+
+  <section style="padding-top:20px"><div class="wrap">
+    <div class="filters">
+      <div class="tabs" id="rcCats"></div>
+      <div class="r">
+        <select id="rcProd" aria-label="Продукт"><option value="">Любой продукт</option></select>
+        <select id="rcLvl" aria-label="Сложность"><option value="">Любая сложность</option><option value="1">Легко</option><option value="2">Средне</option><option value="3">Для профи</option></select>
+      </div>
+    </div>
+    <div class="rcards" id="rcList"></div>
+  </div></section>
+
+  <section style="padding-top:0"><div class="wrap">
+    <div class="pro">
+      <div class="ph"><video src="assets/em/video/pistachio.mp4" poster="assets/em/img/pistachio-poster.jpg" muted loop playsinline autoplay></video></div>
+      <div class="bd">
+        <span class="eyebrow" style="color:rgba(255,255,255,.55)">для кондитеров и кофеен</span>
+        <h2>Начинки ЕМ! в профессиональном формате 1 кг</h2>
+        <p>Все рецепты на этой странице работают с начинками ЕМ!: стабильная консистенция, насыщенный вкус и доставка в удобный ПВЗ по всей России.</p>
+        <div class="btn-row"><a href="em.html" class="btn light">Все вкусы ЕМ!</a><a href="https://www.ozon.ru/seller/ao-orehprom/" target="_blank" rel="noopener" class="btn outline" style="color:#fff;border-color:rgba(255,255,255,.35)">OZON ↗</a></div>
+      </div>
+    </div>
+  </div></section>
+
+  <section class="panel tight"><div class="wrap">
+    <div class="sec-head" style="margin-bottom:0"><div><span class="eyebrow">поделитесь рецептом</span><h2 class="h-m" style="margin-top:16px;max-width:24ch">Готовите с нашими продуктами? Пришлите рецепт — опубликуем с указанием автора</h2></div><button class="btn" data-modal="request">Прислать рецепт</button></div>
+  </div></section>
+</main>
+<script>
+(function(){
+  const E='assets/em/img/', U='https://orekhprom.ru/upload/iblock/';
+  const R=[
+    {t:'Дубайский шоколад с фисташкой и катаифи', img:E+'dubai-dessert-lg.jpg', c:'Шоколад', time:'40 мин', lvl:2, p:'Фисташка-Фундук ЕМ!', pi:E+'dubai-jar-sm.jpg'},
+    {t:'Фисташковое семифредо', img:U+'23c/b3ij7pk7zewv8819svifppwpti0bvpy0.jpg', c:'Без выпечки', time:'30 мин', lvl:1, p:'Фисташковая паста', pi:E+'pistachio-jar-sm.jpg'},
+    {t:'Тарт убе-виноград с заварным кремом', img:E+'ube-dessert-lg.jpg', c:'Торты и тарты', time:'1 ч 20 мин', lvl:3, p:'Убе-виноград ЕМ!', pi:E+'ube-jar-sm.jpg'},
+    {t:'Кокосовые трюфели «как Рафаэлло»', img:E+'coconut-dessert-lg.jpg', c:'Без выпечки', time:'25 мин', lvl:1, p:'Кокосовая ЕМ!', pi:E+'coconut-jar-sm.jpg'},
+    {t:'Банановый чизкейк без выпечки', img:E+'banana-dessert-lg.jpg', c:'Торты и тарты', time:'35 мин', lvl:1, p:'Банановая ЕМ!', pi:E+'banana-jar-sm.jpg'},
+    {t:'Муссовое пирожное манго-маракуйя', img:E+'mango-dessert-lg.jpg', c:'Торты и тарты', time:'1 ч 30 мин', lvl:3, p:'Манго-Маракуйя ЕМ!', pi:E+'mango-jar-sm.jpg'},
+    {t:'Пончики с начинкой вишня-сакура', img:E+'sakura-dessert-lg.jpg', c:'Выпечка', time:'1 ч 10 мин', lvl:2, p:'Вишня-Сакура ЕМ!', pi:E+'sakura-jar-sm.jpg'},
+    {t:'Круассаны с фисташковым кремом', img:E+'pistachio-dessert-lg.jpg', c:'Выпечка', time:'50 мин', lvl:2, p:'Фисташковая ЕМ!', pi:E+'pistachio-jar-sm.jpg'},
+    {t:'Торт с фундучным пралине и хрустящим слоем', img:U+'fd6/z7dej1lkj632046xkt0os4jvw0k59l9n.jpg', c:'Торты и тарты', time:'2 ч', lvl:3, p:'Пралине фундучное', pi:U+'48a/vupu6fyti14p9xiudjhm1985g8wdw1qh.jpg'},
+  ];
+  const CATS=['Все',...new Set(R.map(r=>r.c))];
+  let cat='Все', prod='', lvl='';
+  let favs=[]; try{favs=JSON.parse(localStorage.getItem('orh-fav')||'[]');}catch(e){}
+  const cats=document.getElementById('rcCats'), list=document.getElementById('rcList'), ps=document.getElementById('rcProd'), ls=document.getElementById('rcLvl');
+  cats.innerHTML=CATS.map(c=>`<button data-c="${c}" class="${c===cat?'active':''}">${c}</button>`).join('');
+  ps.innerHTML+=[...new Set(R.map(r=>r.p))].map(p=>`<option>${p}</option>`).join('');
+  const LV=['','Легко','Средне','Для профи'];
+  function render(){
+    const r=R.filter(x=>(cat==='Все'||x.c===cat)&&(!prod||x.p===prod)&&(!lvl||x.lvl==lvl));
+    list.innerHTML=r.length?r.map(x=>`<a class="rcard rv" href="recipe.html">
+      <div class="ph"><img loading="lazy" src="${x.img}" alt=""><span class="time">⏱ ${x.time}</span><button class="fav ${favs.includes(x.t)?'on':''}" data-t="${x.t}" aria-label="В избранное">♥</button></div>
+      <div class="small">${x.c}</div><h3>${x.t}</h3>
+      <div class="prod"><i><img src="${x.pi}" alt=""></i>${x.p}<span class="lvl" title="${LV[x.lvl]}">${[1,2,3].map(i=>`<b class="${i<=x.lvl?'f':''}"></b>`).join('')}</span></div></a>`).join('')
+      :'<p class="muted">Нет рецептов по выбранным фильтрам.</p>';
+    window.observeReveal && observeReveal(list);
+  }
+  cats.onclick=e=>{const b=e.target.closest('button'); if(!b) return; cat=b.dataset.c; [...cats.children].forEach(x=>x.classList.toggle('active',x===b)); render();};
+  ps.onchange=e=>{prod=e.target.value; render();};
+  ls.onchange=e=>{lvl=e.target.value; render();};
+  list.addEventListener('click',e=>{const f=e.target.closest('.fav'); if(!f) return; e.preventDefault(); const t=f.dataset.t;
+    favs=favs.includes(t)?favs.filter(x=>x!==t):[...favs,t]; f.classList.toggle('on'); try{localStorage.setItem('orh-fav',JSON.stringify(favs));}catch(e){}
+    window.toast && toast(favs.includes(t)?'Добавлено в избранное':'Убрано из избранного');});
+  render();
+})();
+</script>
+<script src="assets/site.js"></script>
+</body>
+</html>

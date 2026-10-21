@@ -1,0 +1,213 @@
+<!doctype html>
+<html lang="ru">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Карьера в АО «Орехпром» — вакансии в Краснодаре | Орехпром</title>
+<meta name="description" content="Работа в АО «Орехпром»: стабильность, социальные гарантии, обучение и карьерный рост. Две производственные площадки в Краснодарском крае, корпоративный трансфер.">
+<link rel="preconnect" href="https://fonts.googleapis.com"><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Geologica:wght@300;400;500;600&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="assets/site.css">
+<style>
+  .cr-hero{display:grid; grid-template-columns:1fr 1fr; gap:56px; align-items:center;}
+  .cr-mosaic{display:grid; grid-template-columns:1fr 1fr; grid-template-rows:240px 240px; gap:12px;}
+  .cr-mosaic div{border-radius:20px; overflow:hidden;}
+  .cr-mosaic div:first-child{grid-row:1/3;}
+  .cr-mosaic img{width:100%; height:100%; object-fit:cover;}
+  @media (max-width:980px){ .cr-hero{grid-template-columns:1fr;} .cr-mosaic{grid-template-rows:180px 180px;} }
+
+  .bens{display:grid; grid-template-columns:repeat(3,1fr); gap:16px;}
+  .ben{background:var(--card); border-radius:20px; padding:30px; min-height:230px; display:flex; flex-direction:column; justify-content:space-between;}
+  .ben .ic{width:52px; height:52px; border-radius:50%; background:var(--accent-soft); display:grid; place-items:center; font-size:22px;}
+  .ben h3{font-size:24px; margin-bottom:8px;}
+  .ben p{font-size:15px; color:var(--ink-70);}
+  @media (max-width:900px){ .bens{grid-template-columns:1fr 1fr;} }
+  @media (max-width:600px){ .bens{grid-template-columns:1fr;} .ben{min-height:0; gap:26px;} }
+
+  .stmt{border-top:1px solid var(--line);}
+  .stmt .row{display:grid; grid-template-columns:.8fr 1.2fr; gap:48px; padding:40px 0; border-bottom:1px solid var(--line); align-items:baseline;}
+  .stmt h3{font-size:44px;}
+  .stmt p{font-size:22px; line-height:1.45; color:var(--ink-80);}
+  @media (max-width:820px){ .stmt .row{grid-template-columns:1fr; gap:12px; padding:28px 0;} .stmt h3{font-size:30px;} .stmt p{font-size:17px;} }
+
+  .jobs{display:grid; grid-template-columns:repeat(3,1fr); gap:16px;}
+  .job{border:1px solid var(--line); border-radius:20px; padding:26px; display:flex; flex-direction:column; gap:12px; transition:all .25s; min-height:210px;}
+  .job:hover{background:var(--ink); color:#fff; border-color:var(--ink);}
+  .job:hover p, .job:hover .k{color:rgba(255,255,255,.65);}
+  .job .k{font-size:12px; text-transform:uppercase; letter-spacing:.1em; color:var(--ink-55);}
+  .job h3{font-size:26px;}
+  .job p{font-size:15px; color:var(--ink-70);}
+  .job .go{margin-top:auto; font-size:14px; font-weight:500;}
+  @media (max-width:900px){ .jobs{grid-template-columns:1fr 1fr;} }
+  @media (max-width:600px){ .jobs{grid-template-columns:1fr;} }
+
+  .sites{display:grid; grid-template-columns:1fr 1fr; gap:20px;}
+  .site-c{position:relative; border-radius:24px; overflow:hidden; min-height:400px; color:#fff; padding:32px; display:flex; flex-direction:column; justify-content:flex-end;}
+  .site-c img{position:absolute; inset:0; width:100%; height:100%; object-fit:cover;}
+  .site-c::after{content:""; position:absolute; inset:0; background:linear-gradient(180deg,transparent 25%,rgba(0,0,0,.75));}
+  .site-c > *:not(img){position:relative; z-index:1;}
+  .site-c .n{font-family:var(--font-head); font-size:18px; opacity:.75;}
+  .site-c h3{font-size:34px; margin:6px 0 10px;}
+  .site-c p{color:rgba(255,255,255,.8); max-width:44ch; font-size:15px;}
+  .site-c .tag{position:absolute; top:24px; left:32px; z-index:1;}
+  @media (max-width:900px){ .sites{grid-template-columns:1fr;} .site-c{min-height:320px; padding:24px;} .site-c h3{font-size:26px;} }
+
+  .rv-slider{position:relative;}
+  .tst{display:grid; grid-template-columns:320px 1fr; gap:56px; align-items:center;}
+  .tst .ph{border-radius:24px; overflow:hidden; aspect-ratio:4/5; background:var(--panel-2);}
+  .tst .ph img{width:100%; height:100%; object-fit:cover;}
+  .tst blockquote{margin:0; font-family:var(--font-head); font-size:32px; line-height:1.25;}
+  .tst blockquote::before{content:"“"; display:block; font-size:96px; line-height:.6; color:var(--accent); margin-bottom:12px;}
+  .tst .who{margin-top:32px; display:flex; gap:16px; align-items:baseline; flex-wrap:wrap;}
+  .tst .who b{font-size:18px; font-weight:500;}
+  .tst .who span{color:var(--ink-55); font-size:15px;}
+  .tst-nav{display:flex; justify-content:space-between; align-items:center; margin-top:40px; gap:20px;}
+  .dots{display:flex; gap:8px;}
+  .dots button{width:36px; height:4px; border-radius:2px; border:0; background:var(--line); padding:0;}
+  .dots button.on{background:var(--ink);}
+  .fadebox{transition:opacity .3s;}
+  .fadebox.f{opacity:0;}
+  @media (max-width:900px){ .tst{grid-template-columns:1fr; gap:28px;} .tst .ph{max-width:260px;} .tst blockquote{font-size:21px;} }
+
+  .grow{display:grid; grid-template-columns:repeat(3,1fr); gap:16px;}
+  .grow > div{border-radius:20px; overflow:hidden; background:var(--card);}
+  .grow .ph{aspect-ratio:4/3;}
+  .grow img{width:100%; height:100%; object-fit:cover;}
+  .grow .bd{padding:22px 24px 26px;}
+  .grow h3{font-size:22px; margin-bottom:8px;}
+  .grow p{font-size:15px; color:var(--ink-70);}
+  @media (max-width:900px){ .grow{grid-template-columns:1fr;} }
+</style>
+</head>
+<body data-page="career" data-nav="about">
+<main>
+  <div class="wrap crumbs"><a href="https://orekhprom.ru/">Главная</a><span class="sep">/</span><a href="about.html">О компании</a><span class="sep">/</span><span class="cur">Карьера</span></div>
+
+  <section class="phero"><div class="wrap">
+    <div class="cr-hero">
+      <div>
+        <span class="eyebrow">карьера в орехпром</span>
+        <h1 class="h-xl">Работа, результат которой видно на полке</h1>
+        <p class="lead">АО «Орехпром» — лидер переработки орехов в России с собственными плантациями на юге страны. Мы создаём продукты и ингредиенты, которые ежедневно радуют миллионы людей, — и ищем тех, кто хочет расти вместе с нами.</p>
+        <div class="btn-row" style="margin-top:32px"><a href="https://krasnodar.hh.ru/employer/1859" target="_blank" rel="noopener" class="btn">Вакансии на hh.ru ↗</a><button class="btn outline" data-modal="cv">Отправить резюме</button></div>
+      </div>
+      <div class="cr-mosaic">
+        <div><img src="https://orekhprom.ru/upload/iblock/54b/vpeck5d1c3fxwkknx1s963wzbsnsu5o5.jpg" alt=""></div>
+        <div><img src="https://orekhprom.ru/upload/iblock/2b9/m9cujycspgwjpd4mx44r0bmag49cxrfx.jpg" alt=""></div>
+        <div><img src="https://orekhprom.ru/upload/iblock/449/6jgevia6u9fxmrw45m01pv64vylq6rfm.jpg" alt=""></div>
+      </div>
+    </div>
+    <div class="stats" style="margin-top:72px">
+      <div><div class="k">с 1998 года</div><div class="v">28 лет стабильности</div></div>
+      <div><div class="k">география</div><div class="v">Краснодар и Марьянская</div></div>
+      <div><div class="k">дорога</div><div class="v">Корпоративный трансфер</div></div>
+      <div><div class="k">развитие</div><div class="v">Нацпроект «Производительность»</div></div>
+    </div>
+  </div></section>
+
+  <section class="panel"><div class="wrap">
+    <div class="sec-head"><div><span class="eyebrow">работа в ао орехпром</span><h2 class="h-l">Стабильность и уверенность в завтрашнем дне</h2></div></div>
+    <div class="bens">
+      <div class="ben rv"><div class="ic">🛡</div><div><h3>Социальные гарантии</h3><p>Официальное трудоустройство и уверенность в завтрашнем дне.</p></div></div>
+      <div class="ben rv"><div class="ic">↗</div><div><h3>Карьерный рост</h3><p>Многие руководители выросли внутри компании — от специалиста до ведущей роли.</p></div></div>
+      <div class="ben rv"><div class="ic">🎓</div><div><h3>Обучение</h3><p>Внутреннее обучение, повышение квалификации и программы для производственного персонала.</p></div></div>
+      <div class="ben rv"><div class="ic">🚌</div><div><h3>Трансфер</h3><p>Корпоративный трансфер из Краснодара до производственной площадки №2.</p></div></div>
+      <div class="ben rv"><div class="ic">🤝</div><div><h3>Команда</h3><p>Дружный и профессиональный коллектив единомышленников, который всегда поможет.</p></div></div>
+      <div class="ben rv"><div class="ic">🌰</div><div><h3>Продукт</h3><p>Возможность создавать новые продукты, которые стоят на полках по всей стране.</p></div></div>
+    </div>
+  </div></section>
+
+  <section><div class="wrap">
+    <div class="stmt">
+      <div class="row rv"><h3>Наш коллектив</h3><p>Сплочённая команда профессионалов с многолетним опытом производства, разработки и внедрения новых технологий.</p></div>
+      <div class="row rv"><h3>Мы ценим</h3><p>Талантливых, инициативных и целеустремлённых. Если вы готовы развиваться, учиться новому и показывать результат — будем рады видеть вас в команде.</p></div>
+      <div class="row rv"><h3>Главная гордость</h3><p>Это наши сотрудники.</p></div>
+    </div>
+  </div></section>
+
+  <section class="panel"><div class="wrap">
+    <div class="sec-head"><div><span class="eyebrow">кого мы ищем</span><h2 class="h-l">Направления</h2></div><a href="https://krasnodar.hh.ru/employer/1859" target="_blank" rel="noopener" class="link-arrow">Все открытые вакансии ↗</a></div>
+    <div class="jobs">
+      <a class="job rv" href="https://krasnodar.hh.ru/employer/1859" target="_blank" rel="noopener"><span class="k">производство</span><h3>Операторы и технологи линий</h3><p>Обжарка, дробление, фасовка, производство паст и начинок.</p><span class="go">Смотреть вакансии ↗</span></a>
+      <a class="job rv" href="https://krasnodar.hh.ru/employer/1859" target="_blank" rel="noopener"><span class="k">качество</span><h3>Лаборатория</h3><p>Входной контроль сырья и проверка каждой партии готовой продукции.</p><span class="go">Смотреть вакансии ↗</span></a>
+      <a class="job rv" href="https://krasnodar.hh.ru/employer/1859" target="_blank" rel="noopener"><span class="k">r&amp;d</span><h3>Инновационный центр</h3><p>Разработка рецептур и новых продуктов для брендов и партнёров.</p><span class="go">Смотреть вакансии ↗</span></a>
+      <a class="job rv" href="https://krasnodar.hh.ru/employer/1859" target="_blank" rel="noopener"><span class="k">офис</span><h3>Продажи и маркетинг</h3><p>B2B, СТМ, маркетплейсы и развитие собственных брендов.</p><span class="go">Смотреть вакансии ↗</span></a>
+      <a class="job rv" href="https://krasnodar.hh.ru/employer/1859" target="_blank" rel="noopener"><span class="k">логистика</span><h3>Склад и логистика</h3><p>Складской комплекс 62 000 м³ и отгрузки по всей России.</p><span class="go">Смотреть вакансии ↗</span></a>
+      <a class="job rv" href="#" data-modal="cv"><span class="k">не нашли подходящее?</span><h3>Отправьте резюме</h3><p>Расскажите о себе — мы свяжемся, когда появится подходящая позиция.</p><span class="go">Откликнуться →</span></a>
+    </div>
+  </div></section>
+
+  <section><div class="wrap">
+    <div class="sec-head"><div><span class="eyebrow">где работать</span><h2 class="h-l">Две производственные площадки</h2></div></div>
+    <div class="sites">
+      <div class="site-c rv"><img src="https://orekhprom.ru/upload/iblock/b42/a0lfpmawkkrqsldgf5097j0msg1nivfh.png" alt=""><span class="chip tag" style="background:#fff;border-color:#fff;color:var(--ink)">в черте города</span><div class="n">Площадка №1</div><h3>Краснодар</h3><p>Общая площадь 5 000 м², удобное расположение в городе. Офис, производство и инновационный центр.</p></div>
+      <div class="site-c rv"><img src="https://orekhprom.ru/upload/iblock/b8e/jfrac662x2khh902rhtu4poovaofyrbx.png" alt=""><span class="chip tag" style="background:#fff;border-color:#fff;color:var(--ink)">трансфер из Краснодара</span><div class="n">Площадка №2</div><h3>Станица Марьянская</h3><p>Современное производство в Краснодарском крае. Корпоративный трансфер — добраться из города не проблема.</p></div>
+    </div>
+  </div></section>
+
+  <section class="panel"><div class="wrap">
+    <div class="sec-head"><div><span class="eyebrow">отзывы о работе</span><h2 class="h-l">Говорят сотрудники</h2></div></div>
+    <div class="rv-slider">
+      <div class="tst fadebox" id="tst"></div>
+      <div class="tst-nav"><div class="dots" id="dots"></div><div class="arrows"><button id="tPrev" aria-label="Назад">←</button><button id="tNext" aria-label="Вперёд">→</button></div></div>
+    </div>
+  </div></section>
+
+  <section><div class="wrap">
+    <div class="sec-head"><div><span class="eyebrow">профессиональный рост вместе</span><h2 class="h-l">Развиваем людей и процессы</h2></div></div>
+    <div class="grow">
+      <div class="rv"><div class="ph"><img src="https://orekhprom.ru/upload/iblock/350/px7u4po5doz1hkyevvbw48jl7n27grg6.jpg" alt=""></div><div class="bd"><h3>Молодым специалистам</h3><p>Наставничество, адаптация и понятный путь от первой должности до ведущей роли.</p></div></div>
+      <div class="rv"><div class="ph"><img src="https://orekhprom.ru/upload/iblock/449/6jgevia6u9fxmrw45m01pv64vylq6rfm.jpg" alt=""></div><div class="bd"><h3>Обучение персонала</h3><p>Регулярные программы для производственного персонала и повышение квалификации.</p></div></div>
+      <div class="rv"><div class="ph"><img src="https://orekhprom.ru/upload/iblock/c12/vb7i2n33myryqufsd52axx1mntu33qq6.jpg" alt=""></div><div class="bd"><h3>Нацпроект «Производительность труда»</h3><p>Команда учится методам оптимизации производства с экспертами Регионального центра компетенций.</p></div></div>
+    </div>
+  </div></section>
+
+  <section style="padding-top:0"><div class="wrap">
+    <div class="cta-box">
+      <div>
+        <span class="eyebrow" style="color:rgba(255,255,255,.55)">отправить резюме</span>
+        <h2 style="margin-top:18px">Станьте частью команды Орехпром</h2>
+        <p>HR-служба рассмотрит резюме и ответит в течение 3 рабочих дней.</p>
+        <div class="contacts"><a href="tel:88612125460">8 (861) 212 54 60</a><span>Отдел персонала</span></div>
+      </div>
+      <div class="on-dark">
+        <form class="form" novalidate>
+          <div class="field"><input required placeholder=" "><label>ФИО</label></div>
+          <div class="field"><input type="tel" required placeholder=" "><label>Телефон</label></div>
+          <div class="field full"><input placeholder=" "><label>Желаемая должность</label></div>
+          <label class="file-drop full"><input type="file" hidden>📎 <span>Прикрепить резюме</span></label>
+          <label class="check full"><input type="checkbox" required checked><span>Даю согласие на обработку <a href="#">персональных данных</a></span></label>
+          <div class="submit full"><button class="btn light" type="submit">Отправить резюме</button></div>
+        </form>
+        <div class="form-ok"><div class="ic">✓</div><h3>Резюме получено</h3><p style="color:rgba(255,255,255,.7)">Спасибо! Мы свяжемся с вами.</p></div>
+      </div>
+    </div>
+  </div></section>
+</main>
+<script>
+(function(){
+  const U='https://orekhprom.ru/upload/iblock/';
+  const T=[
+    {n:'Марина Антипенко', r:'Ведущий технолог-разработчик рецептур', y:'в компании 5,5 лет', img:'022/ql6m3f96yjjink2v36sucvbngvw2tszo.jpg', q:'Горжусь тем, что смогла показать себя как профессионал и создать множество новых продуктов, которые стоят на полке и радуют потребителей.'},
+    {n:'Ольга Пашко', r:'Менеджер по продажам', y:'в компании 2,5 года', img:'d06/8acwi7t31cd3uty0rh3fg9xaqligvttz.jpg', q:'Благодаря нам клиенты запускают новые виды мороженого, конфет, десертов. Мы видим их продукцию на полках и чувствуем причастность к чему-то большему.'},
+    {n:'Екатерина Погребняк', r:'Менеджер по закупкам', y:'в компании 4,5 года', img:'63f/8e251su6yyk6ar86j13y0cwyblgrvrex.jpg', q:'Я чувствую свой вклад в общее дело и горжусь компанией, когда вижу продукты партнёров с нашими ингредиентами в составе.'},
+    {n:'Элла Рупека', r:'Контент-маркетолог', y:'в компании 1,5 года', img:'bb7/60phlxptiv3d7qy3z9yqw5fi55py4h5t.png', q:'Люблю свою работу за возможность быть вовлечённой в разработку продукта. Наша фабрика первой на рынке создала двухцветные пасты.'},
+  ];
+  const box=document.getElementById('tst'), dots=document.getElementById('dots');
+  dots.innerHTML=T.map((_,i)=>`<button aria-label="Отзыв ${i+1}"></button>`).join('');
+  let i=0, timer;
+  function show(k){
+    i=(k+T.length)%T.length; box.classList.add('f');
+    setTimeout(()=>{ const t=T[i]; box.innerHTML=`<div class="ph"><img src="${U+t.img}" alt="${t.n}"></div><div><blockquote>${t.q}</blockquote><div class="who"><b>${t.n}</b><span>${t.r} · ${t.y}</span></div></div>`; box.classList.remove('f'); },200);
+    [...dots.children].forEach((d,j)=>d.classList.toggle('on',j===i));
+    clearInterval(timer); timer=setInterval(()=>show(i+1),8000);
+  }
+  dots.onclick=e=>{const b=e.target.closest('button'); if(b) show([...dots.children].indexOf(b));};
+  document.getElementById('tPrev').onclick=()=>show(i-1);
+  document.getElementById('tNext').onclick=()=>show(i+1);
+  show(0);
+})();
+</script>
+<script src="assets/site.js"></script>
+</body>
+</html>

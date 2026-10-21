@@ -1,0 +1,27 @@
+:root{--switcher-h:44px;}
+   PAGE SWITCHER (над шапкой, только для макетов)
+   ========================================================= */
+.pg-switch{
+  background:#111214; color:#fff; font-size:13px; position:relative; z-index:60;
+}
+.pg-switch .row{display:flex; align-items:center; gap:14px; height:var(--switcher-h);}
+.pg-switch .lbl{flex:none; display:flex; align-items:center; gap:8px; color:rgba(255,255,255,.55); text-transform:uppercase; letter-spacing:.08em; font-size:11px;}
+.pg-switch .lbl b{display:inline-block; width:7px; height:7px; border-radius:50%; background:#A6B67A;}
+.pg-switch .list{flex:1; min-width:0; display:flex; gap:4px; overflow-x:auto; scrollbar-width:none; scroll-behavior:smooth; mask-image:linear-gradient(90deg,#000 92%,transparent);}
+.pg-switch .list::-webkit-scrollbar{display:none;}
+.pg-switch .list a{flex:none; padding:6px 12px; border-radius:100px; color:rgba(255,255,255,.72); white-space:nowrap; transition:background .2s,color .2s;}
+.pg-switch .list a:hover{color:#fff; background:rgba(255,255,255,.08);}
+.pg-switch .list a.active{background:#fff; color:#111214; font-weight:500;}
+.pg-switch .list a .n{opacity:.45; margin-right:6px; font-variant-numeric:tabular-nums;}
+.pg-switch .list a.ext::after{content:" ↗"; opacity:.5;}
+.pg-switch .nav{flex:none; display:flex; gap:4px;}
+.pg-switch .nav a{width:30px; height:30px; border-radius:50%; display:flex; align-items:center; justify-content:center; border:1px solid rgba(255,255,255,.18); color:#fff;}
+.pg-switch .nav a:hover{background:rgba(255,255,255,.1);}
+.pg-switch .nav a.off{opacity:.3; pointer-events:none;}
+.pg-switch select{display:none;}
+@media (max-width:720px){
+  .pg-switch .list{display:none;}
+  .pg-switch select{display:block; flex:1; min-width:0; background:#26272a; color:#fff; border:0; border-radius:8px; height:32px; padding:0 10px; font-size:13px;}
+  .pg-switch .lbl span{display:none;}
+}
+

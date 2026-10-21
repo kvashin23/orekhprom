@@ -1,0 +1,125 @@
+<!doctype html>
+<html lang="ru">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Блог — новости и экспертные материалы | Орехпром</title>
+<meta name="description" content="Тренды кондитерского рынка, урожаи и цены на орехи, новости компании и полезные материалы об орехах от АО «Орехпром».">
+<link rel="preconnect" href="https://fonts.googleapis.com"><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Geologica:wght@300;400;500;600&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="assets/site.css">
+<style>
+  .bl-top{display:flex; justify-content:space-between; align-items:end; gap:32px; flex-wrap:wrap;}
+  .search{position:relative; width:320px;}
+  .search input{width:100%; height:48px; border-radius:100px; border:1px solid var(--line); background:#fff; padding:0 20px 0 46px; font-size:15px; outline:none;}
+  .search input:focus{border-color:var(--ink);}
+  .search::before{content:"⌕"; position:absolute; left:18px; top:11px; font-size:20px; color:var(--ink-55);}
+  @media (max-width:720px){ .search{width:100%;} }
+
+  .feat{display:grid; grid-template-columns:1.25fr 1fr; gap:0; background:var(--card); border-radius:28px; overflow:hidden; margin:40px 0 64px;}
+  .feat .ph{min-height:460px; overflow:hidden;}
+  .feat .ph img{width:100%; height:100%; object-fit:cover; transition:transform .7s;}
+  .feat:hover .ph img{transform:scale(1.03);}
+  .feat .bd{padding:44px; display:flex; flex-direction:column; gap:18px;}
+  .feat h2{font-size:40px;}
+  .feat p{color:var(--ink-70); font-size:17px;}
+  .feat .go{margin-top:auto;}
+  @media (max-width:900px){ .feat{grid-template-columns:1fr;} .feat .ph{min-height:260px;} .feat .bd{padding:26px;} .feat h2{font-size:28px;} }
+
+  .meta{display:flex; gap:10px; align-items:center; font-size:13px; color:var(--ink-55); flex-wrap:wrap;}
+  .meta .dot{width:3px; height:3px; border-radius:50%; background:var(--ink-35);}
+
+  .posts{display:grid; grid-template-columns:repeat(3,1fr); gap:44px 24px;}
+  .post{display:flex; flex-direction:column; gap:16px;}
+  .post .ph{aspect-ratio:4/3; border-radius:20px; overflow:hidden; background:var(--panel);}
+  .post .ph img{width:100%; height:100%; object-fit:cover; transition:transform .6s;}
+  .post:hover .ph img{transform:scale(1.04);}
+  .post h3{font-size:22px; line-height:1.18;}
+  .post:hover h3{text-decoration:underline; text-decoration-thickness:1px; text-underline-offset:4px;}
+  .post p{font-size:15px; color:var(--ink-70); display:-webkit-box; -webkit-line-clamp:3; -webkit-box-orient:vertical; overflow:hidden;}
+  @media (max-width:980px){ .posts{grid-template-columns:1fr 1fr;} }
+  @media (max-width:600px){ .posts{grid-template-columns:1fr; gap:36px;} }
+  .empty{grid-column:1/-1; text-align:center; padding:60px 0; color:var(--ink-55);}
+
+  .sub-box{display:grid; grid-template-columns:1.2fr 1fr; gap:48px; align-items:center; background:var(--accent); color:#fff; border-radius:28px; padding:56px;}
+  .sub-box h2{font-size:44px;}
+  .sub-box p{color:rgba(255,255,255,.8); margin-top:14px;}
+  .sub-box form{display:flex; gap:10px;}
+  .sub-box input{flex:1; height:56px; border-radius:100px; border:1px solid rgba(255,255,255,.4); background:rgba(255,255,255,.1); color:#fff; padding:0 22px; font-size:15px; outline:none;}
+  .sub-box input::placeholder{color:rgba(255,255,255,.65);}
+  @media (max-width:900px){ .sub-box{grid-template-columns:1fr; padding:32px 24px;} .sub-box h2{font-size:30px;} .sub-box form{flex-direction:column;} }
+</style>
+</head>
+<body data-page="blog" data-nav="blog">
+<main>
+  <div class="wrap crumbs"><a href="https://orekhprom.ru/">Главная</a><span class="sep">/</span><span class="cur">Блог</span></div>
+
+  <section class="phero" style="padding-bottom:40px"><div class="wrap">
+    <div class="bl-top">
+      <div><span class="eyebrow">блог орехпром</span><h1 class="h-xl" style="max-width:none;margin-bottom:0">Новости и экспертиза</h1></div>
+      <label class="search"><input id="q" type="search" placeholder="Поиск по статьям"></label>
+    </div>
+    <p class="lead" style="margin-top:22px">Тренды рынка, урожаи и цены на орехи, новости компании и полезные материалы для производителей и покупателей.</p>
+    <div class="tabs" id="cats" style="margin-top:36px"></div>
+    <div id="feat"></div>
+    <div class="posts" id="posts"></div>
+    <div style="display:flex;justify-content:center;margin-top:56px"><button class="btn outline" id="more">Показать ещё</button></div>
+  </div></section>
+
+  <section style="padding-top:20px"><div class="wrap">
+    <div class="sub-box">
+      <div><h2>Дайджест для отрасли</h2><p>Раз в месяц — главное о рынке орехов и ингредиентов: тренды, урожаи, цены, новинки. Без спама.</p></div>
+      <form onsubmit="event.preventDefault(); this.innerHTML='<p style=&quot;font-size:18px;margin:0&quot;>✓ Готово! Первый выпуск придёт в начале месяца.</p>'"><input type="email" required placeholder="Ваш e-mail"><button class="btn light" type="submit">Подписаться</button></form>
+    </div>
+  </div></section>
+</main>
+
+<script>
+(function(){
+  const U='https://orekhprom.ru';
+  const P=[
+    {c:'Тренды рынка', dt:'23.08.2026', img:'/upload/iblock/8b7/o3gek8rz5wlx709kjyablykk7du7kd86.png', t:'Россияне стали чаще выбирать продукты с необычными вкусами', d:'Экзотические сочетания, азиатские мотивы и экстремальные вкусы становятся заметным трендом в российской рознице.'},
+    {c:'Новости компании', dt:'20.07.2026', img:'/upload/iblock/4ac/9g0p87rar2jd19uxck1zorz08ua2hjvf.jpg', t:'Гастро-снеки ЕМ! теперь в федеральных сетях', d:'Любимые новинки бренда стали ещё доступнее: орехи со вкусом ресторанных блюд можно купить в федеральных сетях.'},
+    {c:'Тренды рынка', dt:'14.07.2026', img:'/upload/iblock/89d/amkxfwl2b9vrn0z2dr6f294ugky22b5s.png', t:'Вкусы 2026: фисташка, цитрус и контрастные ноты меняют кондитерский рынок', d:'Вкусовые тренды определяются уже не отдельными ингредиентами, а целыми сенсорными концепциями.'},
+    {c:'Тренды рынка', dt:'23.03.2026', img:'/upload/iblock/323/jqcrts61iewvekowz8lf63dy9sfi8csx.png', t:'Мировые цены на какао стремительно снизились', d:'Стоимость какао-бобов резко пошла вниз и достигла минимальных уровней за длительный период.'},
+    {c:'Тренды рынка', dt:'23.03.2026', img:'/upload/iblock/519/1vhe0o8uuvlanmoucbno5a15clv3hvgl.png', t:'Актуальные тренды в кондитерской индустрии: от десертизации до мультисенсорных вкусов', d:'Рынок кондитерских изделий вырастет до 287 млрд долларов к 2033 году. Что движет ростом и где здесь место орехам.', feat:true},
+    {c:'Новости компании', dt:'15.01.2026', img:'/upload/iblock/0ab/771xnzqubov4x3wencbg32s3avqv7tf3.jpg', t:'Орехпром приглашает партнёров на выставку «Продэкспо» в «Крокус Экспо»', d:'Ждём на нашем стенде на 33-й Международной выставке продуктов питания, напитков и сырья с 9 по 12 февраля.'},
+    {c:'Орехи и здоровье', dt:'12.01.2026', img:'/upload/iblock/5f9/veqxay2fhog9xjcgz3xvdbuz0p5iqz7g.png', t:'Зимний рацион: как орехи и сухофрукты помогают сохранить энергию и иммунитет', d:'С сокращением светового дня многие сталкиваются с сезонным упадком сил. Рассказываем, чем помогут орехи.'},
+    {c:'Тренды рынка', dt:'23.12.2025', img:'/upload/iblock/467/eqvm2famy6s5ke9ly1imjwvr1m7kk91a.jpg', t:'Урожай фисташки 2025: Калифорния сохраняет премиальность, Иран наращивает объём', d:'Предварительные итоги сезона у двух ключевых производителей определят конъюнктуру рынка на год вперёд.'},
+    {c:'Тренды рынка', dt:'27.11.2025', img:'/upload/iblock/a90/tq085w81f1aofw7xfq41svdrc269lsrb.jpg', t:'Как орех превращается в конкурентное преимущество для кондитерки и plant-based напитков', d:'Отрасль глубокой переработки орехов сегодня задаёт новые правила игры для производителей.'},
+    {c:'Новости компании', dt:'25.08.2025', img:'/upload/iblock/ca6/khubk8u44t2qohpoj20k5aljufuugnwt.jpg', t:'Приглашаем посетить выставку WorldFood 2025', d:'Покажем новинки ингредиентов и собственных брендов на крупнейшей продовольственной выставке.'},
+    {c:'Орехи и здоровье', dt:'11.08.2025', img:'/upload/iblock/638/yfeh4fw9jd9vxvhsbn28d58d3llnri5w.jpeg', t:'Питание для долголетия: как орехи помогают активному и здоровому старению', d:'Что говорят исследования о роли орехов в рационе людей старшего возраста.'},
+    {c:'Орехи и здоровье', dt:'25.07.2025', img:'/upload/iblock/385/giob68ioxv9lqckuqalsaj107411dsim.jpg', t:'Фисташки: натуральный источник лютеина для здоровья глаз', d:'Почему фисташку называют одним из самых полезных орехов для зрения.'},
+    {c:'Всё об орехах', dt:'25.07.2025', img:'/upload/iblock/be3/sbn24v98s4rc3p5q7q61j1omu4mxahzf.jpg', t:'Фундук: страны произрастания, производство и сезоны', d:'Где растёт фундук, как его собирают и перерабатывают и когда наступает сезон.'},
+    {c:'Всё об орехах', dt:'25.07.2025', img:'/upload/iblock/f71/bxjf8smvmlwojjb4458pzvf3oyfe1113.jpg', t:'Продукты из фундука', d:'От пасты и пралине до муки и масла: что производят из фундука.'},
+    {c:'Всё об орехах', dt:'25.07.2025', img:'/upload/iblock/c8f/n8rvr2du2lwzev3t2kkjsg62cb837nl2.jpg', t:'Размер фундука', d:'Как калибруют фундук и почему размер ядра важен для производства.'},
+    {c:'Орехи и здоровье', dt:'17.05.2025', img:'/upload/iblock/267/403z23cqhuyo0lqk0bqs9al4kxyd7gdm.jpg', t:'Орехи — ценное дополнение к рациону', d:'Белки, полезные жиры и микроэлементы: чем орехи полезны каждый день.'},
+    {c:'Новости компании', dt:'09.09.2024', img:'/upload/iblock/ae9/jkynujik9urv3bfs7bupp761xxbz91t9.png', t:'ТМ «Твёрдый знак» вновь лучшая в категории орехов и сухофруктов', d:'Третий год подряд бренд признан лучшим по итогам премии «Здоровое питание».'},
+    {c:'Новости компании', dt:'2024', img:'/upload/iblock/909/cd0jblbwizvk49moc2lme5xg5sfo95os.jpg', t:'Приглашаем посетить выставку World Food 2024', d:'Встречаемся на стенде Орехпром на международной выставке World Food Moscow.'},
+    {c:'Новости компании', dt:'13.06.2024', img:'/upload/iblock/35b/j0upme3t0scwwknn2agkhbzh62upjk77.png', t:'Наши бренды на маркетплейсах', d:'«Твёрдый знак» и «ЕМ!» теперь доступны в фирменных магазинах на крупнейших маркетплейсах.'},
+    {c:'Новости компании', dt:'29.04.2024', img:'/upload/iblock/b0d/djwfpigkvp17dgbnvuutwx01iyvfydgp.png', t:'Мы открыли собственный интернет-магазин', d:'Орехи, пасты и ингредиенты Орехпром теперь можно заказать напрямую на orekhprom.shop.'},
+  ];
+  const CATS=['Все',...new Set(P.map(p=>p.c))];
+  const read = p => Math.max(3, Math.round(p.d.length/28));
+  let cat='Все', q='', limit=9;
+  const cats=document.getElementById('cats'), feat=document.getElementById('feat'), posts=document.getElementById('posts'), more=document.getElementById('more');
+  cats.innerHTML=CATS.map(c=>`<button data-c="${c}" class="${c===cat?'active':''}">${c} <span class="cnt">${c==='Все'?P.length:P.filter(p=>p.c===c).length}</span></button>`).join('');
+  function card(p){ return `<a class="post rv" href="article.html"><div class="ph"><img loading="lazy" src="${U+p.img}" alt=""></div><div class="meta"><span class="chip">${p.c}</span><span>${p.dt}</span></div><h3>${p.t}</h3><p>${p.d}</p></a>`; }
+  function render(){
+    const list=P.filter(p=>(cat==='Все'||p.c===cat) && (!q || (p.t+p.d).toLowerCase().includes(q)));
+    const f = (cat==='Все' && !q) ? P.find(p=>p.feat) : null;
+    feat.innerHTML = f ? `<a class="feat" href="article.html"><div class="ph"><img src="${U+f.img}" alt=""></div><div class="bd"><div class="meta"><span class="chip dark">Главное</span><span>${f.c}</span><span class="dot"></span><span>${f.dt}</span><span class="dot"></span><span>7 мин</span></div><h2>${f.t}</h2><p>${f.d}</p><div class="go"><span class="btn">Читать статью</span></div></div></a>` : '<div style="height:40px"></div>';
+    const rest=list.filter(p=>p!==f);
+    posts.innerHTML = rest.length ? rest.slice(0,limit).map(card).join('') : '<div class="empty">Ничего не нашлось. Попробуйте другой запрос.</div>';
+    more.style.display = rest.length>limit ? '' : 'none';
+    window.observeReveal && observeReveal(posts);
+  }
+  cats.onclick=e=>{const b=e.target.closest('button'); if(!b) return; cat=b.dataset.c; limit=9; [...cats.children].forEach(x=>x.classList.toggle('active',x===b)); render();};
+  document.getElementById('q').oninput=e=>{q=e.target.value.trim().toLowerCase(); render();};
+  more.onclick=()=>{limit+=6; render();};
+  render();
+})();
+</script>
+<script src="assets/site.js"></script>
+</body>
+</html>

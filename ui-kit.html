@@ -1,0 +1,244 @@
+<!doctype html>
+<html lang="ru">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>UI-kit — шапка, подвал, попапы и компоненты | Орехпром</title>
+<meta name="description" content="Дизайн-система новых страниц orekhprom.ru: цвета, типографика, кнопки, формы, карточки, шапка, подвал и всплывающие окна.">
+<link rel="preconnect" href="https://fonts.googleapis.com"><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Geologica:wght@300;400;500;600&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="assets/site.css">
+<style>
+  .kit-nav{position:sticky; top:84px; z-index:20; background:rgba(247,247,247,.95); backdrop-filter:blur(8px); border-bottom:1px solid var(--line-soft); padding:12px 0;}
+  .kit-nav .tabs{flex-wrap:nowrap; overflow-x:auto; scrollbar-width:none;}
+  .kit-nav .tabs a{flex:none; height:36px; padding:0 16px; border-radius:100px; border:1px solid var(--line); font-size:13px; display:inline-flex; align-items:center;}
+  .kit-nav .tabs a:hover{border-color:var(--ink);}
+  @media (max-width:1040px){ .kit-nav{top:72px;} }
+  .kit{padding:80px 0; border-bottom:1px solid var(--line);}
+  .kit > .wrap > h2{font-size:44px; margin:14px 0 40px; scroll-margin-top:170px;}
+  .kit .lbl{font-size:12px; text-transform:uppercase; letter-spacing:.1em; color:var(--ink-55); margin:32px 0 14px;}
+  .stage{background:var(--card); border-radius:24px; padding:36px; border:1px solid var(--line-soft);}
+  .stage.dk{background:var(--ink); color:#fff;}
+  .stage.pn{background:var(--panel);}
+  .row-g{display:flex; gap:14px; flex-wrap:wrap; align-items:center;}
+
+  .sw{display:grid; grid-template-columns:repeat(6,1fr); gap:14px;}
+  .sw div{border-radius:18px; overflow:hidden; border:1px solid var(--line-soft); background:#fff;}
+  .sw i{display:block; height:110px;}
+  .sw p{padding:12px 14px; font-size:13px; line-height:1.4;}
+  .sw p b{display:block; font-weight:500;}
+  .sw p span{color:var(--ink-55); font-family:monospace; font-size:12px;}
+  @media (max-width:900px){ .sw{grid-template-columns:repeat(3,1fr);} }
+
+  .ty > div{display:grid; grid-template-columns:200px 1fr; gap:24px; padding:22px 0; border-bottom:1px solid var(--line-soft); align-items:baseline;}
+  .ty .m{font-size:12px; color:var(--ink-55); line-height:1.5;}
+  @media (max-width:720px){ .ty > div{grid-template-columns:1fr; gap:8px;} }
+
+  /* static previews of chrome */
+  .pv{border-radius:20px; overflow:hidden; border:1px solid var(--line); background:var(--bg); position:relative;}
+  .pv header.site{position:relative;}
+  .pv .hdr{gap:18px;} .pv .mnav{gap:18px;} .pv .mnav > .it > a{font-size:14px;} .pv .hdr-right .divider{display:none;}
+  .pv .mnav .it.force .dd{opacity:1; visibility:visible; transform:none;}
+  .pv-mob{width:375px; max-width:100%; height:700px; border-radius:36px; border:10px solid var(--ink); overflow:hidden; position:relative; background:var(--bg); margin:0 auto;}
+  .pv-mob .offc{position:absolute; transform:none;}
+  .pv-mob .offc .wrap{padding:0 18px;}
+  .pv-foot footer.site{padding-top:60px;}
+  .pv-modal{position:relative; background:rgba(17,18,20,.55); border-radius:20px; padding:40px; display:flex; justify-content:center;}
+  .pv-modal .modal{position:static; opacity:1; visibility:visible; background:none; padding:0; backdrop-filter:none; display:block;}
+  .pv-modal .modal .box{transform:none; max-height:none;}
+  .pv-cookie .cookie{position:static; transform:none;}
+  .pv-toast .toast{position:static; transform:none; display:inline-block;}
+  @media (max-width:720px){ .pv-modal{padding:12px;} .pv-modal .modal .box{border-radius:20px;} }
+  .grid-kit{display:grid; grid-template-columns:repeat(3,1fr); gap:20px;}
+  @media (max-width:900px){ .grid-kit{grid-template-columns:1fr;} }
+</style>
+</head>
+<body data-page="uikit">
+<main>
+  <div class="wrap crumbs"><a href="https://orekhprom.ru/">Главная</a><span class="sep">/</span><span class="cur">UI-kit</span></div>
+  <section class="phero" style="padding-bottom:40px"><div class="wrap">
+    <span class="eyebrow">дизайн-система · v1.0</span>
+    <h1 class="h-xl">UI-kit новых страниц</h1>
+    <p class="lead">Общие элементы для всех страниц orekhprom.ru в стилистике обновлённой главной: шапка, подвал, попапы, токены и компоненты. Всё подключается одним CSS и одним JS-файлом.</p>
+    <div class="btn-row" style="margin-top:28px"><span class="chip">assets/site.css</span><span class="chip">assets/site.js</span><span class="chip">assets/category.js — шаблон категории B2B</span></div>
+  </div></section>
+
+  <div class="kit-nav"><div class="wrap"><div class="tabs">
+    <a href="#colors">Цвета</a><a href="#type">Типографика</a><a href="#buttons">Кнопки</a><a href="#forms">Формы</a><a href="#cards">Карточки</a><a href="#blocks">Блоки</a><a href="#header">Шапка</a><a href="#footer">Подвал</a><a href="#popups">Попапы</a>
+  </div></div></div>
+
+  <!-- COLORS -->
+  <section class="kit"><div class="wrap">
+    <span class="eyebrow">01</span><h2 id="colors">Цвета</h2>
+    <div class="sw">
+      <div><i style="background:#F7F7F7"></i><p><b>Фон</b><span>--bg #F7F7F7</span></p></div>
+      <div><i style="background:#EEEDE9"></i><p><b>Панель</b><span>--panel #EEEDE9</span></p></div>
+      <div><i style="background:#FFFFFF"></i><p><b>Карточка</b><span>--card #FFFFFF</span></p></div>
+      <div><i style="background:#1F2022"></i><p><b>Графит</b><span>--ink #1F2022</span></p></div>
+      <div><i style="background:#6E7A4E"></i><p><b>Олива (акцент)</b><span>--accent #6E7A4E</span></p></div>
+      <div><i style="background:#E3E6D6"></i><p><b>Олива светлая</b><span>--accent-soft</span></p></div>
+    </div>
+    <div class="lbl">Прозрачности графита — текст и линии</div>
+    <div class="row-g">
+      <span class="chip" style="background:var(--ink-80);color:#fff;border:0">ink-80 · основной текст</span>
+      <span class="chip" style="background:var(--ink-70);color:#fff;border:0">ink-70 · вторичный</span>
+      <span class="chip" style="background:var(--ink-55);color:#fff;border:0">ink-55 · подписи</span>
+      <span class="chip" style="background:var(--ink-35);color:#fff;border:0">ink-35 · неактивное</span>
+      <span class="chip">line · 14%</span>
+    </div>
+  </div></section>
+
+  <!-- TYPE -->
+  <section class="kit"><div class="wrap">
+    <span class="eyebrow">02</span><h2 id="type">Типографика</h2>
+    <div class="ty">
+      <div><div class="m">H1 · Mustica Pro 600<br>68 / 52 / 36 px</div><div class="h-xl">Орехи для производств</div></div>
+      <div><div class="m">H2 · Mustica Pro 600<br>52 / 42 / 30 px</div><div class="h-l">Четыре направления</div></div>
+      <div><div class="m">H3 · Mustica Pro 600<br>36 / 26 px</div><div class="h-m">Фасовка и применение</div></div>
+      <div><div class="m">H4 · Mustica Pro 600<br>24 / 20 px</div><div class="h-s">Карточка продукта</div></div>
+      <div><div class="m">Lead · Geologica 400<br>19 / 16 px</div><p class="lead">Профессиональное качество в удобном формате — для кондитерских и кофеен.</p></div>
+      <div><div class="m">Body · Geologica 400<br>16 px / 1.55</div><p>Фабрика ОРЕХПРОМ гарантирует высокое качество продукции благодаря строгому контролю каждого этапа производства.</p></div>
+      <div><div class="m">Eyebrow · Geologica 500<br>13 px, uppercase, +0.1em</div><span class="eyebrow">для кого мы работаем</span></div>
+      <div><div class="m">Caption · Geologica 400<br>14 px, ink-55</div><p class="small">Упаковка под вакуумом или с азотным наполнением</p></div>
+    </div>
+  </div></section>
+
+  <!-- BUTTONS -->
+  <section class="kit"><div class="wrap">
+    <span class="eyebrow">03</span><h2 id="buttons">Кнопки, чипы, табы</h2>
+    <div class="stage">
+      <div class="lbl" style="margin-top:0">Кнопки · 52 px и 42 px</div>
+      <div class="row-g"><button class="btn">Оставить заявку</button><button class="btn outline">Что мы предлагаем</button><button class="btn sm">Интернет-магазин</button><button class="btn sm outline">Подробнее →</button><a class="link-arrow" href="#">Весь раздел B2B →</a></div>
+      <div class="lbl">Чипы</div>
+      <div class="row-g"><span class="chip">орехи</span><span class="chip dark">Главное</span><span class="chip soft">Здоровое питание 2024</span></div>
+      <div class="lbl">Табы / фильтры</div>
+      <div class="tabs" id="demoTabs"><button class="active">Все <span class="cnt">26</span></button><button>Фундук <span class="cnt">3</span></button><button>Миндаль <span class="cnt">3</span></button><button>Фисташка <span class="cnt">4</span></button></div>
+      <div class="lbl">Стрелки слайдера</div>
+      <div class="arrows"><button>←</button><button>→</button></div>
+    </div>
+    <div class="stage dk" style="margin-top:16px">
+      <div class="lbl" style="margin-top:0;color:rgba(255,255,255,.5)">На тёмном фоне</div>
+      <div class="row-g"><button class="btn light">Отправить запрос</button><button class="btn outline" style="color:#fff;border-color:rgba(255,255,255,.35)">Вторичная</button></div>
+    </div>
+  </div></section>
+
+  <!-- FORMS -->
+  <section class="kit"><div class="wrap">
+    <span class="eyebrow">04</span><h2 id="forms">Формы</h2>
+    <div class="grid-2">
+      <div class="stage">
+        <div class="lbl" style="margin-top:0">Поля с плавающей подписью · состояния</div>
+        <form class="form" novalidate>
+          <div class="field"><input placeholder=" "><label>Пустое</label></div>
+          <div class="field"><input placeholder=" " value="Иван Петров"><label>Заполненное</label></div>
+          <div class="field err"><input placeholder=" " value="ivan@"><label>Ошибка</label></div>
+          <div class="field sel"><select><option>Орехи</option><option>Пасты</option></select><label>Выпадающий список</label></div>
+          <div class="field full"><textarea placeholder=" "></textarea><label>Комментарий</label></div>
+          <label class="file-drop full"><input type="file" hidden>📎 <span>Приложить файл</span></label>
+          <label class="check full"><input type="checkbox" checked><span>Даю согласие на обработку <a href="#">персональных данных</a></span></label>
+          <div class="submit full"><button class="btn" type="submit">Отправить</button></div>
+        </form>
+        <div class="form-ok"><div class="ic">✓</div><h3>Экран успеха</h3><p class="muted">Так выглядит подтверждение после отправки.</p></div>
+      </div>
+      <div class="stage dk on-dark">
+        <div class="lbl" style="margin-top:0;color:rgba(255,255,255,.5)">Тёмный вариант (CTA-блоки)</div>
+        <form class="form" novalidate>
+          <div class="field"><input required placeholder=" "><label>Имя</label></div>
+          <div class="field"><input type="tel" required placeholder=" "><label>Телефон</label></div>
+          <div class="field full"><textarea placeholder=" "></textarea><label>Что нужно</label></div>
+          <label class="check full"><input type="checkbox" required checked><span>Даю согласие на обработку <a href="#">персональных данных</a></span></label>
+          <div class="submit full"><button class="btn light" type="submit">Отправить запрос</button></div>
+        </form>
+        <div class="form-ok"><div class="ic">✓</div><h3>Запрос отправлен</h3><p style="color:rgba(255,255,255,.7)">Попробуйте отправить пустую форму — поля подсветятся.</p></div>
+      </div>
+    </div>
+  </div></section>
+
+  <!-- CARDS -->
+  <section class="kit"><div class="wrap">
+    <span class="eyebrow">05</span><h2 id="cards">Карточки</h2>
+    <div class="grid-kit">
+      <div><div class="lbl" style="margin-top:0">Направление / раздел</div>
+        <a class="dcard" href="b2b-nuts.html" style="background:#fff"><span class="num">01</span><div class="ph"><img src="https://orekhprom.ru/upload/iblock/9d3/4apmcnwkawuz0y1hgjkl48tehi36ifw9.jpg" alt=""></div><div class="bd"><h3>Орехи</h3><p>Целые ядра и фракции</p><div class="go">Перейти <i>→</i></div></div></a></div>
+      <div><div class="lbl" style="margin-top:0">Товар B2B (hover — «В магазин»)</div>
+        <a class="ptile" href="#"><div class="ph"><img src="https://orekhprom.ru/upload/iblock/a6e/ftjt2t9d2wcyjr7g30ovvcsf3d0zb09b.jpg" alt=""><span class="shop">В магазин ↗</span></div><div class="nm">Фракция фисташки 2–4 мм</div><div class="meta">обжаренная, дроблёная</div></a></div>
+      <div><div class="lbl" style="margin-top:0">Спецификация</div>
+        <div class="spec" style="border:1px solid var(--line-soft)"><div class="k">Полимерные бочки</div><div class="vals"><span>10 кг</span><span>25 кг</span><span>100 кг</span></div><p class="small" style="margin-top:14px">Пластиковые вёдра — 1 и 5 кг.</p></div>
+        <div class="spec" style="border:1px solid var(--line-soft);margin-top:16px"><div class="k">Степень измельчения</div><div class="big">12–300 мкм</div></div></div>
+    </div>
+  </div></section>
+
+  <!-- BLOCKS -->
+  <section class="kit"><div class="wrap">
+    <span class="eyebrow">06</span><h2 id="blocks">Блоки</h2>
+    <div class="lbl" style="margin-top:0">Полоса показателей</div>
+    <div class="stats"><div><div class="k">опыт</div><div class="v">25+ лет</div></div><div><div class="k">клиенты</div><div class="v">700+ компаний</div></div><div><div class="k">масштаб</div><div class="v">2 площадки</div></div><div><div class="k">качество</div><div class="v">ISO · HACCP</div></div></div>
+    <div class="lbl">Список преимуществ</div>
+    <ul class="flist" style="max-width:640px"><li>Цельная обжарка — степень под задачу</li><li>Калибровка по количеству ядер в унции</li><li>Лабораторный контроль каждой партии</li></ul>
+    <div class="lbl">FAQ-аккордеон</div>
+    <div class="faq-list">
+      <div class="faq-item"><button class="faq-q">Какой минимальный объём заказа?<span class="c">+</span></button><div class="faq-a"><p>Для B2B — от одной упаковки 10 кг. Для теста вкуса подойдёт розничный формат 1 кг под брендом ЕМ!.</p></div></div>
+      <div class="faq-item"><button class="faq-q">Можно ли получить образцы?<span class="c">+</span></button><div class="faq-a"><p>Да, оставьте заявку — технологи подберут позиции и отправят образцы на тест.</p></div></div>
+    </div>
+    <div class="lbl">Хлебные крошки</div>
+    <div class="crumbs" style="padding:0"><a href="#">Главная</a><span class="sep">/</span><a href="#">B2B</a><span class="sep">/</span><span class="cur">Орехи</span></div>
+  </div></section>
+
+  <!-- HEADER -->
+  <section class="kit"><div class="wrap">
+    <span class="eyebrow">07</span><h2 id="header">Шапка</h2>
+    <p class="muted" style="max-width:70ch;margin-top:-20px">Липкая, с полупрозрачным фоном и размытием; при скролле появляется нижняя линия. Над шапкой в макетах — тёмный переключатель страниц (в продакшн не идёт). Пункты B2B и Бренды раскрываются по наведению. До 1040 px меню сворачивается в бургер.</p>
+    <div class="lbl">Desktop · выпадающее меню B2B</div>
+    <div class="pv" id="pvHeader" style="height:330px"></div>
+    <div class="lbl">Mobile · открытое меню</div>
+    <div class="pv-mob" id="pvMob"></div>
+  </div></section>
+
+  <!-- FOOTER -->
+  <section class="kit"><div class="wrap">
+    <span class="eyebrow">08</span><h2 id="footer">Подвал</h2>
+    <p class="muted" style="max-width:70ch;margin-top:-20px">Тёмный подвал: навигация по разделам, контакты с CTA «Оставить заявку», соцсети и крупный водяной логотип. Живой экземпляр — внизу этой страницы.</p>
+  </div></section>
+
+  <!-- POPUPS -->
+  <section class="kit" style="border-bottom:0"><div class="wrap">
+    <span class="eyebrow">09</span><h2 id="popups">Попапы и уведомления</h2>
+    <div class="stage pn">
+      <div class="lbl" style="margin-top:0">Открыть живые попапы</div>
+      <div class="row-g"><button class="btn" data-modal="request">Заявка (B2B)</button><button class="btn outline" data-modal="price">Прайс для сетей</button><button class="btn outline" data-modal="cv">Резюме</button><button class="btn outline" data-modal="sub">Подписка</button><button class="btn outline" onclick="toast('Ссылка скопирована')">Тост</button><button class="btn outline" onclick="document.getElementById('cookie').classList.add('show')">Cookie</button></div>
+    </div>
+    <div class="lbl">Превью · заявка (desktop, с фото)</div>
+    <div class="pv-modal" id="pvReq"></div>
+    <div class="grid-2" style="margin-top:20px">
+      <div><div class="lbl" style="margin-top:0">Превью · компактный попап</div><div class="pv-modal" id="pvPrice"></div></div>
+      <div><div class="lbl" style="margin-top:0">Cookie-баннер и тост</div>
+        <div class="stage pn"><div class="pv-cookie" id="pvCookie"></div><div class="pv-toast" style="margin-top:24px"><div class="toast">✓ Добавлено в избранное</div></div></div>
+        <div class="lbl">Состояние успеха</div>
+        <div class="stage"><div class="form-ok" style="display:block;padding:0"><div class="ic">✓</div><h3>Заявка отправлена</h3><p class="muted">Спасибо! Мы получили ваш запрос и свяжемся с вами в ближайшее время.</p></div></div>
+      </div>
+    </div>
+  </div></section>
+</main>
+<script src="assets/site.js"></script>
+<script>
+(function(){
+  /* превью собираются из живых элементов, которые смонтировал site.js */
+  const hdr=document.getElementById('siteHeader').cloneNode(true); hdr.removeAttribute('id');
+  hdr.querySelectorAll('[id]').forEach(e=>e.removeAttribute('id'));
+  const b2b=hdr.querySelectorAll('.mnav .it')[1]; b2b.classList.add('force');
+  document.getElementById('pvHeader').appendChild(hdr);
+
+  const off=document.getElementById('offc').cloneNode(true); off.removeAttribute('id'); off.classList.add('open');
+  off.querySelectorAll('[id]').forEach(e=>e.removeAttribute('id'));
+  const d=off.querySelector('details'); if(d) d.open=true;
+  document.getElementById('pvMob').appendChild(off);
+
+  function cloneModal(id, host){ const m=document.getElementById(id).cloneNode(true); m.removeAttribute('id'); m.querySelectorAll('[data-close]').forEach(x=>x.removeAttribute('data-close')); document.getElementById(host).appendChild(m); }
+  cloneModal('m-request','pvReq'); cloneModal('m-price','pvPrice');
+  const ck=document.getElementById('cookie').cloneNode(true); ck.removeAttribute('id'); ck.querySelector('[id]')&&ck.querySelector('[id]').removeAttribute('id');
+  document.getElementById('pvCookie').appendChild(ck);
+  document.getElementById('demoTabs').onclick=e=>{const b=e.target.closest('button'); if(!b) return; [...e.currentTarget.children].forEach(x=>x.classList.toggle('active',x===b));};
+})();
+</script>
+</body>
+</html>
