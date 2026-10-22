@@ -60,13 +60,16 @@ const html = `
 <section class="dark cat-dark"><div class="wrap">
   <div class="sec-head"><div><h2 class="h-l">Фасовка и применение</h2></div></div>
   <div class="specs">${C.specs.map(s=>`<div class="spec rv"><div class="k">${s.k}</div>${s.vals?`<div class="vals">${s.vals.map(v=>`<span>${v}</span>`).join('')}</div>`:''}${s.big?`<div class="big">${s.big}</div>`:''}${s.list?`<ul>${s.list.map(v=>`<li>${v}</li>`).join('')}</ul>`:''}${s.note?`<p class="small" style="margin-top:14px">${s.note}</p>`:''}</div>`).join('')}</div>
-  <div class="sec-head" style="margin-top:110px"><div><h2 class="h-l">От запроса до регулярных поставок</h2></div><button class="btn light" data-modal="request">Обсудить задачу</button></div>
+</div></section>
+
+<section><div class="wrap">
+  <div class="sec-head"><div><h2 class="h-l">От запроса до регулярных поставок</h2></div><button class="btn outline" data-modal="request">Обсудить задачу</button></div>
   <div class="grid-4">${[
     ['01','Запрос','Фиксируем задачу: продукт, рецептура, объём, требования к фракции и упаковке.'],
     ['02','Образцы','Технологи инновационного центра подбирают позиции и отправляют образцы на тест.'],
     ['03','Спецификация','Согласуем параметры, документы качества и график отгрузок.'],
     ['04','Поставки','Отгружаем со своих складов — регулярно и в нужном объёме по всей России.']
-  ].map(s=>`<div class="spec rv"><div class="big" style="font-size:28px;color:rgba(255,255,255,.35)">${s[0]}</div><h3 class="h-s" style="margin:40px 0 10px">${s[1]}</h3><p class="muted" style="font-size:15px">${s[2]}</p></div>`).join('')}</div>
+  ].map(s=>`<div class="spec rv" style="background:var(--panel)"><div class="big" style="font-size:28px;color:var(--ink-35)">${s[0]}</div><h3 class="h-s" style="margin:40px 0 10px">${s[1]}</h3><p class="muted" style="font-size:15px">${s[2]}</p></div>`).join('')}</div>
 </div></section>
 
 <section class="tight"><div class="wrap">

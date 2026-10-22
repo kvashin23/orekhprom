@@ -7,7 +7,7 @@
 <meta name="description" content="Линейка «Твёрдый знак» Крафт: отборные орехи, сухофрукты, сладкие и солёные смеси в крафтовой упаковке. Форматы подушка 40–50 г, дойпак 110–200 г, гассет 200–250 г.">
 <link rel="preconnect" href="https://fonts.googleapis.com"><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Geologica:wght@300;400;500;600&display=swap" rel="stylesheet">
-<link rel="stylesheet" href="assets/site.css">
+<link rel="stylesheet" href="assets/site.css?v=202610222320">
 <style>
   :root{ --kraft:var(--ink-55); --kraft-soft:var(--panel); --tz-green:var(--ink); }
   .kr-hero{background:var(--kraft-soft); padding:0; overflow:hidden;}
@@ -29,8 +29,8 @@
 
   .packs{display:grid; grid-template-columns:repeat(3,1fr); gap:20px;}
   .pack{background:var(--card); border-radius:24px; overflow:hidden; display:flex; flex-direction:column;}
-  .pack .ph{aspect-ratio:1/1; background:var(--kraft-soft); overflow:hidden;}
-  .pack .ph img{width:100%; height:100%; object-fit:cover; transition:transform .6s;}
+  .pack .ph{aspect-ratio:1/1; background:#fff; overflow:hidden; padding:28px 28px 0;}
+  .pack .ph img{width:100%; height:100%; object-fit:contain; object-position:center bottom; transition:transform .6s;}
   .pack:hover .ph img{transform:scale(1.04);}
   .pack .bd{padding:24px 26px 28px; display:flex; justify-content:space-between; align-items:flex-end; gap:16px;}
   .pack h3{font-size:28px;}
@@ -125,6 +125,6 @@
   const G=['df9/udirf29n6a4uv4oqwel7x0r327blgwkn','d1b/8ipeyhvgycktl9f4d2gt59jlh3ory4nk','91e/z9ia3u5vmks8crmd5fgu7vbgemkm6bcm','a54/o1ummfp1lhhus0m33vg2ito6oqpadxp0','96b/zjkwbdbla4092y82guga4ctqm5jtfhn3','c2b/t1de7i4dyxcs7xiq4d4rpvzanas4414n','2e1/x1naswpy35o8rb2dwz3e6jvkoag8lpg7','6bb/xs2872vfqacqsg97yjjemq02quzkzdxk','24b/w6wb2jqkvpkvh2shx0mmpmhk2osznyga','049/3dhswn57znctbk223oc7yhrds2xncyz2','688/1gjwivv1p5z21qr2gyi9ty31rjx6q24e'];
   document.getElementById('krGal').innerHTML=G.map(g=>`<div><img loading="lazy" src="https://orekhprom.ru/upload/iblock/${g}.jpg" alt=""></div>`).join('');
 </script>
-<script src="assets/site.js"></script>
+<script src="assets/site.js?v=202610222320"></script>
 </body>
 </html>

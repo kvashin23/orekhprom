@@ -7,7 +7,7 @@
 <meta name="description" content="Гастро-снеки ЕМ!: кешью со вкусом гребешков в чесночном соусе, белых грибов и лисичек в сметане. Фасовка 50 и 180 г для сетей и импульсных продаж.">
 <link rel="preconnect" href="https://fonts.googleapis.com"><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Geologica:wght@250;300;400;500;600&display=swap" rel="stylesheet">
-<link rel="stylesheet" href="assets/site.css">
+<link rel="stylesheet" href="assets/site.css?v=202610222320">
 <style>
   /* ---------- HERO ---------- */
   .sn-hero{position:relative; padding:0; min-height:calc(100vh - 128px); min-height:calc(100svh - 128px); display:flex; flex-direction:column; justify-content:flex-end; overflow:hidden; background:#fff;}
@@ -65,6 +65,53 @@
     .fx-body{grid-template-columns:1fr; gap:10px; padding:22px 20px 6px; min-height:0;}
     .fx-num{font-size:64px;}
     .fx-nav{padding:12px 20px 22px;}
+  }
+
+  /* ---------- FACTS — ВАРИАНТ Б: горизонтальный аккордеон, все 4 факта на виду ---------- */
+  .fxv-out{background:var(--panel); padding-top:32px;}
+  .fxv{display:flex; justify-content:flex-end; gap:4px; flex-wrap:wrap;}
+  .fxv-out + section, section.facts-b{padding-top:56px;}
+  .fxv span{font-size:12px; color:var(--ink-55); align-self:center; margin-right:8px;}
+  .fxv button{all:unset; cursor:pointer; height:34px; padding:0 16px; border-radius:100px; border:1px solid var(--line); font-size:13px; font-weight:500; background:#fff;}
+  .fxv button.on{background:var(--ink); color:#fff; border-color:var(--ink);}
+  @media (max-width:720px){ .fxv{justify-content:flex-start;} }
+  .facts-b{display:none;}
+  body.fx-b .facts-a{display:none;}
+  body.fx-b .facts-b{display:block;}
+  .fb-head{display:grid; grid-template-columns:1fr 1fr; gap:48px; align-items:end; margin-bottom:40px;}
+  .fb-head h2{font-size:72px; line-height:.92; text-transform:lowercase; letter-spacing:-.03em;}
+  .fb-head .r p{font-size:18px; color:var(--ink-70); line-height:1.5; margin-bottom:24px; max-width:46ch;}
+  .acc{display:flex; gap:12px; height:540px;}
+  .acc .p{position:relative; flex:1; border-radius:24px; overflow:hidden; cursor:pointer; color:#fff; transition:flex .7s cubic-bezier(.2,.7,.2,1); min-width:0;}
+  .acc .p.on{flex:3.4;}
+  .acc .p img{position:absolute; inset:0; width:100%; height:100%; object-fit:cover; transition:transform 1.2s cubic-bezier(.2,.7,.2,1), filter .6s;}
+  .acc .p:not(.on) img{filter:brightness(.7) saturate(.85);}
+  .acc .p.on img{transform:scale(1.03);}
+  .acc .p::after{content:""; position:absolute; inset:0; background:linear-gradient(180deg,rgba(0,0,0,0) 35%,rgba(0,0,0,.78));}
+  .acc .in{position:absolute; left:0; right:0; bottom:0; z-index:1; padding:28px;}
+  .acc .num{font-family:var(--font-head); font-weight:600; font-size:64px; line-height:.85; letter-spacing:-.03em; transition:font-size .5s;}
+  .acc .num small{font-size:.45em; vertical-align:top;}
+  .acc .p.on .num{font-size:120px;}
+  .acc .t{font-family:var(--font-head); font-size:20px; line-height:1.15; margin-top:12px; text-transform:lowercase; max-width:24ch;}
+  .acc .p.on .t{font-size:28px;}
+  .acc .d{max-width:46ch; font-size:15px; line-height:1.45; color:rgba(255,255,255,.82); max-height:0; opacity:0; overflow:hidden; transition:max-height .6s, opacity .4s, margin .4s;}
+  .acc .p.on .d{max-height:120px; opacity:1; margin-top:12px;}
+  .acc .bar{position:absolute; left:28px; right:28px; top:24px; height:3px; border-radius:2px; background:rgba(255,255,255,.3); z-index:1; overflow:hidden;}
+  .acc .bar i{display:block; height:100%; width:0; background:#fff;}
+  .acc .p.on .bar i{animation:fxprog var(--dur,6s) linear forwards;}
+  .acc.paused .p.on .bar i{animation-play-state:paused;}
+  .acc .p:not(.on) .t{display:-webkit-box; -webkit-line-clamp:3; -webkit-box-orient:vertical; overflow:hidden;}
+  @media (max-width:1100px){ .fb-head{grid-template-columns:1fr; gap:20px;} .fb-head h2{font-size:56px;} .acc{height:480px;} .acc .p.on .num{font-size:96px;} }
+  @media (max-width:760px){
+    .fb-head h2{font-size:42px;}
+    .acc{flex-direction:column; height:auto;}
+    .acc .p{flex:none; height:110px; transition:height .6s cubic-bezier(.2,.7,.2,1);}
+    .acc .p.on{height:420px;}
+    .acc .in{padding:18px 20px;}
+    .acc .num{font-size:40px;} .acc .p.on .num{font-size:72px;}
+    .acc .t{font-size:17px;} .acc .p.on .t{font-size:22px;}
+    .acc .p:not(.on) .t{-webkit-line-clamp:1;}
+    .acc .bar{left:20px; right:20px; top:16px;}
   }
 
   /* ---------- FLAVORS ---------- */
@@ -141,7 +188,7 @@
   </section>
 
   <!-- FACTS SLIDER -->
-  <section class="facts" id="facts"><div class="wrap fx">
+  <section class="facts facts-a" id="facts"><div class="wrap fx">
     <div class="fx-left">
       <h2>снековый<br>рынок растёт</h2>
       <p class="lead2">Потребители ищут новые вкусы, эмоции и гастрономические открытия. Снеки с необычными, но понятными профилями вкуса дают покупателю повод взять продукт здесь и сейчас.</p>
@@ -155,6 +202,18 @@
         <div class="arrows"><button id="fxPrev" aria-label="Предыдущий факт">←</button><button id="fxNext" aria-label="Следующий факт">→</button></div>
       </div>
     </div>
+  </div></section>
+
+  <!-- FACTS — ВАРИАНТ Б -->
+  <section class="facts facts-b" id="facts-b"><div class="wrap">
+    <div class="fb-head">
+      <h2>снековый<br>рынок растёт</h2>
+      <div class="r">
+        <p>Потребители ищут новые вкусы, эмоции и гастрономические открытия. Снеки с необычными, но понятными профилями вкуса дают покупателю повод взять продукт здесь и сейчас.</p>
+        <div class="btn-row"><button class="btn" data-modal="order">Сделать заказ</button><button class="btn outline" data-modal="price">Получить прайс</button></div>
+      </div>
+    </div>
+    <div class="acc" id="acc"></div>
   </div></section>
 
   <!-- FLAVORS -->
@@ -271,6 +330,26 @@
   document.addEventListener('keydown',e=>{ if(!visible || /input|textarea|select/i.test(document.activeElement.tagName)) return; if(e.key==='ArrowRight') go(cur+1); if(e.key==='ArrowLeft') go(cur-1); });
   go(0);
 
+  /* ===== facts, вариант Б: аккордеон (данные те же, F) ===== */
+  const acc=document.getElementById('acc');
+  acc.innerHTML=F.map((f,i)=>`<div class="p" style="--dur:${DUR}ms" role="button" tabindex="0" aria-label="${f.t}"><img src="${U+f.img}" alt="" style="object-position:${f.pos}" loading="lazy"><span class="bar"><i></i></span><div class="in">${f.num?`<div class="num">${f.num}<small>%</small></div>`:'<div class="num">вау</div>'}<div class="t">${f.t}</div><div class="d">${f.d}</div></div></div>`).join('');
+  const ap=[...acc.children]; let ai=0, at=null, apaused=false, avis=false;
+  function ago(i){ ai=(i+ap.length)%ap.length; ap.forEach((p,k)=>{ p.classList.remove('on'); void p.offsetWidth; if(k===ai) p.classList.add('on'); }); arestart(); }
+  function arestart(){ clearTimeout(at); if(!apaused && avis) at=setTimeout(()=>ago(ai+1),DUR); }
+  ap.forEach((p,i)=>{ p.addEventListener('click',()=>ago(i)); p.addEventListener('keydown',e=>{ if(e.key==='Enter'||e.key===' '){ e.preventDefault(); ago(i);} }); if(matchMedia('(hover:hover)').matches) p.addEventListener('mouseenter',()=>{ if(i!==ai) ago(i); }); });
+  acc.addEventListener('mouseenter',()=>{apaused=true; acc.classList.add('paused'); clearTimeout(at);});
+  acc.addEventListener('mouseleave',()=>{apaused=false; acc.classList.remove('paused'); arestart();});
+  new IntersectionObserver(es=>es.forEach(en=>{ avis=en.isIntersecting; if(avis) arestart(); else clearTimeout(at); }),{threshold:.3}).observe(acc);
+  ago(0);
+
+  /* переключатель вариантов А / Б (только для макета); ?fx=b открывает вариант Б */
+  const sw=document.createElement('div'); sw.className='fxv-out';
+  sw.innerHTML='<div class="wrap fxv"><span>Блок «рынок растёт»:</span><button data-v="a">Вариант А</button><button data-v="b">Вариант Б</button></div>';
+  const setV=v=>{ document.body.classList.toggle('fx-b',v==='b'); [...sw.querySelectorAll('button')].forEach(b=>b.classList.toggle('on',b.dataset.v===v)); };
+  sw.onclick=e=>{ const b=e.target.closest('button'); if(!b) return; setV(b.dataset.v); history.replaceState(null,'',b.dataset.v==='b'?'?fx=b#facts':'#facts'); };
+  document.getElementById('facts').insertAdjacentElement('beforebegin', sw);
+  setV(new URLSearchParams(location.search).get('fx')==='b'?'b':'a');
+
   /* ===== flavors ===== */
   const FL=[
     {t:'Гребешки в чесночном соусе', d:'Солёная морская нота и ароматное чесночное масло — ресторанный эффект прямо в пачке', img:'resize_cache/iblock/050/1000_1000_1/y195dy2180eoox65p9ley8i64gzo01kj.webp', th:'resize_cache/iblock/050/100_100_1/y195dy2180eoox65p9ley8i64gzo01kj.webp', c:'linear-gradient(160deg,#4FB3C9,#1F6F86)'},
@@ -291,6 +370,6 @@
   document.getElementById('rvw').innerHTML=[...R,...R].map(card).join('');
 })();
 </script>
-<script src="assets/site.js"></script>
+<script src="assets/site.js?v=202610222320"></script>
 </body>
 </html>
