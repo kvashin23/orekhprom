@@ -27,7 +27,7 @@ const html = `
       <div class="btn-row"><button class="btn" data-modal="request">Запросить образцы</button><a href="#catalog" class="btn outline">Ассортимент <span class="arr">↓</span></a></div>
     </div>
     <div class="collage">
-      <div class="big"><img src="${src(C.hero[0])}" alt=""><span class="tag">${C.heroTag||'производство · орехпром'}</span></div>
+      <div class="big"><img src="${src(C.hero[0])}" alt=""></div>
       <div class="col">${C.hero.slice(1,4).map(h=>`<div><img src="${src(h)}" alt=""></div>`).join('')}</div>
     </div>
   </div>
@@ -40,16 +40,15 @@ const html = `
     <h2 class="h-l" style="margin:18px 0 28px">${C.about.title}</h2>
     <div class="prose">${C.about.text.map(p=>`<p>${p}</p>`).join('')}</div>
   </div>
-  <div class="rv">
-    <ul class="flist">${C.about.points.map(p=>`<li>${p}</li>`).join('')}</ul>
-    ${C.about.note?`<p class="small" style="margin-top:20px">${C.about.note}</p>`:''}
+  <div class="rv about-card">
+    <ul>${C.about.points.map(p=>`<li>${p}</li>`).join('')}</ul>
+    ${C.about.note?`<p>${C.about.note}</p>`:''}
   </div>
 </div></section>
 
 <section id="catalog"><div class="wrap">
   <div class="sec-head">
     <div><span class="eyebrow">ассортимент</span><h2 class="h-l">${C.catTitle}</h2></div>
-    <p class="small" style="max-width:34ch">${C.catNote||'Наведите на позицию, чтобы перейти в интернет-магазин или запросить спецификацию.'}</p>
   </div>
   <div class="tabs" id="catTabs" style="margin-bottom:40px">
     <button class="active" data-g="*">Все <span class="cnt">${all.length}</span></button>
@@ -58,23 +57,20 @@ const html = `
   <div id="catBody"></div>
 </div></section>
 
-<section class="panel tight"><div class="wrap">
-  <div class="sec-head"><div><span class="eyebrow">особенности</span><h2 class="h-m" style="margin-top:16px">Фасовка и применение</h2></div></div>
+<section class="dark cat-dark"><div class="wrap">
+  <div class="sec-head"><div><h2 class="h-l">Фасовка и применение</h2></div></div>
   <div class="specs">${C.specs.map(s=>`<div class="spec rv"><div class="k">${s.k}</div>${s.vals?`<div class="vals">${s.vals.map(v=>`<span>${v}</span>`).join('')}</div>`:''}${s.big?`<div class="big">${s.big}</div>`:''}${s.list?`<ul>${s.list.map(v=>`<li>${v}</li>`).join('')}</ul>`:''}${s.note?`<p class="small" style="margin-top:14px">${s.note}</p>`:''}</div>`).join('')}</div>
-</div></section>
-
-<section><div class="wrap">
-  <div class="sec-head"><div><span class="eyebrow">как мы работаем</span><h2 class="h-l">От запроса до регулярных поставок</h2></div><button class="btn outline" data-modal="request">Обсудить задачу</button></div>
+  <div class="sec-head" style="margin-top:110px"><div><h2 class="h-l">От запроса до регулярных поставок</h2></div><button class="btn light" data-modal="request">Обсудить задачу</button></div>
   <div class="grid-4">${[
     ['01','Запрос','Фиксируем задачу: продукт, рецептура, объём, требования к фракции и упаковке.'],
     ['02','Образцы','Технологи инновационного центра подбирают позиции и отправляют образцы на тест.'],
     ['03','Спецификация','Согласуем параметры, документы качества и график отгрузок.'],
     ['04','Поставки','Отгружаем со своих складов — регулярно и в нужном объёме по всей России.']
-  ].map(s=>`<div class="spec rv" style="background:var(--panel)"><div class="big" style="font-size:28px;color:var(--ink-35)">${s[0]}</div><h3 class="h-s" style="margin:40px 0 10px">${s[1]}</h3><p class="muted" style="font-size:15px">${s[2]}</p></div>`).join('')}</div>
+  ].map(s=>`<div class="spec rv"><div class="big" style="font-size:28px;color:rgba(255,255,255,.35)">${s[0]}</div><h3 class="h-s" style="margin:40px 0 10px">${s[1]}</h3><p class="muted" style="font-size:15px">${s[2]}</p></div>`).join('')}</div>
 </div></section>
 
-<section class="tight" style="padding-top:0"><div class="wrap">
-  <div class="sec-head"><div><span class="eyebrow">другие направления</span><h2 class="h-m" style="margin-top:16px">Ингредиенты B2B</h2></div><a href="b2b.html" class="link-arrow">Весь раздел B2B →</a></div>
+<section class="tight"><div class="wrap">
+  <div class="sec-head"><div><h2 class="h-l">Ингредиенты B2B</h2></div><a href="b2b.html" class="link-arrow">Весь раздел B2B →</a></div>
   <div class="grid-3">${OTHER.filter(o=>o.id!==C.id).map(o=>`<a class="dcard rv" href="${o.href}"><div class="ph"><img loading="lazy" src="${src(o.img)}" alt=""></div><div class="bd"><h3>${o.t}</h3><p>${o.d}</p><div class="go">Перейти <i>→</i></div></div></a>`).join('')}</div>
 </div></section>
 
@@ -109,7 +105,7 @@ function render(g){
   const groups = g==='*' ? C.groups : C.groups.filter(x=>x.id===g);
   body.innerHTML = groups.map(gr=>`<div class="cat-group" style="margin-bottom:64px">
       <div style="display:grid;grid-template-columns:minmax(0,1fr) minmax(0,1.4fr);gap:32px;align-items:end;margin-bottom:28px;padding-top:24px;border-top:1px solid var(--line)" class="cg-head">
-        <h3 class="h-m">${gr.t}</h3>${gr.d?`<p class="muted" style="font-size:15px;max-width:62ch">${gr.d}</p>`:'<span></span>'}
+        <h3 class="h-m">${gr.t}</h3>${gr.d?`<p class="muted cg-d" style="font-size:15px;max-width:52ch">${gr.d}</p>`:'<span></span>'}
       </div>
       <div class="grid-4">${gr.items.map(tile).join('')}</div></div>`).join('');
   window.observeReveal && window.observeReveal(body);
@@ -121,6 +117,27 @@ document.getElementById('catTabs').addEventListener('click', e=>{
   render(b.dataset.g);
 });
 const st = document.createElement('style');
-st.textContent = '@media (max-width:720px){.cg-head{grid-template-columns:1fr!important;gap:12px!important}}';
+st.textContent = `
+  /* описание группы — прижато к правому краю */
+  .cg-d{justify-self:end; text-align:right;}
+  @media (max-width:720px){.cg-head{grid-template-columns:1fr!important;gap:12px!important} .cg-d{justify-self:start; text-align:left;}}
+  /* список преимуществ — яркая тёмная карточка */
+  .about-card{background:var(--ink); color:#fff; border-radius:24px; padding:36px 40px;}
+  .about-card ul{list-style:none; margin:0; padding:0;}
+  .about-card li{display:flex; gap:16px; align-items:baseline; padding:16px 0; border-bottom:1px solid rgba(255,255,255,.14); font-family:var(--font-head); font-size:21px; line-height:1.25;}
+  .about-card li:first-child{padding-top:0;}
+  .about-card li::before{content:"→"; font-family:var(--font-sans); color:rgba(255,255,255,.5);}
+  .about-card p{margin-top:20px; color:rgba(255,255,255,.62); font-size:14px;}
+  @media (max-width:720px){ .about-card{padding:26px 22px;} .about-card li{font-size:17px;} }
+  /* тёмный блок: фасовка и применение + как мы работаем */
+  .cat-dark .spec{background:rgba(255,255,255,.06); color:#fff;}
+  .cat-dark .spec .k{color:rgba(255,255,255,.5);}
+  .cat-dark .spec .vals span{background:rgba(255,255,255,.1); color:#fff;}
+  .cat-dark .spec ul li{border-color:rgba(255,255,255,.12);}
+  .cat-dark .spec .small{color:rgba(255,255,255,.55);}
+  .cat-dark .spec .muted{color:rgba(255,255,255,.65);}
+  .cat-dark .h-l{color:#fff;}
+  @media (max-width:900px){ .cat-dark .sec-head[style]{margin-top:64px!important;} }
+`;
 document.head.appendChild(st);
 })();

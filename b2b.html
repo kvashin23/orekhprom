@@ -20,6 +20,19 @@
   .wy .hd > div{font-family:var(--font-sans); font-size:12px; text-transform:uppercase; letter-spacing:.1em; color:var(--ink-55); padding:16px 0;}
   @media (max-width:720px){ .wy .row > div{font-size:18px; padding:16px 0;} .wy .row > div:last-child{padding-left:14px;} .wy .row > div:first-child{padding-right:14px;} .wy .row > div i{display:none;} }
 
+  /* «Мы → Вы» — яркие карточки на тёмном фоне */
+  .wy2{display:grid; grid-template-columns:repeat(3,1fr); gap:16px;}
+  .wy2 .c{background:rgba(255,255,255,.06); border:1px solid rgba(255,255,255,.1); border-radius:24px; padding:30px; display:flex; flex-direction:column; gap:14px; min-height:290px; transition:background .3s, color .3s, transform .3s;}
+  .wy2 .c:hover{background:#fff; color:var(--ink); transform:translateY(-4px);}
+  .wy2 .n{font-family:var(--font-head); font-size:15px; color:rgba(255,255,255,.4);}
+  .wy2 .we{font-size:16px; color:rgba(255,255,255,.62); line-height:1.4;}
+  .wy2 i{font-style:normal; font-size:22px; color:#D9A15E; margin-top:auto;}
+  .wy2 .you{font-family:var(--font-head); font-size:28px; line-height:1.12; color:#fff;}
+  .wy2 .c:hover .n, .wy2 .c:hover .we{color:var(--ink-55);}
+  .wy2 .c:hover .you{color:var(--ink);}
+  @media (max-width:980px){ .wy2{grid-template-columns:1fr 1fr;} }
+  @media (max-width:600px){ .wy2{grid-template-columns:1fr;} .wy2 .c{min-height:0;} .wy2 .you{font-size:22px;} }
+
   .aud{display:grid; grid-template-columns:repeat(3,1fr); gap:20px;}
   .aud .c{position:relative; border-radius:var(--r); overflow:hidden; min-height:460px; color:#fff; display:flex; flex-direction:column; justify-content:flex-end; padding:30px;}
   .aud .c img{position:absolute; inset:0; width:100%; height:100%; object-fit:cover; transition:transform .6s;}
@@ -79,7 +92,7 @@
         <div class="btn-row"><button class="btn" data-modal="request">Оставить заявку</button><a href="#directions" class="btn outline">Направления <span class="arr">↓</span></a></div>
       </div>
       <div class="collage">
-        <div class="big"><img src="https://orekhprom.ru/upload/iblock/cfe/w9n9af8dk5zyo5s84d2t021qxxspr1as.jpg" alt=""><span class="tag">ингредиенты · орехпром</span></div>
+        <div class="big"><img src="https://orekhprom.ru/upload/iblock/cfe/w9n9af8dk5zyo5s84d2t021qxxspr1as.jpg" alt=""></div>
         <div class="col">
           <div><img src="https://orekhprom.ru/upload/iblock/9d3/4apmcnwkawuz0y1hgjkl48tehi36ifw9.jpg" alt=""></div>
           <div><img src="https://orekhprom.ru/upload/iblock/a02/coqlhho8zivlvasfe5zo0jzbza9k14r9.jpg" alt=""></div>
@@ -131,16 +144,15 @@
   </div></section>
 
   <!-- WE → YOU -->
-  <section><div class="wrap">
-    <div class="sec-head"><div><span class="eyebrow">преимущества</span><h2 class="h-l">Наши преимущества — ваши выгоды</h2></div><button class="btn outline" data-modal="request">Стать клиентом</button></div>
-    <div class="wy">
-      <div class="row hd"><div>Мы</div><div style="padding-left:32px;border-left:1px solid var(--line)">Вы</div></div>
-      <div class="row rv"><div><i>01</i>Разрабатываем передовые ингредиенты</div><div>Создаёте уникальные продукты</div></div>
-      <div class="row rv"><div><i>02</i>Используем натуральное сырьё</div><div>Выходите в трендовую нишу</div></div>
-      <div class="row rv"><div><i>03</i>Опираемся на аналитику и тренды</div><div>Сохраняете лидерство на рынке</div></div>
-      <div class="row rv"><div><i>04</i>Поддерживаем на всех этапах</div><div>Экономите ресурсы и время</div></div>
-      <div class="row rv"><div><i>05</i>Учитываем задачи вашего бизнеса</div><div>Получаете решения под своё производство</div></div>
-      <div class="row rv"><div><i>06</i>Выстраиваем логистику</div><div>Получаете стабильные поставки в нужном объёме</div></div>
+  <section class="dark"><div class="wrap">
+    <div class="sec-head"><div><h2 class="h-l" style="color:#fff">Наши преимущества — ваши выгоды</h2></div><button class="btn light" data-modal="request">Стать клиентом</button></div>
+    <div class="wy2">
+      <div class="c rv"><span class="n">01</span><p class="we">Мы разрабатываем передовые ингредиенты</p><i>↓</i><p class="you">Вы создаёте уникальные продукты</p></div>
+      <div class="c rv"><span class="n">02</span><p class="we">Мы используем натуральное сырьё</p><i>↓</i><p class="you">Вы выходите в трендовую нишу</p></div>
+      <div class="c rv"><span class="n">03</span><p class="we">Мы опираемся на аналитику и тренды</p><i>↓</i><p class="you">Вы сохраняете лидерство на рынке</p></div>
+      <div class="c rv"><span class="n">04</span><p class="we">Мы поддерживаем на всех этапах</p><i>↓</i><p class="you">Вы экономите ресурсы и время</p></div>
+      <div class="c rv"><span class="n">05</span><p class="we">Мы учитываем задачи вашего бизнеса</p><i>↓</i><p class="you">Вы получаете решения под своё производство</p></div>
+      <div class="c rv"><span class="n">06</span><p class="we">Мы выстраиваем логистику</p><i>↓</i><p class="you">Вы получаете стабильные поставки в нужном объёме</p></div>
     </div>
   </div></section>
 

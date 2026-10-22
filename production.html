@@ -43,7 +43,8 @@
   @media (max-width:560px){ .brands{grid-template-columns:1fr;} .brands > div:nth-child(2n){padding-left:0; border-left:0;} .brands b{font-size:19px;} }
 
   .facts3{display:grid; grid-template-columns:repeat(3,1fr); gap:16px;}
-  .facts3 > div{background:var(--card); border-radius:24px; padding:30px; min-height:240px; display:flex; flex-direction:column; justify-content:space-between;}
+  .facts3 > div{background:var(--card); border-radius:24px; padding:30px; display:flex; flex-direction:column; justify-content:flex-start;}
+  .facts3 .big-num{white-space:nowrap;}
   .facts3 .big-num{font-size:64px;}
   .facts3 p{font-size:15px; color:var(--ink-70); margin-top:10px;}
   .facts3 .dk{background:var(--ink); color:#fff;}
@@ -59,7 +60,7 @@
   .stg-media .bar{position:absolute; left:20px; right:20px; top:20px; z-index:2; display:flex; gap:4px;}
   .stg-media .bar i{flex:1; height:3px; border-radius:2px; background:rgba(255,255,255,.4); transition:background .3s;}
   .stg-media .bar i.on{background:#fff;}
-  .stg-list .st{min-height:62vh; display:flex; flex-direction:column; justify-content:center; padding:32px 0; border-bottom:1px solid var(--line); opacity:.32; transition:opacity .4s;}
+  .stg-list .st{min-height:40vh; display:flex; flex-direction:column; justify-content:center; padding:20px 0; border-bottom:1px solid var(--line); opacity:.32; transition:opacity .4s;}
   .stg-list .st.on{opacity:1;}
   .stg-list .st:last-child{border-bottom:0;}
   .stg-list .n{font-family:var(--font-head); font-size:18px; color:var(--accent); margin-bottom:14px;}
@@ -92,19 +93,20 @@
   .qsteps h3{font-size:24px; margin:28px 0 12px;}
   .qsteps p{color:rgba(255,255,255,.68); font-size:15px;}
   @media (max-width:900px){ .qsteps{grid-template-columns:1fr;} .qsteps > div + div{padding-left:0; border-left:0; border-top:1px solid rgba(255,255,255,.18); margin-top:34px;} }
-  .lab{display:grid; grid-template-columns:1.2fr .8fr .8fr; gap:16px; margin-top:56px;}
+  .lab{display:grid; grid-template-columns:repeat(3,1fr); gap:16px; margin-top:56px;}
   .lab div{border-radius:20px; overflow:hidden; aspect-ratio:4/3;}
   .lab img{width:100%; height:100%; object-fit:cover;}
   @media (max-width:720px){ .lab{grid-template-columns:1fr 1fr;} .lab div:first-child{grid-column:1/-1;} }
 
-  .zones{display:grid; grid-template-columns:repeat(4,1fr); gap:12px; margin-top:28px;}
+  .zones{display:grid; grid-template-columns:repeat(2,1fr); gap:12px; margin-top:28px;}
   .zones div{border-radius:16px; padding:18px; background:var(--card); font-size:14px;}
   .zones b{display:block; font-family:var(--font-head); font-size:20px; font-weight:600; margin-bottom:6px;}
   @media (max-width:720px){ .zones{grid-template-columns:1fr 1fr;} }
 
   .guar{display:grid; grid-template-columns:1.2fr .8fr; gap:56px; align-items:center;}
   .guar .marks{display:flex; gap:20px; justify-content:center; flex-wrap:wrap;}
-  .guar .marks img{height:140px; width:auto; object-fit:contain; background:#fff; border-radius:20px; padding:16px;}
+  .guar .marks{display:grid; grid-template-columns:1fr 1fr; gap:16px;}
+  .guar .marks img{width:100%; aspect-ratio:4/3; height:auto; object-fit:contain; background:#fff; border-radius:24px; padding:20px;}
   @media (max-width:900px){ .guar{grid-template-columns:1fr;} }
 
   #m-cert .box{max-width:720px; padding:24px;}
@@ -274,7 +276,7 @@
   const media=document.getElementById('stgMedia'), list=document.getElementById('stgList'), bar=document.getElementById('stgBar'), lbl=document.getElementById('stgLbl');
   media.insertAdjacentHTML('beforeend', S.map((s,i)=>`<img src="${U+s[1]}" alt="${s[0]}" ${i>1?'loading="lazy"':''}>`).join(''));
   bar.innerHTML=S.map(()=>'<i></i>').join('');
-  list.innerHTML=S.map((s,i)=>`<div class="st" data-i="${i}"><div class="mimg"><img loading="lazy" src="${U+s[1]}" alt=""></div><div class="n">${String(i+1).padStart(2,'0')} / 10</div><h3>${s[0]}</h3><p>${s[2]}</p><div class="chips">${s[3].map(c=>`<span class="chip">${c}</span>`).join('')}</div></div>`).join('');
+  list.innerHTML=S.map((s,i)=>`<div class="st" data-i="${i}"><div class="mimg"><img loading="lazy" src="${U+s[1]}" alt=""></div><div class="n">${String(i+1).padStart(2,'0')} / 10</div><h3>${s[0]}</h3><p>${s[2]}</p></div>`).join('');
   const imgs=[...media.querySelectorAll('img')], steps=[...list.children], bars=[...bar.children];
   function set(i){ imgs.forEach((x,k)=>x.classList.toggle('on',k===i)); steps.forEach((x,k)=>x.classList.toggle('on',k===i)); bars.forEach((x,k)=>x.classList.toggle('on',k<=i)); lbl.textContent=String(i+1).padStart(2,'0')+' · '+S[i][0]; }
   set(0);

@@ -9,15 +9,15 @@
 <link href="https://fonts.googleapis.com/css2?family=Geologica:wght@300;400;500;600&display=swap" rel="stylesheet">
 <link rel="stylesheet" href="assets/site.css">
 <style>
-  :root{ --kraft:#C9A27A; --kraft-soft:#EFE4D6; --tz-green:#2F6B3A; }
+  :root{ --kraft:var(--ink-55); --kraft-soft:var(--panel); --tz-green:var(--ink); }
   .kr-hero{background:var(--kraft-soft); padding:0; overflow:hidden;}
   .kr-hero .wrap{display:grid; grid-template-columns:1fr 1fr; gap:48px; align-items:center; min-height:680px;}
   .kr-hero .crumbs{padding-top:0;}
   .kr-hero h1{font-size:140px; line-height:.85; margin:22px 0 28px; letter-spacing:-.03em;}
-  .kr-hero .ph{align-self:stretch; position:relative; margin-right:-40px;}
+  .kr-hero .ph{align-self:center; position:relative; height:560px; border-radius:28px; overflow:hidden;}
   .kr-hero .ph img{position:absolute; inset:0; width:100%; height:100%; object-fit:cover; object-position:center 60%;}
   .kr-hero .tz{display:inline-flex; align-items:center; gap:10px; background:var(--tz-green); color:#fff; padding:8px 16px; border-radius:100px; font-size:13px; font-weight:500;}
-  @media (max-width:980px){ .kr-hero .wrap{grid-template-columns:1fr; min-height:0; padding-top:28px;} .kr-hero h1{font-size:84px;} .kr-hero .ph{height:420px; margin:0 -20px;} }
+  @media (max-width:980px){ .kr-hero .wrap{grid-template-columns:1fr; min-height:0; padding-top:28px; padding-bottom:40px;} .kr-hero h1{font-size:84px;} .kr-hero .ph{height:380px; border-radius:20px;} }
 
   .vals{display:grid; grid-template-columns:repeat(3,1fr); gap:0; border-top:1px solid var(--line);}
   .vals > div{padding:34px 32px 0 0;}
@@ -64,7 +64,7 @@
   <section class="kr-hero"><div class="wrap">
     <div style="padding:28px 0 72px">
       <div class="crumbs"><a href="https://orekhprom.ru/">Главная</a><span class="sep">/</span><a href="brands.html">Бренды</a><span class="sep">/</span><a href="brands.html#tz">Твёрдый знак</a><span class="sep">/</span><span class="cur">Крафт</span></div>
-      <div style="margin-top:56px"><span class="tz">Твёрдый знак · линейка</span></div>
+      <div style="margin-top:48px"></div>
       <h1>Крафт</h1>
       <p class="lead">Широкий ассортимент орехов высокого качества, а также специально разработанных сладких и солёных смесей. Линейка годами завоёвывает ценителей безусловного качества.</p>
       <div class="btn-row" style="margin-top:34px"><button class="btn" data-modal="price">Запрос ассортимента с ценами</button><a href="#formats" class="btn outline">Форматы ↓</a></div>

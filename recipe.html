@@ -67,16 +67,10 @@
 
   <section class="phero"><div class="wrap r-hero">
     <div>
-      <div class="btn-row"><span class="chip soft">Шоколад</span><span class="chip">Тренд 2025–2026</span></div>
+      <div class="btn-row"><span class="chip soft">Шоколад</span></div>
       <h1>Дубайский шоколад с фисташкой и катаифи</h1>
       <p class="lead">Плитка с хрустящей фисташковой начинкой, которая покорила соцсети. С готовой начинкой ЕМ! её можно сделать за вечер — без сложной технологии.</p>
-      <div class="facts">
-        <div><div class="k">Время</div><div class="v">40 мин</div></div>
-        <div><div class="k">Застывание</div><div class="v">1–2 ч</div></div>
-        <div><div class="k">Сложность</div><div class="v">Средне</div></div>
-        <div><div class="k">Выход</div><div class="v">2 плитки</div></div>
-      </div>
-      <div class="btn-row" style="margin-top:32px"><a href="#steps" class="btn">К рецепту ↓</a><button class="btn outline" onclick="window.print()">Распечатать</button><button class="btn outline" onclick="toast('Рецепт сохранён в избранное')">♥ Сохранить</button></div>
+      <div class="btn-row" style="margin-top:32px"><a href="#steps" class="btn">К рецепту ↓</a></div>
     </div>
     <div class="ph"><img src="assets/em/img/dubai-dessert-lg.jpg" alt="Дубайский шоколад"></div>
   </div></section>
@@ -85,12 +79,7 @@
     <aside class="ingr">
       <h2>Ингредиенты</h2>
       <p class="small">Нажмите на продукт, чтобы отметить его</p>
-      <div class="serv"><button id="sMinus" aria-label="Меньше">−</button><span>на <b id="sN">2</b> <span id="sW">плитки</span></span><button id="sPlus" aria-label="Больше">+</button></div>
       <ul id="ingList"></ul>
-      <div class="prod">
-        <img src="assets/em/img/dubai-jar-sm.jpg" alt="">
-        <div><b>Десертная начинка Фисташка-Фундук ЕМ!</b><a href="https://ozon.ru/t/bTmzsez" target="_blank" rel="noopener">Купить на OZON ↗</a></div>
-      </div>
     </aside>
 
     <div class="steps">
@@ -144,18 +133,16 @@
     ['Охладите','Уберите в холодильник на 1–2 часа, затем аккуратно извлеките плитки из форм.','1–2 часа','Разрез делайте горячим ножом — так слой начинки будет аккуратным.'],
   ];
   let n=2;
-  const ul=document.getElementById('ingList'), sN=document.getElementById('sN'), sW=document.getElementById('sW');
+  const ul=document.getElementById('ingList');
   function word(k){ const m=k%10, h=k%100; return (m===1&&h!==11)?'плитку':(m>=2&&m<=4&&(h<12||h>14))?'плитки':'плиток'; }
   function renderIng(){
     const done=[...ul.children].map(li=>li.classList.contains('done'));
     ul.innerHTML=ING.map((i,k)=>`<li class="${i.star?'star':''} ${done[k]?'done':''}"><span>${i.t}</span><span class="q">${i.q?Math.round(i.q*n/2)+' '+i.u:i.u}</span></li>`).join('');
-    sN.textContent=n; sW.textContent=word(n);
+
   }
   ul.onclick=e=>{const li=e.target.closest('li'); if(li) li.classList.toggle('done');};
-  document.getElementById('sMinus').onclick=()=>{ if(n>1){n--; renderIng();} };
-  document.getElementById('sPlus').onclick=()=>{ if(n<12){n++; renderIng();} };
   renderIng();
-  document.getElementById('stepList').innerHTML=ST.map((s,i)=>`<div class="step"><div class="n" role="button" tabindex="0">${i+1}</div><div class="tx"><h3>${s[0]}</h3><p>${s[1]}</p><div class="tm">⏱ ${s[2]}</div>${s[3]?`<div class="tip">💡 ${s[3]}</div>`:''}</div></div>`).join('');
+  document.getElementById('stepList').innerHTML=ST.map((s,i)=>`<div class="step"><div class="n" role="button" tabindex="0">${i+1}</div><div class="tx"><h3>${s[0]}</h3><p>${s[1]}</p></div></div>`).join('');
   document.getElementById('stepList').onclick=e=>{const b=e.target.closest('.n'); if(b) b.parentElement.classList.toggle('done');};
 })();
 </script>

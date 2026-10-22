@@ -33,50 +33,38 @@
     .sn-bar .ctas{flex-direction:column;}
   }
 
-  /* ---------- FACTS SLIDER (ТЗ: блок «снековый рынок растёт» в виде слайдера) ---------- */
+  /* ---------- FACTS SLIDER (ТЗ: блок «снековый рынок растёт» в виде слайдера) ----------
+     v2 по правкам: картинка не вытянутая, один текстовый блок на слайд, без списка вкладок */
   .facts{background:var(--panel); overflow:hidden;}
-  .fx{display:grid; grid-template-columns:minmax(0,1fr) minmax(0,1.15fr); gap:64px; align-items:stretch;}
-  .fx-left{display:flex; flex-direction:column; justify-content:space-between; gap:40px;}
+  .fx{display:grid; grid-template-columns:minmax(0,.85fr) minmax(0,1.15fr); gap:64px; align-items:center;}
   .fx-left h2{font-size:72px; line-height:.92; text-transform:lowercase; letter-spacing:-.03em;}
-  .fx-left .two{display:grid; grid-template-columns:1fr 1fr; gap:24px; margin-top:28px; max-width:520px;}
-  .fx-left .two p{font-size:15px; color:var(--ink-70); line-height:1.45;}
-  .fx-tabs{display:flex; flex-direction:column; border-top:1px solid var(--line);}
-  .fx-tabs button{all:unset; box-sizing:border-box; cursor:pointer; display:grid; grid-template-columns:40px 1fr auto; gap:14px; align-items:center; padding:16px 0; border-bottom:1px solid var(--line); position:relative; color:var(--ink-35); transition:color .25s;}
-  .fx-tabs button .n{font-size:12px; letter-spacing:.08em;}
-  .fx-tabs button .t{font-family:var(--font-head); font-size:20px; line-height:1.15;}
-  .fx-tabs button .v{font-family:var(--font-head); font-size:20px;}
-  .fx-tabs button.on, .fx-tabs button:hover{color:var(--ink);}
-  .fx-tabs button i{position:absolute; left:0; bottom:-1px; height:2px; width:0; background:var(--ink);}
-  .fx-tabs button.on i{animation:fxprog var(--dur,6s) linear forwards;}
-  .fx-tabs.paused button.on i{animation-play-state:paused;}
-  @keyframes fxprog{from{width:0} to{width:100%}}
-
-  .fx-stage{position:relative; display:grid; grid-template-columns:minmax(0,1fr) minmax(0,.85fr); gap:28px; min-height:600px; touch-action:pan-y;}
-  .fx-media{position:relative; border-radius:28px; overflow:hidden; background:#ddd;}
-  .fx-media img{position:absolute; inset:0; width:100%; height:100%; object-fit:cover; opacity:0; transform:scale(1.06); transition:opacity .7s ease, transform 1.2s cubic-bezier(.2,.7,.2,1);}
+  .fx-left .lead2{font-size:18px; color:var(--ink-70); line-height:1.5; margin:28px 0 36px; max-width:44ch;}
+  .fx-card{background:#fff; border-radius:28px; overflow:hidden; touch-action:pan-y; user-select:none;}
+  .fx-media{position:relative; aspect-ratio:16/10; background:#ddd; overflow:hidden;}
+  .fx-media img{position:absolute; inset:0; width:100%; height:100%; object-fit:cover; opacity:0; transform:scale(1.05); transition:opacity .7s ease, transform 1.2s cubic-bezier(.2,.7,.2,1);}
   .fx-media img.on{opacity:1; transform:none;}
-  .fx-media .cnt{position:absolute; left:20px; top:18px; z-index:2; background:#fff; border-radius:100px; padding:6px 14px; font-size:13px; font-variant-numeric:tabular-nums;}
-  .fx-text{display:flex; flex-direction:column; justify-content:space-between; padding:8px 0;}
-  .fx-slide{display:none;}
-  .fx-slide.on{display:block; animation:fxin .6s cubic-bezier(.2,.7,.2,1);}
-  @keyframes fxin{from{opacity:0; transform:translateY(18px)} to{opacity:1; transform:none}}
-  .fx-slide .big{font-family:var(--font-head); font-weight:600; font-size:150px; line-height:.85; letter-spacing:-.04em;}
-  .fx-slide .big small{font-size:.45em; vertical-align:top; margin-left:4px;}
-  .fx-slide .big.word{font-size:64px; line-height:.95; letter-spacing:-.02em;}
-  .fx-slide h3{font-size:30px; line-height:1.08; margin:22px 0 18px; text-transform:lowercase;}
-  .fx-slide p{color:var(--ink-70); font-size:16px; line-height:1.5; padding-top:18px; border-top:1px solid var(--line);}
-  .fx-nav{display:flex; align-items:center; justify-content:space-between; gap:16px;}
-  .fx-nav .src{font-size:12px; color:var(--ink-55); max-width:22ch;}
-  @media (max-width:1180px){ .fx{grid-template-columns:1fr; gap:48px;} .fx-left h2{font-size:56px;} }
-  @media (max-width:760px){
-    .fx-stage{grid-template-columns:1fr; min-height:0;}
-    .fx-media{aspect-ratio:4/5; border-radius:20px;}
-    .fx-slide .big{font-size:96px;}
-    .fx-slide .big.word{font-size:40px;}
-    .fx-slide h3{font-size:24px;}
+  .fx-body{display:grid; grid-template-columns:auto 1fr; gap:28px; align-items:center; padding:28px 32px 10px; min-height:150px;}
+  .fx-num{font-family:var(--font-head); font-weight:600; font-size:96px; line-height:.85; letter-spacing:-.04em; white-space:nowrap;}
+  .fx-num small{font-size:.45em; vertical-align:top;}
+  .fx-txt h3{font-size:24px; line-height:1.12; text-transform:lowercase; margin-bottom:8px;}
+  .fx-txt p{font-size:15px; color:var(--ink-70); line-height:1.45;}
+  .fx-body.anim{animation:fxin .55s cubic-bezier(.2,.7,.2,1);}
+  @keyframes fxin{from{opacity:0; transform:translateY(14px)} to{opacity:1; transform:none}}
+  .fx-nav{display:flex; align-items:center; justify-content:space-between; gap:16px; padding:14px 32px 28px;}
+  .fx-dots{display:flex; gap:6px; flex:1; max-width:280px;}
+  .fx-dots button{all:unset; cursor:pointer; flex:1; height:4px; border-radius:2px; background:var(--line); position:relative; overflow:hidden;}
+  .fx-dots button i{position:absolute; left:0; top:0; bottom:0; width:0; background:var(--ink);}
+  .fx-dots button.done i{width:100%;}
+  .fx-dots button.on i{animation:fxprog var(--dur,6s) linear forwards;}
+  .fx-dots.paused button.on i{animation-play-state:paused;}
+  @keyframes fxprog{from{width:0} to{width:100%}}
+  @media (max-width:1100px){ .fx{grid-template-columns:1fr; gap:40px;} .fx-left h2{font-size:56px;} }
+  @media (max-width:640px){
     .fx-left h2{font-size:42px;}
-    .fx-left .two{grid-template-columns:1fr; gap:10px;}
-    .fx-tabs{display:none;}
+    .fx-media{aspect-ratio:4/3;}
+    .fx-body{grid-template-columns:1fr; gap:10px; padding:22px 20px 6px; min-height:0;}
+    .fx-num{font-size:64px;}
+    .fx-nav{padding:12px 20px 22px;}
   }
 
   /* ---------- FLAVORS ---------- */
@@ -155,26 +143,16 @@
   <!-- FACTS SLIDER -->
   <section class="facts" id="facts"><div class="wrap fx">
     <div class="fx-left">
-      <div>
-        <span class="eyebrow">гастро-снеки ЕМ!</span>
-        <h2 style="margin-top:20px">снековый<br>рынок растёт</h2>
-        <div class="two">
-          <p>Потребители ищут новые вкусы, эмоции и гастрономические открытия</p>
-          <p>Снеки с необычными, но понятными профилями вкуса дают покупателю повод взять продукт здесь и сейчас</p>
-        </div>
-      </div>
-      <div class="fx-tabs" id="fxTabs"></div>
+      <h2>снековый<br>рынок растёт</h2>
+      <p class="lead2">Потребители ищут новые вкусы, эмоции и гастрономические открытия. Снеки с необычными, но понятными профилями вкуса дают покупателю повод взять продукт здесь и сейчас.</p>
       <div class="btn-row"><button class="btn" data-modal="order">Сделать заказ</button><button class="btn outline" data-modal="price">Получить прайс</button></div>
     </div>
-
-    <div class="fx-stage" id="fxStage" aria-roledescription="слайдер" aria-label="Факты о рынке снеков">
-      <div class="fx-media" id="fxMedia"><span class="cnt" id="fxCnt">01 / 04</span></div>
-      <div class="fx-text">
-        <div id="fxSlides" aria-live="polite"></div>
-        <div class="fx-nav">
-          <span class="src">Свайпайте или используйте стрелки</span>
-          <div class="arrows"><button id="fxPrev" aria-label="Предыдущий факт">←</button><button id="fxNext" aria-label="Следующий факт">→</button></div>
-        </div>
+    <div class="fx-card" id="fxStage" aria-roledescription="слайдер" aria-label="Факты о рынке снеков">
+      <div class="fx-media" id="fxMedia"></div>
+      <div class="fx-body" id="fxBody" aria-live="polite"></div>
+      <div class="fx-nav">
+        <div class="fx-dots" id="fxDots"></div>
+        <div class="arrows"><button id="fxPrev" aria-label="Предыдущий факт">←</button><button id="fxNext" aria-label="Следующий факт">→</button></div>
       </div>
     </div>
   </div></section>
@@ -260,37 +238,34 @@
   const U='https://orekhprom.ru/upload/';
   /* ===== facts slider ===== */
   const F=[
-    {img:'iblock/1b0/hxqccm4u9821oys6p39cc5kcz8qauwrt.webp', big:'вау', word:true, tab:'выигрывают те, кто удивляют', t:'выигрывают те, кто удивляют', d:'Необычные сочетания, яркие вкусы и нестандартная подача превращают привычный перекус в маленькое открытие'},
-    {img:'iblock/e95/k182nc3warsbhlos4xy73dvwjcj6s2pn.webp', big:'41', tab:'импульсная доля покупок', t:'импульсивная доля покупок орехов составляет 41%', d:'Заметная выкладка, понятные вкусы и удобная фасовка помогают быстро принять решение и добавить товар в корзину без раздумий'},
-    {img:'iblock/c10/05kan03hq70zvcifnz333sxuqt60n47a.webp', big:'22', tab:'выбирают эмоцию во вкусе', t:'покупатели выбирают эмоцию во вкусе — 22%', d:'Пряные, сладкие, солёные и смелые миксы создают настроение и делают выбор не рациональным, а чувственным'},
-    {img:'iblock/8bd/p2jcbgqug08ml8abkfs3mnxnkvk687mo.webp', big:'22', tab:'рост интереса к гастроснекам', t:'рост интереса к гастроснекам — 22%', d:'Орехи с акцентом на гастрономию — это уже не просто перекус, а часть вкусового опыта, который конкурирует с десертами и закусками'},
+    {img:'iblock/1b0/hxqccm4u9821oys6p39cc5kcz8qauwrt.webp', pos:'center 35%', num:'', t:'выигрывают те, кто удивляют', d:'Необычные сочетания, яркие вкусы и нестандартная подача превращают привычный перекус в маленькое открытие'},
+    {img:'iblock/e95/k182nc3warsbhlos4xy73dvwjcj6s2pn.webp', pos:'center 60%', num:'41', t:'импульсивная доля покупок орехов', d:'Заметная выкладка, понятные вкусы и удобная фасовка помогают быстро принять решение и добавить товар в корзину без раздумий'},
+    {img:'iblock/c10/05kan03hq70zvcifnz333sxuqt60n47a.webp', pos:'center 70%', num:'22', t:'покупатели выбирают эмоцию во вкусе', d:'Пряные, сладкие, солёные и смелые миксы создают настроение и делают выбор не рациональным, а чувственным'},
+    {img:'iblock/8bd/p2jcbgqug08ml8abkfs3mnxnkvk687mo.webp', pos:'center 45%', num:'22', t:'рост интереса к гастроснекам', d:'Орехи с акцентом на гастрономию — это уже не просто перекус, а часть вкусового опыта, который конкурирует с десертами и закусками'},
   ];
   const DUR=6000;
-  const media=document.getElementById('fxMedia'), slides=document.getElementById('fxSlides'), tabs=document.getElementById('fxTabs'), cnt=document.getElementById('fxCnt'), stage=document.getElementById('fxStage');
-  media.insertAdjacentHTML('beforeend', F.map((f,i)=>`<img src="${U+f.img}" alt="" ${i?'loading="lazy"':''}>`).join(''));
-  slides.innerHTML=F.map(f=>`<div class="fx-slide"><div class="big ${f.word?'word':''}">${f.word?'выигрывают<br>те, кто<br>удивляют':f.big+'<small>%</small>'}</div>${f.word?'':`<h3>${f.t}</h3>`}<p>${f.d}</p></div>`).join('');
-  tabs.innerHTML=F.map((f,i)=>`<button style="--dur:${DUR}ms"><span class="n">0${i+1}</span><span class="t">${f.tab}</span><span class="v">${f.word?'':f.big+'%'}</span><i></i></button>`).join('');
-  const imgs=[...media.querySelectorAll('img')], sl=[...slides.children], tb=[...tabs.children];
+  const media=document.getElementById('fxMedia'), bodyEl=document.getElementById('fxBody'), dots=document.getElementById('fxDots'), stage=document.getElementById('fxStage');
+  media.innerHTML=F.map((f,i)=>`<img src="${U+f.img}" alt="" style="object-position:${f.pos}" ${i?'loading="lazy"':''}>`).join('');
+  dots.innerHTML=F.map((_,i)=>`<button style="--dur:${DUR}ms" aria-label="Факт ${i+1}"><i></i></button>`).join('');
+  const imgs=[...media.children], db=[...dots.children];
   let cur=0, timer=null, paused=false;
   function go(i){
-    cur=(i+F.length)%F.length;
+    cur=(i+F.length)%F.length; const f=F[cur];
     imgs.forEach((x,k)=>x.classList.toggle('on',k===cur));
-    sl.forEach((x,k)=>x.classList.toggle('on',k===cur));
-    tb.forEach((x,k)=>{ x.classList.remove('on'); void x.offsetWidth; if(k===cur) x.classList.add('on'); });
-    cnt.textContent=String(cur+1).padStart(2,'0')+' / '+String(F.length).padStart(2,'0');
+    bodyEl.innerHTML=(f.num?`<div class="fx-num">${f.num}<small>%</small></div>`:'')+`<div class="fx-txt"${f.num?'':' style="grid-column:1/-1"'}><h3>${f.t}</h3><p>${f.d}</p></div>`;
+    bodyEl.classList.remove('anim'); void bodyEl.offsetWidth; bodyEl.classList.add('anim');
+    db.forEach((x,k)=>{ x.classList.remove('on'); x.classList.toggle('done',k<cur); void x.offsetWidth; if(k===cur) x.classList.add('on'); });
     restart();
   }
-  function restart(){ clearTimeout(timer); if(!paused) timer=setTimeout(()=>go(cur+1),DUR); }
-  function pause(p){ paused=p; tabs.classList.toggle('paused',p); if(p) clearTimeout(timer); else restart(); }
-  tb.forEach((b,i)=>b.onclick=()=>go(i));
+  function restart(){ clearTimeout(timer); if(!paused && visible) timer=setTimeout(()=>go(cur+1),DUR); }
+  function pause(p){ paused=p; dots.classList.toggle('paused',p); if(p) clearTimeout(timer); else restart(); }
+  db.forEach((b,i)=>b.onclick=()=>go(i));
   document.getElementById('fxPrev').onclick=()=>go(cur-1);
   document.getElementById('fxNext').onclick=()=>go(cur+1);
   stage.addEventListener('mouseenter',()=>pause(true)); stage.addEventListener('mouseleave',()=>pause(false));
-  /* свайп */
   let x0=null;
   stage.addEventListener('pointerdown',e=>{x0=e.clientX;});
   stage.addEventListener('pointerup',e=>{ if(x0===null) return; const dx=e.clientX-x0; if(Math.abs(dx)>40) go(cur+(dx<0?1:-1)); x0=null; });
-  /* клавиатура, когда блок на экране; автопрокрутка только когда блок виден */
   let visible=false;
   new IntersectionObserver(es=>es.forEach(en=>{ visible=en.isIntersecting; if(visible) restart(); else clearTimeout(timer); }),{threshold:.35}).observe(stage);
   document.addEventListener('keydown',e=>{ if(!visible || /input|textarea|select/i.test(document.activeElement.tagName)) return; if(e.key==='ArrowRight') go(cur+1); if(e.key==='ArrowLeft') go(cur-1); });
