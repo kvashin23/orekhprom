@@ -25,3 +25,12 @@
   .pg-switch .lbl span{display:none;}
 }
 
+
+/* защита от стилей Bootstrap на копиях живых страниц (.row, .wrap) */
+.pg-switch .row{flex-wrap:nowrap; margin:0 auto; --bs-gutter-x:0; --bs-gutter-y:0;}
+.pg-switch .row > *{width:auto; max-width:none; padding:0; margin-top:0; flex-shrink:1;}
+.pg-switch .row > .list{flex:1 1 auto; min-width:0;}
+.pg-switch .row > .lbl, .pg-switch .row > .nav{flex:none;}
+.pg-switch .wrap{max-width:1320px; padding:0 40px; margin:0 auto; box-sizing:border-box;}
+@media (max-width:900px){ .pg-switch .wrap{padding:0 20px;} }
+.pg-switch a{text-decoration:none;}
