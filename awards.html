@@ -45,6 +45,18 @@
   #m-award .box{max-width:760px;}
   #m-award .aimg{background:#fff; border-radius:20px; display:grid; place-items:center; padding:24px; margin-bottom:24px; height:280px;}
   #m-award .aimg img{max-height:100%; object-fit:contain;}
+  /* CTA для партнёров: компактный, справа — карточки-ссылки вместо пустоты */
+  .aw-cta{padding:48px 56px; gap:48px; align-items:center;}
+  .aw-links{display:flex; flex-direction:column; gap:12px;}
+  .aw-link{all:unset; box-sizing:border-box; cursor:pointer; display:flex; align-items:center; justify-content:space-between; gap:20px; padding:24px 28px; border-radius:20px; background:rgba(255,255,255,.07); border:1px solid rgba(255,255,255,.12); color:#fff; transition:background .25s, color .25s, border-color .25s;}
+  .aw-link span{display:flex; flex-direction:column; gap:6px;}
+  .aw-link b{font-family:var(--font-head); font-weight:600; font-size:22px; line-height:1.15;}
+  .aw-link small{font-size:14px; line-height:1.4; color:rgba(255,255,255,.6); transition:color .25s;}
+  .aw-link i{font-style:normal; flex:none; width:48px; height:48px; border-radius:50%; display:grid; place-items:center; font-size:18px; background:#fff; color:var(--ink); transition:transform .25s;}
+  .aw-link:hover{background:#fff; color:var(--ink); border-color:#fff;}
+  .aw-link:hover small{color:rgba(31,32,34,.6);}
+  .aw-link:hover i{background:var(--ink); color:#fff; transform:translateX(4px);}
+  @media (max-width:980px){ .aw-cta{padding:36px 24px; gap:28px;} .aw-link{padding:20px;} .aw-link b{font-size:19px;} }
 </style>
 </head>
 <body data-page="awards" data-nav="about">
@@ -86,11 +98,11 @@
   </div></section>
 
   <section style="padding-top:20px"><div class="wrap">
-    <div class="cta-box">
+    <div class="cta-box aw-cta">
       <div><span class="eyebrow" style="color:rgba(255,255,255,.55)">для партнёров</span><h2 style="margin-top:18px">Продукция, которой доверяют покупатели</h2><p>Добавьте награждённые продукты в ассортимент вашей сети или используйте наши ингредиенты в своём производстве.</p></div>
-      <div style="display:flex;flex-direction:column;gap:12px;justify-content:center;align-items:flex-start">
-        <button class="btn light" data-modal="price">Ассортимент для сетей</button>
-        <a href="b2b.html" class="btn outline" style="color:#fff;border-color:rgba(255,255,255,.35)">Ингредиенты B2B</a>
+      <div class="aw-links">
+        <button class="aw-link" data-modal="price"><span><b>Ассортимент для сетей</b><small>Орехи, снеки и пасты с наградами — прайс и условия поставки</small></span><i>→</i></button>
+        <a class="aw-link" href="b2b.html"><span><b>Ингредиенты B2B</b><small>Орехи, пасты, начинки и посыпки для пищевых производств</small></span><i>→</i></a>
       </div>
     </div>
   </div></section>
