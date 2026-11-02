@@ -409,7 +409,7 @@ footer.site{background:var(--ink); color:#fff; padding:90px 0 36px; margin-top:0
 @media (max-width:720px){
   .modal{padding:0; align-items:flex-end;}
   .modal .box{border-radius:24px 24px 0 0; padding:32px 20px; max-height:92vh;}
-  .modal .box.wide{grid-template-columns:1fr;} .modal .box.wide .side{display:none;} .modal .box.wide .main{padding:32px 20px;}
+  .modal .box.wide{grid-template-columns:1fr;} .modal .box.wide .side{display:none;} .modal .box.wide .main{padding:32px 20px; max-height:92vh;}
   .modal h3{font-size:28px;}
 }
 

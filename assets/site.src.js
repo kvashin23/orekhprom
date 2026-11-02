@@ -2,7 +2,7 @@
    ОРЕХПРОМ — общий скрипт макетов:
    переключатель страниц, шапка, подвал, попапы, cookie,
    плюс мелкие взаимодействия (reveal, FAQ, табы, формы).
-   Страница задаёт <body data-page="id" data-nav="b2b|brands|...">
+   Страница задает <body data-page="id" data-nav="b2b|brands|...">
    ========================================================= */
 (function(){
 const LOGO = `__LOGO__`;
@@ -60,7 +60,7 @@ function switcher(){
     <div class="lbl"><b></b><span>Макеты страниц</span></div>
     <div class="list" id="pgList">${links}</div>
     <select id="pgSel" aria-label="Выбор страницы">${opts}</select>
-    <div class="nav"><a href="${prev.href}" title="Назад" aria-label="Листать назад">‹</a><a href="${next.href}" title="Вперёд" aria-label="Листать вперёд">›</a></div>
+    <div class="nav"><a href="${prev.href}" title="Назад" aria-label="Листать назад">‹</a><a href="${next.href}" title="Вперед" aria-label="Листать вперед">›</a></div>
   </div></div>`;
 }
 
@@ -83,10 +83,10 @@ function header(){
       <div class="hdr-right">
         <span class="lang">Ru</span><span class="divider"></span>
         <a href="https://orekhprom.shop/" target="_blank" rel="noopener" class="btn sm">Интернет-магазин</a>
-        <button class="burger" id="burger" aria-label="Открыть меню"><i></i><i></i><i></i></button>
+        <button class="burger" id="burger" aria-label="Открыть меню" aria-controls="offc" aria-expanded="false"><i></i><i></i><i></i></button>
       </div>
     </div></header>
-    <div class="offc" id="offc" aria-hidden="true"><div class="wrap" style="display:flex;flex-direction:column;min-height:100%">
+    <div class="offc" id="offc" aria-hidden="true" inert><div class="wrap" style="display:flex;flex-direction:column;min-height:100%">
       <div class="top"><a href="https://orekhprom.ru/" class="logo" style="width:130px">${LOGO}</a><button class="x" id="offcX" aria-label="Закрыть">✕</button></div>
       <nav>${mob}</nav>
       <div class="bottom">
@@ -142,7 +142,7 @@ function modals(){
         ${fld('name','Ваше имя')}${fld('company','Компания')}
         ${fld('phone','Телефон','tel')}${fld('email','E-mail','email')}
         <div class="field sel full"><select name="dept">${DEPTS.map(d=>`<option>${d}</option>`).join('')}</select><label>Отдел</label></div>
-        <div class="field full"><textarea name="msg" placeholder=" "></textarea><label>Комментарий: продукт, объём, фасовка</label></div>
+        <div class="field full"><textarea name="msg" placeholder=" "></textarea><label>Комментарий: продукт, объем, фасовка</label></div>
         <label class="file-drop full"><input type="file" hidden>📎 <span>Приложить файл (ТЗ, спецификация)</span></label>
         ${consent()}
         <div class="submit full"><button class="btn" type="submit">Отправить запрос</button></div>
@@ -150,9 +150,9 @@ function modals(){
     </div></div></div>
 
   <div class="modal" id="m-price" role="dialog" aria-modal="true" aria-label="Запрос ассортимента"><div class="box"><button class="x" data-close>✕</button>
-    <h3>Ассортимент с ценами</h3><p class="sub">Пришлём актуальный прайс-лист и спецификации на e-mail.</p>
+    <h3>Ассортимент с ценами</h3><p class="sub">Пришлем актуальный прайс-лист и спецификации на e-mail.</p>
     <form class="form" novalidate>${fld('name','Ваше имя')}${fld('company','Компания / сеть')}${fld('phone','Телефон','tel')}${fld('email','E-mail','email')}${consent()}<div class="submit full"><button class="btn" type="submit">Получить прайс</button></div></form>
-    ${okBlock('Прайс уже в пути','Проверьте почту — письмо придёт в течение 15 минут.')}
+    ${okBlock('Прайс уже в пути','Проверьте почту — письмо придет в течение 15 минут.')}
   </div></div>
 
   <div class="modal" id="m-cv" role="dialog" aria-modal="true" aria-label="Отправить резюме"><div class="box"><button class="x" data-close>✕</button>
@@ -167,7 +167,7 @@ function modals(){
   <div class="modal" id="m-sub" role="dialog" aria-modal="true" aria-label="Подписка"><div class="box"><button class="x" data-close>✕</button>
     <h3>Дайджест для отрасли</h3><p class="sub">Раз в месяц: тренды кондитерского рынка, урожаи и цены на орехи, новинки ингредиентов.</p>
     <form class="form" novalidate><div class="field full"><input type="email" required placeholder=" "><label>E-mail</label></div>${consent()}<div class="submit full"><button class="btn" type="submit">Подписаться</button></div></form>
-    ${okBlock('Вы подписаны','Первый выпуск придёт в начале следующего месяца.')}
+    ${okBlock('Вы подписаны','Первый выпуск придет в начале следующего месяца.')}
   </div></div>
 
   <div class="cookie" id="cookie"><span>Сайт использует cookie-файлы для стабильной работы. Продолжая, вы соглашаетесь с <a href="#">политикой обработки</a>.</span><button class="btn light" id="cookieOk">Принять</button></div>
@@ -197,7 +197,7 @@ function initSwitcher(){
   [[prevA,-1],[nextA,1]].forEach(([a,dir])=>a.addEventListener('click', e=>{
     if(!listShown() || list.scrollWidth <= list.clientWidth + 2) return; // переход по ссылке на соседнюю страницу
     e.preventDefault();
-    /* своя анимация: нативный smooth-scroll на странице ЕМ гасится её скриптами */
+    /* своя анимация: нативный smooth-scroll на странице ЕМ гасится ее скриптами */
     const from = list.scrollLeft;
     const to = Math.max(0, Math.min(list.scrollWidth - list.clientWidth, from + dir * list.clientWidth * .7));
     const t0 = performance.now(), dur = 350;
@@ -233,13 +233,23 @@ window.addEventListener('scroll', onScroll, {passive:true}); onScroll();
 
 /* offcanvas */
 const offc = document.getElementById('offc');
-document.getElementById('burger').onclick = ()=>{ offc.classList.add('open'); offc.setAttribute('aria-hidden','false'); body.style.overflow='hidden'; };
-document.getElementById('offcX').onclick = ()=>{ offc.classList.remove('open'); offc.setAttribute('aria-hidden','true'); body.style.overflow=''; };
+const burger = document.getElementById('burger');
+function closeMenu(){
+  offc.classList.remove('open'); offc.setAttribute('aria-hidden','true'); offc.inert=true;
+  burger.setAttribute('aria-expanded','false'); body.style.overflow='';
+}
+burger.onclick = ()=>{
+  offc.inert=false; offc.classList.add('open'); offc.setAttribute('aria-hidden','false');
+  burger.setAttribute('aria-expanded','true'); body.style.overflow='hidden';
+  document.getElementById('offcX').focus();
+};
+document.getElementById('offcX').onclick = ()=>{ closeMenu(); burger.focus(); };
+offc.addEventListener('click', e=>{ if(e.target.closest('a[href]')) closeMenu(); });
 
 /* modals */
 function openModal(id){
   const m = document.getElementById('m-'+id); if(!m) return;
-  offc.classList.remove('open');
+  closeMenu();
   m.classList.add('open'); body.style.overflow='hidden';
 }
 function closeModal(m){ m.classList.remove('open'); body.style.overflow=''; }
@@ -251,7 +261,11 @@ document.addEventListener('click', e=>{
   if(c){ closeModal(c.closest('.modal')); return; }
   if(e.target.classList && e.target.classList.contains('modal')) closeModal(e.target);
 });
-document.addEventListener('keydown', e=>{ if(e.key==='Escape') document.querySelectorAll('.modal.open').forEach(closeModal); });
+document.addEventListener('keydown', e=>{
+  if(e.key!=='Escape') return;
+  document.querySelectorAll('.modal.open').forEach(closeModal);
+  if(offc.classList.contains('open')){ closeMenu(); burger.focus(); }
+});
 
 /* forms (демо: валидация + экран успеха) */
 document.addEventListener('submit', e=>{

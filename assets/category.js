@@ -4,7 +4,7 @@
 const C = window.CAT, U = 'https://orekhprom.ru';
 const src = s => /^https?:|^assets/.test(s) ? s : U + s;
 const OTHER = [
-  {id:'nuts', t:'Орехи', d:'Целые, дроблёные, обжаренные и в карамели', img:'/upload/iblock/9d3/4apmcnwkawuz0y1hgjkl48tehi36ifw9.jpg', href:'b2b-nuts.html'},
+  {id:'nuts', t:'Орехи', d:'Целые, дробленые, обжаренные и в карамели', img:'/upload/iblock/9d3/4apmcnwkawuz0y1hgjkl48tehi36ifw9.jpg', href:'b2b-nuts.html'},
   {id:'pastes', t:'Пасты', d:'Ореховые пасты и пасты из семян, 12–300 мкм', img:'/upload/iblock/a02/coqlhho8zivlvasfe5zo0jzbza9k14r9.jpg', href:'b2b-pastes.html'},
   {id:'ingredients', t:'Ингредиенты', d:'Печенье, жемчужины, гранола, кокос, попкорн', img:'/upload/iblock/bb1/we84g6b3ff7g1gwwm4lbuz2lk1s7y5my.jpg', href:'b2b-ingredients.html'},
   {id:'fillings', t:'Начинки', d:'На жировой и водной основе, пралине', img:'/upload/iblock/bc2/el74lzbmqj2wos279f620hf4kboj3nbr.jpg', href:'b2b-fillings.html'},
@@ -65,10 +65,10 @@ const html = `
 <section><div class="wrap">
   <div class="sec-head"><div><h2 class="h-l">От запроса до регулярных поставок</h2></div><button class="btn outline" data-modal="request">Обсудить задачу</button></div>
   <div class="grid-4">${[
-    ['01','Запрос','Фиксируем задачу: продукт, рецептура, объём, требования к фракции и упаковке.'],
+    ['01','Запрос','Фиксируем задачу: продукт, рецептура, объем, требования к фракции и упаковке.'],
     ['02','Образцы','Технологи инновационного центра подбирают позиции и отправляют образцы на тест.'],
     ['03','Спецификация','Согласуем параметры, документы качества и график отгрузок.'],
-    ['04','Поставки','Отгружаем со своих складов — регулярно и в нужном объёме по всей России.']
+    ['04','Поставки','Отгружаем со своих складов — регулярно и в нужном объеме по всей России.']
   ].map(s=>`<div class="spec rv" style="background:var(--panel)"><div class="big" style="font-size:28px;color:var(--ink-35)">${s[0]}</div><h3 class="h-s" style="margin:40px 0 10px">${s[1]}</h3><p class="muted" style="font-size:15px">${s[2]}</p></div>`).join('')}</div>
 </div></section>
 
@@ -81,7 +81,7 @@ const html = `
   <div class="cta-box">
     <div>
       <span class="eyebrow" style="color:rgba(255,255,255,.55)">запрос на производство</span>
-      <h2 style="margin-top:18px">${C.ctaTitle||'Подберём ингредиенты под ваш продукт'}</h2>
+      <h2 style="margin-top:18px">${C.ctaTitle||'Подберем ингредиенты под ваш продукт'}</h2>
       <p>Опишите задачу — технологи предложат позиции из ассортимента или разработают индивидуальную рецептуру.</p>
       <div class="contacts"><a href="tel:88612125460">8 (861) 212 54 60</a><span>Отдел продаж делового и кондитерского рынка</span></div>
     </div>
@@ -91,7 +91,7 @@ const html = `
         <div class="field"><input name="company" placeholder=" "><label>Компания</label></div>
         <div class="field"><input type="tel" name="phone" required placeholder=" "><label>Телефон</label></div>
         <div class="field"><input type="email" name="email" required placeholder=" "><label>E-mail</label></div>
-        <div class="field full"><textarea placeholder=" "></textarea><label>Что нужно: позиции, объём, фасовка</label></div>
+        <div class="field full"><textarea placeholder=" "></textarea><label>Что нужно: позиции, объем, фасовка</label></div>
         <label class="check full"><input type="checkbox" required checked><span>Даю согласие на обработку <a href="#">персональных данных</a></span></label>
         <div class="submit full"><button class="btn light" type="submit">Отправить запрос</button></div>
       </form>
@@ -102,7 +102,7 @@ const html = `
 
 document.getElementById('cat').innerHTML = html;
 
-/* каталог: «Все» — группы подряд с заголовками; конкретная вкладка — только её сетка */
+/* каталог: «Все» — группы подряд с заголовками; конкретная вкладка — только ее сетка */
 const body = document.getElementById('catBody');
 function render(g){
   const groups = g==='*' ? C.groups : C.groups.filter(x=>x.id===g);
@@ -124,7 +124,7 @@ st.textContent = `
   /* описание группы — прижато к правому краю */
   .cg-d{justify-self:end; text-align:right;}
   @media (max-width:720px){.cg-head{grid-template-columns:1fr!important;gap:12px!important} .cg-d{justify-self:start; text-align:left;}}
-  /* список преимуществ — яркая тёмная карточка */
+  /* список преимуществ — яркая темная карточка */
   .about-card{background:var(--ink); color:#fff; border-radius:24px; padding:36px 40px;}
   .about-card ul{list-style:none; margin:0; padding:0;}
   .about-card li{display:flex; gap:16px; align-items:baseline; padding:16px 0; border-bottom:1px solid rgba(255,255,255,.14); font-family:var(--font-head); font-size:21px; line-height:1.25;}
@@ -132,7 +132,7 @@ st.textContent = `
   .about-card li::before{content:"→"; font-family:var(--font-sans); color:rgba(255,255,255,.5);}
   .about-card p{margin-top:20px; color:rgba(255,255,255,.62); font-size:14px;}
   @media (max-width:720px){ .about-card{padding:26px 22px;} .about-card li{font-size:17px;} }
-  /* тёмный блок: фасовка и применение + как мы работаем */
+  /* темный блок: фасовка и применение + как мы работаем */
   .cat-dark .spec{background:rgba(255,255,255,.06); color:#fff;}
   .cat-dark .spec .k{color:rgba(255,255,255,.5);}
   .cat-dark .spec .vals span{background:rgba(255,255,255,.1); color:#fff;}
