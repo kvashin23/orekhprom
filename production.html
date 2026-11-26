@@ -4,7 +4,7 @@
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>Производство — полный цикл выращивания и переработки орехов | Орехпром</title>
-<meta name="description" content="Производство АО «Орехпром»: европейское оборудование Brovind, Jose Borel, Hornos Electricos Lago и печь BUHLER, 10 этапов переработки орехов, лаборатория и система безопасности HACCP с 2007 года.">
+<meta name="description" content="Производство АО «Орехпром»: европейское оборудование Brovind, Jose Borel, Hornos Electricos Lago и печь BUHLER, 9 этапов переработки орехов, лаборатория и система безопасности HACCP с 2007 года.">
 <link rel="preconnect" href="https://fonts.googleapis.com"><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Geologica:wght@300;400;500;600&display=swap" rel="stylesheet">
 <link rel="stylesheet" href="assets/site.css?v=20261126">
@@ -53,31 +53,33 @@
   @media (max-width:900px){ .facts3{grid-template-columns:1fr;} .facts3 > div{min-height:0; gap:28px;} .facts3 .big-num{font-size:48px;} }
   @media (max-width:360px){ .facts3 .big-num{font-size:38px;} }
 
-  /* stages scrollytelling */
-  .stg{display:grid; grid-template-columns:1fr 1fr; gap:72px; align-items:start;}
-  .stg-media{position:sticky; top:110px; height:calc(100vh - 150px); max-height:680px; border-radius:28px; overflow:hidden; background:var(--panel-2);}
-  .stg-media img{position:absolute; inset:0; width:100%; height:100%; object-fit:cover; opacity:0; transition:opacity .6s ease, transform 1s ease; transform:scale(1.04);}
-  .stg-media img.on{opacity:1; transform:none;}
-  .stg-media .lbl{position:absolute; left:20px; bottom:20px; z-index:2; background:#fff; border-radius:100px; padding:8px 16px; font-size:13px; font-weight:500;}
-  .stg-media .bar{position:absolute; left:20px; right:20px; top:20px; z-index:2; display:flex; gap:4px;}
-  .stg-media .bar i{flex:1; height:3px; border-radius:2px; background:rgba(255,255,255,.4); transition:background .3s;}
-  .stg-media .bar i.on{background:#fff;}
-  .stg-list .st{min-height:40vh; display:flex; flex-direction:column; justify-content:center; padding:20px 0; border-bottom:1px solid var(--line); opacity:.32; transition:opacity .4s;}
-  .stg-list .st.on{opacity:1;}
-  .stg-list .st:last-child{border-bottom:0;}
-  .stg-list .n{font-family:var(--font-head); font-size:18px; color:var(--accent); margin-bottom:14px;}
-  .stg-list h3{font-size:36px; margin-bottom:16px;}
-  .stg-list p{color:var(--ink-80); font-size:17px; max-width:52ch;}
-  .stg-list .chips{display:flex; gap:8px; flex-wrap:wrap; margin-top:18px;}
-  .stg-list .mimg{display:none;}
+  /* путь ореха: змейка из двух колонок */
+  .nutpath{--c:34px; --G:120px; --ln:#9DB07C; position:relative; display:grid; grid-template-columns:1fr 1fr; column-gap:var(--G);}
+  .np-col{display:flex; flex-direction:column; position:relative; z-index:1;}
+  .np-col.r{padding-top:36px;}
+  .np-a{position:absolute; left:var(--c); top:var(--c); bottom:0; width:calc(50% - var(--c)); border:2px solid var(--ln); border-top:0; border-bottom-right-radius:28px; pointer-events:none;}
+  .np-b{position:absolute; left:50%; top:0; width:calc(var(--G) / 2 + var(--c)); height:calc(36px + var(--c)); border:2px solid var(--ln); border-bottom:0; border-radius:28px 28px 0 0; pointer-events:none;}
+  .np-a::after{content:""; position:absolute; right:-8px; top:46%; width:12px; height:12px; border:2px solid var(--ln); border-width:2px 0 0 2px; transform:rotate(45deg); background:var(--bg);}
+  .np{position:relative; display:grid; grid-template-columns:calc(var(--c) * 2) 72px 1fr; gap:22px; align-items:start; padding-bottom:44px;}
+  .np:not(:last-child)::before, .np-line::before{content:""; position:absolute; left:calc(var(--c) - 1px); top:var(--c); height:100%; border-left:2px solid var(--ln); z-index:-1;}
+  .np:not(:last-child)::after, .np-line::after{content:""; position:absolute; left:calc(var(--c) - 6px); bottom:12px; width:10px; height:10px; border:2px solid var(--ln); border-width:0 2px 2px 0; transform:rotate(45deg); background:var(--bg);}
+  .np-n{width:calc(var(--c) * 2); height:calc(var(--c) * 2); border-radius:50%; background:var(--ink); color:#fff; display:grid; place-items:center; font-family:var(--font-head); font-size:28px; transition:transform .3s;}
+  .np:hover .np-n{transform:scale(1.08);}
+  .np-ic{width:72px; height:68px; color:var(--ink);}
+  .np-ic svg{width:100%; height:100%; display:block;}
+  .np h3{font-size:24px; line-height:1.15; margin:4px 0 10px;}
+  .np p{color:var(--ink-70); font-size:15px; max-width:44ch;}
+  @media (max-width:1100px){ .nutpath{--G:64px;} .np{grid-template-columns:calc(var(--c) * 2) 56px 1fr; gap:16px;} .np-ic{width:56px; height:54px;} .np h3{font-size:21px;} }
   @media (max-width:900px){
-    .stg{grid-template-columns:1fr; gap:0;}
-    .stg-media{display:none;}
-    .stg-list .st{min-height:0; opacity:1; padding:28px 0;}
-    .stg-list .mimg{display:block; border-radius:18px; overflow:hidden; aspect-ratio:16/10; margin-bottom:20px;}
-    .stg-list .mimg img{width:100%; height:100%; object-fit:cover;}
-    .stg-list h3{font-size:26px;}
-    .stg-list p{font-size:16px;}
+    .nutpath{grid-template-columns:1fr; --c:26px;}
+    .np-a, .np-b{display:none;}
+    .np-col.r{padding-top:0;}
+    .np{grid-template-columns:calc(var(--c) * 2) 1fr; gap:6px 16px; padding-bottom:36px;}
+    .np-col.l .np:last-child{}
+    .np-ic{grid-column:2; width:46px; height:44px;}
+    .np > div:last-child{grid-column:2;}
+    .np-n{font-size:22px; grid-row:1 / 3;}
+    .np h3{font-size:20px;}
   }
 
   /* quality */
@@ -125,7 +127,7 @@
       <div>
         <span class="eyebrow" style="color:rgba(255,255,255,.7)">производство</span>
         <h1>От ореховой плантации до готового продукта</h1>
-        <p class="lead">АО «ОРЕХПРОМ» — предприятие в России с полным циклом выращивания и переработки орехов. Европейское оборудование, 10 этапов переработки и контроль качества на каждом из них</p>
+        <p class="lead">АО «ОРЕХПРОМ» — предприятие в России с полным циклом выращивания и переработки орехов. Европейское оборудование, 9 этапов переработки и контроль качества на каждом из них</p>
         <div class="btn-row" style="margin-top:32px"><a href="#stages" class="btn light">Этапы переработки ↓</a><button class="btn outline" style="color:#fff;border-color:rgba(255,255,255,.4)" data-modal="request">Запросить аудит / экскурсию</button></div>
         <div class="stats">
           <div><div class="k">площади</div><div class="v">10 000+ м²</div></div>
@@ -163,11 +165,8 @@
 
   <!-- STAGES -->
   <section id="stages"><div class="wrap">
-    <div class="sec-head"><div><span class="eyebrow">этапы переработки орехов</span><h2 class="h-l">10 шагов от урожая до упаковки</h2></div><p class="sub" style="max-width:38ch">Листайте — фото слева меняется вместе с этапом</p></div>
-    <div class="stg">
-      <div class="stg-media" id="stgMedia"><div class="bar" id="stgBar"></div><span class="lbl" id="stgLbl"></span></div>
-      <div class="stg-list" id="stgList"></div>
-    </div>
+    <div class="sec-head"><div><span class="eyebrow">путь ореха</span><h2 class="h-l">Этапы от сырья к готовому продукту</h2></div><p class="sub" style="max-width:38ch">Последовательность 01–09</p></div>
+    <div class="nutpath" id="nutPath"></div>
   </div></section>
 
   <!-- QUALITY DEPARTMENT -->
@@ -263,27 +262,31 @@
 <script>
 (function(){
   const U='https://orekhprom.ru/upload/iblock/';
+  /* путь ореха: 9 этапов, линейные иконки (stroke = currentColor) */
+  const I={
+    shell:'<path d="M36 8c-10 4-18 16-18 30 0 14 8 22 18 22s18-8 18-22C54 24 46 12 36 8z"/><path d="M36 8c-3 8 4 12 0 20s3 12 0 20 2 10 0 12"/><path d="M12 24v26M60 24v26"/>',
+    reso:'<path d="M16 28h40l-6 18H22z"/><path d="M20 36h32"/><path d="M28 52h16M24 58h24"/><path d="M26 10c0 3-3 3-3 6s3 3 3 6M36 10c0 3-3 3-3 6s3 3 3 6M46 10c0 3-3 3-3 6s3 3 3 6"/>',
+    camera:'<rect x="14" y="10" width="44" height="30" rx="3"/><circle cx="36" cy="25" r="8"/><path d="M28 40l-10 14h36L44 40"/><path d="M10 58h52"/>',
+    hand:'<path d="M26 60V24a4 4 0 018 0v-6a4 4 0 018 0v6a4 4 0 018 0v4a4 4 0 018 0v16c0 9-7 16-16 16z"/><path d="M26 38l-5-5a4 4 0 00-6 6l11 13"/><path d="M34 22v14M42 18v18M50 28v10"/>',
+    crush:'<path d="M14 20h44L42 36H30z"/><rect x="28" y="36" width="16" height="9" rx="2"/><path d="M22 49h28l-4 13H26z"/><circle cx="27" cy="11" r="4"/><circle cx="45" cy="10" r="4"/><path d="M31 55h.5M37 57h.5M41 53h.5"/>',
+    drop:'<path d="M36 6C28 21 19 32 19 43a17 17 0 0034 0C53 32 44 21 36 6z"/><path d="M28 45a8 8 0 006 7"/>',
+    paste:'<path d="M12 18h24L30 30H18z"/><rect x="10" y="30" width="30" height="28" rx="3"/><path d="M40 40h6a4 4 0 014 4v4"/><path d="M44 50h18v8a4 4 0 01-4 4H48a4 4 0 01-4-4z"/><path d="M44 54h18"/><circle cx="20" cy="10" r="3"/><circle cx="29" cy="8" r="3"/>',
+    metal:'<rect x="16" y="20" width="40" height="40" rx="2"/><rect x="26" y="34" width="20" height="18" rx="2"/><path d="M30 46a6 6 0 0012 0"/><path d="M36 6v7M27 9l3.5 5M45 9l-3.5 5"/><path d="M12 60h48"/>',
+    balls:'<circle cx="23" cy="45" r="13"/><circle cx="49" cy="45" r="13"/><circle cx="36" cy="22" r="13"/><path d="M16 41a7 7 0 017-5M42 41a7 7 0 017-5M29 18a7 7 0 017-5"/>'
+  };
   const S=[
-    ['Выращивание и сбор урожая','fed/myc6d3gl9hojevgncsmimz62vhgmejs3.jpg','Участок выбирают по климату, составу почвы, уровню грунтовых вод и рельефу. Комплекс агротехнических мероприятий обеспечивает стабильную урожайность. Сбор начинается в сентябре и длится около месяца',['ОРЕХПРОМ АГРО','Адыгея','сентябрь']],
-    ['Очистка, сушка и калибровка в скорлупе','069/rbi9ztn6snvn0dnqn3pbqkw4zgwh6bmr.jpg','Сразу после сбора фундук подсушивают в проветриваемом месте — это продлевает срок хранения и снижает риск плесени. Предварительная калибровка ускоряет настройку оборудования для обрушивания',['цех на плантации']],
-    ['Обрушивание','c61/x3axp4k4gpx5my3bda5061vm3k0ev2uf.jpg','Скорлупу отделяют от ядра на оборудовании валкового типа. Тонкая настройка дает максимум целых ядер высокого качества, после чего орехи повторно калибруют и везут на завод',['валковое оборудование']],
-    ['Автоматическая сортировка','2bc/n2qstwa0mon7t06kuisxbberu7v6elzr.jpg','Резонансный и оптический сортировщики отделяют орех от скорлупы и примесей. Камеры высокого разрешения удаляют дефекты по цвету и форме — максимум 1 кусок скорлупы на 2 тонны продукта',['99,9% эффективности','1 / 2 т']],
-    ['Конвейерная ручная переборка','0d2/fe0y3tzylzyexpxlt7a0rugquy0g48dn.jpg','Визуальный контроль на конвейерной ленте — дополнительный, но обязательный этап производственного процесса',['визуальный контроль']],
-    ['Обжарка орехов','d3d/fjq5qixe0wpq4bckvne26ebur5eaxcdi.jpg','Двухэтапный процесс: орех медленно и равномерно обжаривается при контролируемом испарении влаги. Системы циркуляции воздуха дают однородный цвет и стабильную влажность',['BUHLER','2 этапа']],
-    ['Измельчение и дробление','6eb/mtdbusg2a2qwkl26vs64k7n7bryfpprp.jpg','Оснащение участка дробления позволяет получать продукцию различных фракций — от пыльцы до крупной крошки',['фракции 0–9 мм']],
-    ['Производство ореховых паст','f9a/rn107rlfrm20ili35qibl28iwpkgrl0d.jpg','Автоматизированные линии перетирают орехи разной степени обжарки в пасты различной дисперсности. Мельницы стабильно работают на больших объемах и дают частицы до 30 мкм',['до 30 мкм']],
-    ['Карамелизация и дражирование','e74/z6vq1w7z24tsen2wbjx9gjbwhi2jh11c.jpg','Европейское оборудование периодического действия позволяет получать орехи в оболочке из шоколада или сахарной корочки',['шоколад','карамель']],
-    ['Металлодетектор','c66/dsbrn9e27q414qzll377ywjvbdk62tps.jpg','На финальном этапе металлодетектор исключает попадание металлических частиц в готовый продукт; отсутствие металлопримесей контролируется на каждом этапе',['финальный контроль']],
+    ['Обрушка и калибровка','shell','Фундук очищают и калибруют в садах «ОРЕХПРОМ АГРО», затем отправляют на фабрику для дальнейшей переработки'],
+    ['Сортировка сырья','reso','Мы используем современное резонансное оборудование, которое отделяет скорлупу и примеси. Такой сортировщик гарантирует максимум одну скорлупу на 2 тонны продукта'],
+    ['Сортировка орехов','camera','Дефекты и примеси распознаются и удаляются из потока продукта на основании цвета, формы или других свойств. Мы используем моно- и бихроматические камеры с высоким разрешением, InGaAs и технологию PROfile'],
+    ['Ручная сортировка','hand','В процессе производства продукция проходит обязательную стадию переборки на конвейере'],
+    ['Дробление','crush','Используемое нами оборудование позволяет производить дробленую продукцию различных фракций'],
+    ['Карамелизация','drop','Варочник для грильяжной массы. Аппарат порционного действия для плавления и перемешивания'],
+    ['Производство ореховых паст','paste','Мы производим пасты разной степени помола из орехов различной степени прожарки'],
+    ['Применение металлодетектора','metal','Применение металлодетектора позволяет обнаруживать все типы металлов, предотвращая тем самым попадание в готовый продукт'],
+    ['Производство орехов в шоколаде и глазури','balls','Европейское оборудование периодического действия позволяет получать орехи в оболочке из шоколада или глазури'],
   ];
-  const media=document.getElementById('stgMedia'), list=document.getElementById('stgList'), bar=document.getElementById('stgBar'), lbl=document.getElementById('stgLbl');
-  media.insertAdjacentHTML('beforeend', S.map((s,i)=>`<img src="${U+s[1]}" alt="${s[0]}" ${i>1?'loading="lazy"':''}>`).join(''));
-  bar.innerHTML=S.map(()=>'<i></i>').join('');
-  list.innerHTML=S.map((s,i)=>`<div class="st" data-i="${i}"><div class="mimg"><img loading="lazy" src="${U+s[1]}" alt=""></div><div class="n">${String(i+1).padStart(2,'0')} / 10</div><h3>${s[0]}</h3><p>${s[2]}</p></div>`).join('');
-  const imgs=[...media.querySelectorAll('img')], steps=[...list.children], bars=[...bar.children];
-  function set(i){ imgs.forEach((x,k)=>x.classList.toggle('on',k===i)); steps.forEach((x,k)=>x.classList.toggle('on',k===i)); bars.forEach((x,k)=>x.classList.toggle('on',k<=i)); lbl.textContent=String(i+1).padStart(2,'0')+' · '+S[i][0]; }
-  set(0);
-  const io=new IntersectionObserver(es=>es.forEach(e=>{ if(e.isIntersecting) set(+e.target.dataset.i); }),{rootMargin:'-45% 0px -45% 0px'});
-  steps.forEach(s=>io.observe(s));
+  const step=(s,i)=>`<div class="np rv${i===3?' np-line':''}"><div class="np-n">${i+1}</div><div class="np-ic" aria-hidden="true"><svg viewBox="0 0 72 68" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round">${I[s[1]]}</svg></div><div><h3>${s[0]}</h3><p>${s[2]}</p></div></div>`;
+  document.getElementById('nutPath').innerHTML=`<span class="np-a"></span><span class="np-b"></span><div class="np-col l">${S.slice(0,4).map(step).join('')}</div><div class="np-col r">${S.slice(4).map((s,i)=>step(s,i+4)).join('')}</div>`;
 
   const C=['0b6/h6352a3qb48lh48e0z95fq05mhfczfa0.png','09f/s6sxo4meo3vedr5o102mb6m3fimzgj9m.jpg','602/cu7n1l00s65upkish2oivp20foo3goks.jpg','ff4/vyvjgvckem9dp57hjymuelzxi4njalea.jpg','184/f6o2uiqn2btsi8pcvm7z74jyk1gz9em1.jpg'];
   const certs=document.getElementById('certs');
