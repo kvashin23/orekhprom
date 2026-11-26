@@ -7,7 +7,7 @@
 <meta name="description" content="Орехи, ореховые пасты, начинки и специализированные ингредиенты для кондитерских, молочных производств и HoReCa. Более 700 партнеров, собственный инновационный центр и лаборатория.">
 <link rel="preconnect" href="https://fonts.googleapis.com"><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Geologica:wght@300;400;500;600&display=swap" rel="stylesheet">
-<link rel="stylesheet" href="assets/site.css?v=20261102">
+<link rel="stylesheet" href="assets/site.css?v=20261126">
 <style>
   /* we → you */
   .wy{display:grid; grid-template-columns:1fr 1fr; border-top:1px solid var(--line);}
@@ -33,7 +33,9 @@
   @media (max-width:980px){ .wy2{grid-template-columns:1fr 1fr;} }
   @media (max-width:600px){ .wy2{grid-template-columns:1fr;} .wy2 .c{min-height:0;} .wy2 .you{font-size:22px;} }
 
-  .aud{display:grid; grid-template-columns:repeat(3,1fr); gap:20px;}
+  .aud{display:grid; grid-template-columns:repeat(4,1fr); gap:16px;}
+  .aud .c h3{font-size:24px!important;}
+  @media (max-width:1100px){ .aud{grid-template-columns:repeat(2,1fr);} }
   .aud .c{position:relative; border-radius:var(--r); overflow:hidden; min-height:460px; color:#fff; display:flex; flex-direction:column; justify-content:flex-end; padding:30px;}
   .aud .c img{position:absolute; inset:0; width:100%; height:100%; object-fit:cover; transition:transform .6s;}
   .aud .c::after{content:""; position:absolute; inset:0; background:linear-gradient(180deg,rgba(0,0,0,0) 35%,rgba(0,0,0,.72));}
@@ -51,9 +53,11 @@
   .trust .t p{font-size:15px; color:var(--ink-70);}
   @media (max-width:900px){ .trust{grid-template-columns:1fr;} .trust .t{grid-template-columns:100px 1fr; gap:18px;} .trust .t img{width:100px; height:100px;} }
 
-  .qsteps{display:grid; grid-template-columns:repeat(3,1fr); gap:0; border-top:1px solid rgba(255,255,255,.18);}
-  .qsteps > div{padding:34px 34px 0 0;}
-  .qsteps > div + div{padding-left:34px; border-left:1px solid rgba(255,255,255,.18);}
+  .qsteps{display:grid; grid-template-columns:repeat(4,1fr); gap:0; border-top:1px solid rgba(255,255,255,.18);}
+  .qsteps > div{padding:34px 28px 0 0;}
+  .qsteps > div + div{padding-left:28px; border-left:1px solid rgba(255,255,255,.18);}
+  .qsteps h3{font-size:22px!important;}
+  @media (max-width:1100px) and (min-width:901px){ .qsteps{grid-template-columns:1fr 1fr;} .qsteps > div:nth-child(3){padding-left:0; border-left:0;} .qsteps > div:nth-child(n+3){margin-top:34px; border-top:1px solid rgba(255,255,255,.18);} }
   .qsteps .n{font-family:var(--font-head); font-size:64px; color:rgba(255,255,255,.2); line-height:1;}
   .qsteps h3{font-size:24px; margin:28px 0 12px;}
   .qsteps p{color:rgba(255,255,255,.68); font-size:15px;}
@@ -92,7 +96,7 @@
         <div class="btn-row"><button class="btn" data-modal="request">Оставить заявку</button><a href="#directions" class="btn outline">Направления <span class="arr">↓</span></a></div>
       </div>
       <div class="collage">
-        <div class="big"><img src="https://orekhprom.ru/upload/iblock/cfe/w9n9af8dk5zyo5s84d2t021qxxspr1as.jpg" alt=""></div>
+        <div class="big"><video src="assets/b2b/speculoos.mp4" poster="https://orekhprom.ru/upload/iblock/cfe/w9n9af8dk5zyo5s84d2t021qxxspr1as.jpg" autoplay muted loop playsinline preload="metadata" aria-hidden="true"></video></div>
         <div class="col">
           <div><img src="https://orekhprom.ru/upload/iblock/9d3/4apmcnwkawuz0y1hgjkl48tehi36ifw9.jpg" alt=""></div>
           <div><img src="https://orekhprom.ru/upload/iblock/a02/coqlhho8zivlvasfe5zo0jzbza9k14r9.jpg" alt=""></div>
@@ -111,35 +115,38 @@
   <!-- DIRECTIONS -->
   <section class="panel" id="directions"><div class="wrap">
     <div class="sec-head">
-      <div><span class="eyebrow">основные направления</span><h2 class="h-l">Четыре группы ингредиентов</h2></div>
+      <div><span class="eyebrow">основные направления</span><h2 class="h-l">Группы ингредиентов</h2></div>
       <p class="sub" style="max-width:40ch">Подберем позиции из ассортимента или разработаем рецептуру под вашу линию.</p>
     </div>
-    <div class="grid-4">
+    <div class="grid-5">
       <a class="dcard rv" href="b2b-nuts.html"><span class="num">01</span><div class="ph"><img src="https://orekhprom.ru/upload/iblock/9d3/4apmcnwkawuz0y1hgjkl48tehi36ifw9.jpg" alt=""></div><div class="bd"><h3>Орехи</h3><p>Целые ядра, фракции 0–9 мм, обжаренные и в карамели</p><div class="go">Перейти <i>→</i></div></div></a>
       <a class="dcard rv" href="b2b-pastes.html"><span class="num">02</span><div class="ph"><img src="https://orekhprom.ru/upload/iblock/a02/coqlhho8zivlvasfe5zo0jzbza9k14r9.jpg" alt=""></div><div class="bd"><h3>Пасты</h3><p>Ореховые пасты и пасты из семян, 12–300 мкм</p><div class="go">Перейти <i>→</i></div></div></a>
-      <a class="dcard rv" href="b2b-ingredients.html"><span class="num">03</span><div class="ph"><img src="https://orekhprom.ru/upload/iblock/bb1/we84g6b3ff7g1gwwm4lbuz2lk1s7y5my.jpg" alt=""></div><div class="bd"><h3>Ингредиенты</h3><p>Печенье, жемчужины, гранола, кокос и попкорн</p><div class="go">Перейти <i>→</i></div></div></a>
+      <a class="dcard rv" href="b2b-ingredients.html"><span class="num">03</span><div class="ph"><img src="https://orekhprom.ru/upload/iblock/bb1/we84g6b3ff7g1gwwm4lbuz2lk1s7y5my.jpg" alt=""></div><div class="bd"><h3>Ингредиенты</h3><p>Печенье, хрустящие шарики, кокос, взрывная карамель</p><div class="go">Перейти <i>→</i></div></div></a>
       <a class="dcard rv" href="b2b-fillings.html"><span class="num">04</span><div class="ph"><img src="https://orekhprom.ru/upload/iblock/bc2/el74lzbmqj2wos279f620hf4kboj3nbr.jpg" alt=""></div><div class="bd"><h3>Начинки</h3><p>На жировой и водной основе, пралине</p><div class="go">Перейти <i>→</i></div></div></a>
+      <a class="dcard rv" href="b2b-ingredients.html"><span class="num">05</span><div class="ph"><img src="assets/b2b/toppers.webp" alt=""></div><div class="bd"><h3>Топперы</h3><p>Хрустящие включения и наполнители</p><div class="go">Перейти <i>→</i></div></div></a>
     </div>
   </div></section>
 
   <!-- AUDIENCE -->
   <section><div class="wrap">
-    <div class="sec-head"><div><span class="eyebrow">для кого мы работаем</span><h2 class="h-l">Решения для трех типов клиентов</h2></div></div>
+    <div class="sec-head"><div><span class="eyebrow">для кого мы работаем</span><h2 class="h-l" style="max-width:22ch">Решения для производственных пищевых индустрий</h2></div></div>
     <div class="aud">
-      <a class="c rv" href="#directions"><img src="https://orekhprom.ru/upload/iblock/ce6/0iavbvyck5bt2qjn8s2sruo3l78ihrlt.jpg" alt=""><span class="n">01</span><h3>Кондитерская и молочная индустрия</h3><p>Сырье, ингредиенты и технологическая поддержка на всех этапах.</p></a>
-      <a class="c rv" href="#directions"><img src="https://orekhprom.ru/upload/iblock/c26/v0u8ay8h7oy3y316g0i31vt5orw615rw.jpg" alt=""><span class="n">02</span><h3>HoReCa</h3><p>Орехи и ингредиенты для профессионального использования, мелкий опт.</p></a>
-      <a class="c rv" href="https://orekhprom.ru/stm/"><img src="https://orekhprom.ru/upload/iblock/5db/dpifqc75zoeypdofvx0l9acrfxgrbj4h.jpg" alt=""><span class="n">03</span><h3>Федеральные сети</h3><p>Контрактное производство и выпуск продукции под СТМ.</p></a>
+      <a class="c rv" href="#directions"><img src="assets/em/img/banana-dessert-lg.jpg" alt=""><span class="n">01</span><h3>Молочная индустрия</h3><p>Ингредиенты для йогуртов, творожных десертов и молочных продуктов</p></a>
+      <a class="c rv" href="#directions"><img src="https://orekhprom.ru/upload/iblock/c26/v0u8ay8h7oy3y316g0i31vt5orw615rw.jpg" alt=""><span class="n">02</span><h3>Кондитерская индустрия</h3><p>Ингредиенты для шоколада, конфет, батончиков и десертов</p></a>
+      <a class="c rv" href="#directions"><img src="https://orekhprom.ru/upload/iblock/23c/b3ij7pk7zewv8819svifppwpti0bvpy0.jpg" alt=""><span class="n">03</span><h3>Производство мороженого</h3><p>Ингредиенты для мороженого, джелато и замороженных десертов</p></a>
+      <a class="c rv" href="#directions"><img src="assets/em/img/pistachio-dessert-lg.jpg" alt=""><span class="n">04</span><h3>Хлебопекарная индустрия</h3><p>Ингредиенты для выпечки и мучных кондитерских изделий</p></a>
     </div>
   </div></section>
 
   <!-- TRUST -->
   <section class="panel"><div class="wrap">
-    <div class="sec-head"><div><span class="eyebrow">надежное партнерство</span><h2 class="h-l">Нам доверяют самые требовательные игроки рынка</h2></div></div>
+    <div class="sec-head"><div><span class="eyebrow">подбор ингредиентов</span><h2 class="h-l">Поможем найти подходящее решение</h2><p class="sub">Расскажите, какой продукт вы производите или планируете производить. Мы поможем подобрать подходящие ингредиенты и обсудить возможность получения образцов для тестирования</p></div><button class="btn" data-modal="request">Рассказать о продукте</button></div>
+    <div class="eyebrow" style="margin-bottom:20px">вы получите</div>
     <div class="trust">
-      <div class="t rv"><img src="https://orekhprom.ru/upload/iblock/696/2l8phfp10hhk1fqwtub0wwgtdrind9he.jpg" alt=""><div><h3>Нам доверяют</h3><p>Более 700 российских и иностранных производителей пищевой и кондитерской продукции, а также крупные розничные сети.</p></div></div>
-      <div class="t rv"><img src="https://orekhprom.ru/upload/iblock/f3c/uhwtgfz08blae1qporusq2xorl60uetp.png" alt="" style="object-fit:contain;background:#fff"><div><h3>Мы представляем</h3><p>Российскую Федерацию в International Nut and Dried Fruit Council — авторитетнейшей отраслевой организации.</p></div></div>
-      <div class="t rv"><img src="https://orekhprom.ru/upload/iblock/20e/xwoeyt9r079e3d1lsc70y7cqduionr23.jpg" alt=""><div><h3>Мы сотрудничаем</h3><p>С производителями кондитерской и молочной продукции в разных регионах России.</p></div></div>
-      <div class="t rv"><img src="https://orekhprom.ru/upload/iblock/2ca/03jv3mup2yqw07e4176kcu2b8d0281z4.jpg" alt=""><div><h3>Мы учитываем</h3><p>Требования к качеству сырья, фракциям, объемам партий и упаковке. Сроки поставки — те, что нужны клиенту.</p></div></div>
+      <div class="t rv"><img src="https://orekhprom.ru/upload/iblock/2aa/wobnfy7d75wzqelfmpg0t0qqqvn5xem9.jpg" alt=""><div><h3>Подбор подходящих ингредиентов под вашу задачу</h3></div></div>
+      <div class="t rv"><img src="https://orekhprom.ru/upload/iblock/2ca/03jv3mup2yqw07e4176kcu2b8d0281z4.jpg" alt=""><div><h3>Информацию о характеристиках продукта, фасовки</h3></div></div>
+      <div class="t rv"><img src="https://orekhprom.ru/upload/iblock/696/2l8phfp10hhk1fqwtub0wwgtdrind9he.jpg" alt=""><div><h3>Консультацию по применению продукции</h3></div></div>
+      <div class="t rv"><img src="https://orekhprom.ru/upload/iblock/431/7aelil0m3zsctmii35r1bka0tribwzho.jpg" alt=""><div><h3>Информацию о документах и возможности получения образцов</h3></div></div>
     </div>
   </div></section>
 
@@ -160,8 +167,15 @@
   <section class="panel"><div class="wrap split">
     <div class="rv">
       <span class="eyebrow">инновационный центр</span>
-      <h2 class="h-l" style="margin:18px 0 26px">Разработка под вашу задачу</h2>
-      <div class="prose"><p>Стратегическая цель центра — развитие научно-исследовательской деятельности как основы для новых знаний и технологий. Это позволяет непрерывно повышать эффективность и предлагать партнерам индивидуальные решения.</p><p>Технологи подбирают вкус, текстуру, срок годности и поведение массы на вашем оборудовании, готовят опытные образцы и проводят дегустации.</p></div>
+      <h2 class="h-l" style="margin:18px 0 26px">Инновации и технологическая экспертиза</h2>
+      <div class="prose"><p>Команда R&amp;D центра работает над разработкой новых решений и помогает адаптировать ингредиенты под задачи партнеров. Мы можем предложить:</p></div>
+      <ul class="flist" style="margin-top:20px">
+        <li>Разработку ингредиентов по индивидуальному запросу</li>
+        <li>Подбор вкуса и текстуры</li>
+        <li>Подбор степени обжарки и измельчение орехов под задачу</li>
+        <li>Подбор ингредиентов под готовую рецептуру</li>
+        <li>Создание опытных образцов для тестирования</li>
+      </ul>
       <div class="btn-row" style="margin-top:32px"><a href="https://orekhprom.ru/rd/" class="btn">R&amp;D-центр</a><button class="btn outline" data-modal="request">Заказать разработку</button></div>
     </div>
     <div class="icgal rv">
@@ -173,11 +187,12 @@
 
   <!-- QUALITY -->
   <section class="dark"><div class="wrap">
-    <div class="sec-head"><div><span class="eyebrow">контроль качества и безопасности</span><h2 class="h-l" style="color:#fff">Каждая партия — через лабораторию</h2></div><span class="chip" style="color:#fff;border-color:rgba(255,255,255,.25)">ISO · HACCP · FSSC 22000</span></div>
+    <div class="sec-head"><div><span class="eyebrow">контроль качества и безопасности</span><h2 class="h-l" style="color:#fff;max-width:20ch">Надежность начинается с контроля каждой партии</h2><p class="sub" style="color:rgba(255,255,255,.7)">Контроль качества встроен в производственную цепочку</p></div><span class="chip" style="color:#fff;border-color:rgba(255,255,255,.25)">ISO · HACCP · FSSC 22000</span></div>
     <div class="qsteps">
-      <div class="rv"><div class="n">01</div><h3>Контроль поступающего сырья</h3><p>Передовые способы лабораторного контроля на современном оборудовании.</p></div>
-      <div class="rv"><div class="n">02</div><h3>Контроль готовой продукции</h3><p>Каждая партия проверяется на соответствие нормативной документации и требованиям клиента.</p></div>
-      <div class="rv"><div class="n">03</div><h3>Компетентность персонала</h3><p>Постоянное повышение квалификации сотрудников лаборатории и внедрение современных методов анализа.</p></div>
+      <div class="rv"><div class="n">01</div><h3>Контроль поступающего сырья</h3><p>Проверка поступающих ингредиентов и сырья</p></div>
+      <div class="rv"><div class="n">02</div><h3>Контроль готовой продукции</h3><p>Каждая партия проверяется на соответствие установленным требованиям и спецификациям</p></div>
+      <div class="rv"><div class="n">03</div><h3>Документальное сопровождение</h3><p>Предоставление документов, подтверждающих качество и безопасность продукции</p></div>
+      <div class="rv"><div class="n">04</div><h3>Прослеживаемость и производственные процессы</h3><p>Контроль производственных этапов и соблюдение требований пищевой безопасности</p></div>
     </div>
     <div class="lab">
       <div><img src="https://orekhprom.ru/upload/iblock/570/rh0s8eq1g0uje3akku0fd96hchmxdanl.jpg" alt=""></div>

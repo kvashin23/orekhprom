@@ -472,3 +472,23 @@ h2.h-m, h2.h-l, .cta-box h2{font-size:52px;}
 .collage > *{min-height:0; min-width:0;}
 .collage .col{grid-template-rows:repeat(3,minmax(0,1fr));}
 .collage .col > div, .collage .big{min-height:0; height:100%;}
+
+/* правки 26.11.2026: видео в коллаже, сетка из 5, заглушка фото, кликабельное применение */
+.collage .big video{width:100%; height:100%; object-fit:cover;}
+.grid-5{display:grid; grid-template-columns:repeat(5,1fr); gap:16px;}
+.grid-5 .dcard .bd{padding:20px 20px 22px;}
+.grid-5 .dcard .bd h3{font-size:22px;}
+@media (max-width:1180px){ .grid-5{grid-template-columns:repeat(3,1fr); gap:20px;} }
+@media (max-width:900px){ .grid-5{grid-template-columns:repeat(2,1fr);} }
+@media (max-width:600px){ .grid-5{grid-template-columns:1fr;} }
+.ph-empty{display:flex; align-items:center; justify-content:center; text-align:center; padding:16px; background:repeating-linear-gradient(135deg,var(--panel) 0 14px,#fff 14px 28px)!important; color:var(--ink-55); font-size:13px; text-transform:uppercase; letter-spacing:.08em;}
+.ph-empty span{background:#fff; border-radius:100px; padding:8px 14px; box-shadow:0 4px 14px rgba(0,0,0,.06);}
+.ptile .ph.ph-empty .shop{display:none;}
+.spec ul.apps li{padding:0;}
+.spec ul.apps button{display:flex; width:100%; justify-content:space-between; align-items:center; gap:12px; padding:10px 0; font:inherit; text-align:left; color:inherit; background:none; border:0; cursor:pointer;}
+.spec ul.apps button::after{content:"＋"; flex:none; width:28px; height:28px; border-radius:50%; border:1px solid currentColor; opacity:.45; display:flex; align-items:center; justify-content:center; font-size:13px; transition:all .2s;}
+.spec ul.apps button:hover::after{opacity:1;}
+.photo-modal .box{max-width:760px; padding:0; overflow:hidden;}
+.photo-modal .pm-ph{aspect-ratio:4/3; background:var(--panel);}
+.photo-modal .pm-ph img{width:100%; height:100%; object-fit:cover;}
+.photo-modal .pm-cap{padding:22px 28px 26px; font-family:var(--font-head); font-size:24px;}

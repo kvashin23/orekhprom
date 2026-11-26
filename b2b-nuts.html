@@ -7,7 +7,7 @@
 <meta name="description" content="Целые, дробленые, обжаренные и карамелизированные орехи для кондитерских и молочных производств: фундук, миндаль, фисташка, грецкий орех, кешью, арахис, пекан.">
 <link rel="preconnect" href="https://fonts.googleapis.com"><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Geologica:wght@300;400;500;600&display=swap" rel="stylesheet">
-<link rel="stylesheet" href="assets/site.css?v=20261102">
+<link rel="stylesheet" href="assets/site.css?v=20261126">
 </head>
 <body data-page="nuts" data-nav="b2b">
 <main id="cat"></main>
@@ -16,8 +16,9 @@ const S='https://orekhprom.shop/catalog/';
 window.CAT = {
   id:'nuts', crumb:'Орехи', eyebrow:'B2B · орехи',
   title:'Орехи для кондитерских и молочных производств',
-  lead:'Целые ядра, фракции и карамелизированные орехи с контролем каждого этапа — от входного контроля сырья до лабораторной проверки готовой партии.',
+  lead:'Целые ядра, фракции и карамелизированные орехи с контролем каждого этапа — от входного контроля сырья до лабораторной проверки готовой партии',
   hero:['/upload/iblock/28b/rpxt790rqnro0zrcl7517zgbxkv62n8s.jpg','/upload/iblock/c69/hdazgo0ywi7x7ti8zgr7h6s76d13t3f1.jpg','/upload/iblock/7e6/us4caq626ungadcbd2eh8ljd0xvc0gw7.jpg','/upload/iblock/3cc/eyd9bb58u1jyccd5wddzdcwc2jd6r82z.jpg'],
+  heroVideo:'assets/b2b/hazelnut-2-4.mp4',
   heroTag:'фундук · обжарка',
   stats:[['виды орехов','7 культур'],['фракции','от 0–2 до 6–9 мм'],['обжарка','цельная, под задачу'],['упаковка','10 и 20 кг']],
   about:{
@@ -39,16 +40,20 @@ window.CAT = {
       {t:'Кешью', img:'/upload/iblock/23e/3k0kx8fwm646trte4g8roilv10o7sfc4.jpg'},
       {t:'Грецкий орех', img:'/upload/iblock/9a7/2qhppzv7n564kxpi0hmngnqstpfjxg9r.jpg', shop:S+'gretskiy-orekh/'},
       {t:'Арахис', img:'/upload/iblock/be4/b1yofj4ol44oicyehbshvftpn41xiqm3.jpg', shop:S+'arakhis/'},
+      {t:'Пекан'},
+      {t:'В карамели, шоколаде и пудре', img:'/upload/iblock/ae5/bnm6w4hxag9v9dqv0l3y1fxvdfl3z61e.jpg', tab:'choc'},
     ]},
     {id:'hazel', t:'Фундук', d:'Обжаренные дробленые фракции и фундук в карамели — для начинок, вафель, шоколада и декора.', items:[
       {t:'Фракция фундука 4–6 мм', m:'обжаренный, дробленый', img:'/upload/iblock/557/vvoz0m0xwkfzgx8behdp07bpv1b5ds89.jpg', shop:S+'funduk/_yadra_funduka_obzharennye_droblennye_4_6mm'},
       {t:'Фракция фундука 2–4 мм', m:'обжаренный, дробленый', img:'/upload/iblock/e4d/p8hypfaupoohsek1b21myaw90hjpfnqx.jpg', shop:S+'funduk/yadra-funduka-obzharennye-droblennye-2-4mm/'},
       {t:'Фундук в карамели 2–4 мм', m:'карамелизированный', img:'/upload/iblock/ae5/bnm6w4hxag9v9dqv0l3y1fxvdfl3z61e.jpg', shop:S+'funduk/yadra-funduka-obzharennye-droblenye-2-4-mm-karamelizirovannye-1-kg/'},
+      {t:'Фундук в пудре', m:'обжаренный, драже'},
     ]},
     {id:'almond', t:'Миндаль', d:'Лепестки и фракции миндаля — классика для европейской выпечки и десертов.', items:[
       {t:'Фракция миндаля 4–6 мм', m:'обжаренный, дробленый', img:'/upload/iblock/803/0u6ano7fw2jvzzgrm243od7zm3tobtx9.jpg', shop:S+'mindal/yadra-mindalya-obzharennye-droblennye-4-6mm/'},
       {t:'Лепестки миндаля', img:'/upload/iblock/16b/nke9r3miiv1b1e31lhp7fe63l2h727cd.jpg', shop:S+'mindal/'},
       {t:'Лепестки миндаля в карамели', m:'карамелизированные', img:'/upload/iblock/406/lc345lj0ourc03w0zh9dnyhxwmjsuej7.jpg', shop:S+'mindal/'},
+      {t:'Миндаль в шоколаде', m:'обжаренный, драже'},
     ]},
     {id:'pist', t:'Фисташка', d:'Яркий цвет и премиальный вкус — от пыльцы 0–2 мм до крупной фракции 4–6 мм.', items:[
       {t:'Фракция фисташки 0–2 мм', img:'/upload/iblock/d39/x1v73ioehapd9yassd6q2smzkej0o4eu.jpg', shop:S+'fistashki/yadra_fistashki_obzharennye_droblennye_0_2mm/'},
@@ -66,22 +71,36 @@ window.CAT = {
       {t:'Фракция арахиса 0–2 мм', img:'/upload/iblock/b32/ssls7lbbf4a9k3kx77xst2wz0fhrv0pg.jpg', shop:S+'arakhis/yadra_arakhisa_obzharennye_droblennye_0_2mm/'},
       {t:'Фракция арахиса 2–4 мм', img:'/upload/iblock/e7b/r412vpvpjf5b5sabhzaz5b0vq935qpv1.jpg', shop:S+'arakhis/yadra_arakhisa_obzharennye_droblennye_2_4mm/'},
       {t:'Фракция арахиса 4–6 мм', img:'/upload/iblock/cb2/i8gwwapdf6sqvw033orex4exuhr0ockk.jpg', shop:S+'arakhis/yadra_arakhisa_obzharennye_droblennye_4_6mm/'},
+      {t:'Арахис в шоколаде', m:'обжаренный, драже'},
     ]},
     {id:'pecan', t:'Пекан', d:'Маслянистый вкус с карамельными нотами — для премиальной выпечки.', items:[
       {t:'Фракция пекана 2–3 мм', img:'/upload/iblock/cfc/13jpwcq6iawcoqmapj2phmbu2i6c18in.jpg', shop:S+'pekan/'},
       {t:'Фракция пекана 2–4 мм', img:'/upload/iblock/0b1/zkc4qvl8qpoxhyqc75hfwm7d1038pypy.jpg', shop:S+'pekan/'},
       {t:'Пекан в карамели 6–9 мм', m:'карамелизированный', img:'/upload/iblock/ce8/ovfku7k88ijy4m3jwh3rrdpz0k9znq9y.jpg', shop:S+'pekan/yadra_pekana_obzharennye_droblennye_6_9mm'},
+      {t:'Пекан в пудре', m:'обжаренный, карамелизированный'},
     ]},
+    {id:'caramel', t:'Орехи в карамели', tab:'В карамели', d:'Карамелизированные орехи и фракции — для декора, вафель, шоколада и мороженого.', pick:/карамел/i},
+    {id:'choc', t:'Орехи и арахис в шоколаде, глазури, пудре', tab:'В шоколаде и пудре', items:[
+      {t:'Арахис в шоколаде', m:'обжаренный, драже'},
+      {t:'Фундук в шоколаде', m:'обжаренный, драже'},
+      {t:'Кешью в шоколаде', m:'обжаренный, драже'},
+      {t:'Миндаль в шоколаде', m:'обжаренный, драже'},
+      {t:'Кешью в пудре какао', m:'обжаренный, карамелизированный'},
+      {t:'Фундук в пудре какао', m:'обжаренный, карамелизированный'},
+      {t:'Фундук в белом шоколаде со вкусом банана', m:'обжаренный, карамелизированный'},
+      {t:'Пекан в пудре', m:'обжаренный, карамелизированный'},
+    ]},
+    {id:'cashew', t:'Кешью', d:'Целый кешью, кешью в шоколаде и в пудре какао.', pick:/кешью/i},
   ],
   specs:[
     {k:'Упаковка', vals:['10 кг','20 кг'], note:'Под вакуумом или с азотным наполнением в полимерные или металлизированные пакеты.'},
     {k:'Фракции', vals:['0–2 мм','2–4 мм','4–6 мм','6–9 мм','лепестки','целое ядро']},
-    {k:'Применение', list:['Декор тортов, пирожных, печенья','Инклюзии в шоколад и мороженое','Йогурты, сыры, молочные десерты','Обливка шоколадом и глазурью']},
+    {k:'Применение', apps:[{t:'Декор тортов, пирожных, печенья'},{t:'Инклюзии в шоколад и мороженое'},{t:'Йогурты, сыры, молочные десерты'},{t:'Включения в шоколаде и глазури'}]},
   ],
   ctaTitle:'Подберем орех и фракцию под вашу линию'
 };
 </script>
-<script src="assets/category.js?v=20261102"></script>
+<script src="assets/category.js?v=20261126"></script>
 <script src="assets/site.js?v=20261102"></script>
 </body>
 </html>

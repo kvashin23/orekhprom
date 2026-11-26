@@ -1,19 +1,48 @@
 /* Шаблон категории B2B. Страница объявляет window.CAT = {...} и подключает этот файл
-   ПЕРЕД site.js. Разметка собирается в <main id="cat">. */
+   ПЕРЕД site.js. Разметка собирается в <main id="cat">.
+   Дополнительно:
+   - heroVideo — видео в большой плитке коллажа (hero[0] служит постером);
+   - группа с pick:/RegExp/ — вкладка-фильтр: собирает подходящие позиции из обычных групп
+     и не показывается во «Все»;
+   - позиция без img — заглушка «фото обновляется»; позиция с tab — открывает вкладку;
+   - spec.apps — список применения, по клику открывается фото (img или заглушка). */
 (function(){
 const C = window.CAT, U = 'https://orekhprom.ru';
 const src = s => /^https?:|^assets/.test(s) ? s : U + s;
+const esc = s => String(s).replace(/&/g,'&amp;').replace(/"/g,'&quot;').replace(/</g,'&lt;');
 const OTHER = [
-  {id:'nuts', t:'Орехи', d:'Целые, дробленые, обжаренные и в карамели', img:'/upload/iblock/9d3/4apmcnwkawuz0y1hgjkl48tehi36ifw9.jpg', href:'b2b-nuts.html'},
+  {id:'nuts', t:'Орехи', d:'Целые, дробленые, обжаренные, в карамели и шоколаде', img:'/upload/iblock/9d3/4apmcnwkawuz0y1hgjkl48tehi36ifw9.jpg', href:'b2b-nuts.html'},
   {id:'pastes', t:'Пасты', d:'Ореховые пасты и пасты из семян, 12–300 мкм', img:'/upload/iblock/a02/coqlhho8zivlvasfe5zo0jzbza9k14r9.jpg', href:'b2b-pastes.html'},
-  {id:'ingredients', t:'Ингредиенты', d:'Печенье, жемчужины, гранола, кокос, попкорн', img:'/upload/iblock/bb1/we84g6b3ff7g1gwwm4lbuz2lk1s7y5my.jpg', href:'b2b-ingredients.html'},
+  {id:'ingredients', t:'Ингредиенты', d:'Печенье, хрустящие шарики, кокос, взрывная карамель', img:'/upload/iblock/bb1/we84g6b3ff7g1gwwm4lbuz2lk1s7y5my.jpg', href:'b2b-ingredients.html'},
   {id:'fillings', t:'Начинки', d:'На жировой и водной основе, пралине', img:'/upload/iblock/bc2/el74lzbmqj2wos279f620hf4kboj3nbr.jpg', href:'b2b-fillings.html'},
+  {id:'toppers', t:'Топперы', d:'Хрустящие включения и наполнители', img:'assets/b2b/toppers.webp', href:'b2b-ingredients.html'},
 ];
+const others = OTHER.filter(o=>o.id!==C.id && !(C.id==='ingredients' && o.id==='toppers'));
 
-const all = C.groups.flatMap(g=>g.items.map(i=>({...i, g:g.id})));
-const tile = i => `<a class="ptile rv" ${i.shop?`href="${i.shop}" target="_blank" rel="noopener"`:'href="#" data-modal="request"'}>
-  <div class="ph"><img loading="lazy" src="${src(i.img)}" alt="${i.t}"><span class="shop">${i.shop?'В магазин ↗':'Запросить'}</span></div>
+const real = C.groups.filter(g=>!g.pick);
+const all = real.flatMap(g=>g.items.map(i=>({...i, g:g.id})));
+C.groups.forEach(g=>{ if(g.pick) g.items = all.filter(i=>!i.tab && g.pick.test(i.t)); });
+
+const ph = i => i.img
+  ? `<div class="ph"><img loading="lazy" src="${src(i.img)}" alt="${esc(i.t)}"><span class="shop">${i.tab?'Смотреть →':i.shop?'В магазин ↗':'Запросить'}</span></div>`
+  : `<div class="ph ph-empty"><span>фото обновляется</span></div>`;
+const tile = i => `<a class="ptile rv" ${i.tab?`href="#catalog" data-tab="${i.tab}"`:i.shop?`href="${i.shop}" target="_blank" rel="noopener"`:'href="#" data-modal="request"'}>
+  ${ph(i)}
   <div class="nm">${i.t}</div>${i.m?`<div class="meta">${i.m}</div>`:''}</a>`;
+
+const heroBig = C.heroVideo
+  ? `<video src="${C.heroVideo}" poster="${src(C.hero[0])}" autoplay muted loop playsinline preload="metadata" aria-hidden="true"></video>`
+  : `<img src="${src(C.hero[0])}" alt="">`;
+
+const specItem = s => {
+  let h = `<div class="spec rv"><div class="k">${s.k}</div>`;
+  if(s.vals) h += `<div class="vals">${s.vals.map(v=>`<span>${v}</span>`).join('')}</div>`;
+  if(s.big) h += `<div class="big">${s.big}</div>`;
+  if(s.list) h += `<ul>${s.list.map(v=>`<li>${v}</li>`).join('')}</ul>`;
+  if(s.apps) h += `<ul class="apps">${s.apps.map(a=>`<li><button type="button" data-photo="${esc(a.img||'')}">${a.t}</button></li>`).join('')}</ul>`;
+  if(s.note) h += `<p class="small" style="margin-top:14px">${s.note}</p>`;
+  return h + `</div>`;
+};
 
 const html = `
 <div class="wrap crumbs"><a href="https://orekhprom.ru/">Главная</a><span class="sep">/</span><a href="b2b.html">B2B</a><span class="sep">/</span><span class="cur">${C.crumb}</span></div>
@@ -27,7 +56,7 @@ const html = `
       <div class="btn-row"><button class="btn" data-modal="request">Запросить образцы</button><a href="#catalog" class="btn outline">Ассортимент <span class="arr">↓</span></a></div>
     </div>
     <div class="collage">
-      <div class="big"><img src="${src(C.hero[0])}" alt=""></div>
+      <div class="big">${heroBig}</div>
       <div class="col">${C.hero.slice(1,4).map(h=>`<div><img src="${src(h)}" alt=""></div>`).join('')}</div>
     </div>
   </div>
@@ -52,14 +81,14 @@ const html = `
   </div>
   <div class="tabs" id="catTabs" style="margin-bottom:40px">
     <button class="active" data-g="*">Все <span class="cnt">${all.length}</span></button>
-    ${C.groups.map(g=>`<button data-g="${g.id}">${g.t} <span class="cnt">${g.items.length}</span></button>`).join('')}
+    ${C.groups.filter(g=>!g.notab).map(g=>`<button data-g="${g.id}">${g.tab||g.t} <span class="cnt">${g.items.length}</span></button>`).join('')}
   </div>
   <div id="catBody"></div>
 </div></section>
 
 <section class="dark cat-dark"><div class="wrap">
   <div class="sec-head"><div><h2 class="h-l">Фасовка и применение</h2></div></div>
-  <div class="specs">${C.specs.map(s=>`<div class="spec rv"><div class="k">${s.k}</div>${s.vals?`<div class="vals">${s.vals.map(v=>`<span>${v}</span>`).join('')}</div>`:''}${s.big?`<div class="big">${s.big}</div>`:''}${s.list?`<ul>${s.list.map(v=>`<li>${v}</li>`).join('')}</ul>`:''}${s.note?`<p class="small" style="margin-top:14px">${s.note}</p>`:''}</div>`).join('')}</div>
+  <div class="specs">${C.specs.map(specItem).join('')}</div>
 </div></section>
 
 <section><div class="wrap">
@@ -74,7 +103,7 @@ const html = `
 
 <section class="tight"><div class="wrap">
   <div class="sec-head"><div><h2 class="h-l">Ингредиенты B2B</h2></div><a href="b2b.html" class="link-arrow">Весь раздел B2B →</a></div>
-  <div class="grid-3">${OTHER.filter(o=>o.id!==C.id).map(o=>`<a class="dcard rv" href="${o.href}"><div class="ph"><img loading="lazy" src="${src(o.img)}" alt=""></div><div class="bd"><h3>${o.t}</h3><p>${o.d}</p><div class="go">Перейти <i>→</i></div></div></a>`).join('')}</div>
+  <div class="grid-${others.length>3?4:3}">${others.map(o=>`<a class="dcard rv" href="${o.href}"><div class="ph"><img loading="lazy" src="${src(o.img)}" alt=""></div><div class="bd"><h3>${o.t}</h3><p>${o.d}</p><div class="go">Перейти <i>→</i></div></div></a>`).join('')}</div>
 </div></section>
 
 <section style="padding-top:20px"><div class="wrap">
@@ -98,14 +127,16 @@ const html = `
       <div class="form-ok"><div class="ic">✓</div><h3>Запрос отправлен</h3><p style="color:rgba(255,255,255,.7)">Менеджер свяжется с вами в течение рабочего дня.</p></div>
     </div>
   </div>
-</div></section>`;
+</div></section>
+
+<div class="modal photo-modal" id="m-photo" role="dialog" aria-modal="true" aria-label="Фото"><div class="box"><button class="x" data-close>✕</button><div class="pm-ph"></div><div class="pm-cap"></div></div></div>`;
 
 document.getElementById('cat').innerHTML = html;
 
-/* каталог: «Все» — группы подряд с заголовками; конкретная вкладка — только ее сетка */
-const body = document.getElementById('catBody');
+/* каталог: «Все» — обычные группы подряд с заголовками; конкретная вкладка — только ее сетка */
+const body = document.getElementById('catBody'), tabs = document.getElementById('catTabs');
 function render(g){
-  const groups = g==='*' ? C.groups : C.groups.filter(x=>x.id===g);
+  const groups = g==='*' ? real : C.groups.filter(x=>x.id===g);
   body.innerHTML = groups.map(gr=>`<div class="cat-group" style="margin-bottom:64px">
       <div style="display:grid;grid-template-columns:minmax(0,1fr) minmax(0,1.4fr);gap:32px;align-items:end;margin-bottom:28px;padding-top:24px;border-top:1px solid var(--line)" class="cg-head">
         <h3 class="h-m">${gr.t}</h3>${gr.d?`<p class="muted cg-d" style="font-size:15px;max-width:52ch">${gr.d}</p>`:'<span></span>'}
@@ -113,12 +144,30 @@ function render(g){
       <div class="grid-4">${gr.items.map(tile).join('')}</div></div>`).join('');
   window.observeReveal && window.observeReveal(body);
 }
+function select(g){
+  [...tabs.children].forEach(x=>x.classList.toggle('active', x.dataset.g===g));
+  render(g);
+}
 render('*');
-document.getElementById('catTabs').addEventListener('click', e=>{
-  const b = e.target.closest('button'); if(!b) return;
-  [...e.currentTarget.children].forEach(x=>x.classList.toggle('active', x===b));
-  render(b.dataset.g);
+tabs.addEventListener('click', e=>{
+  const b = e.target.closest('button'); if(b) select(b.dataset.g);
 });
+body.addEventListener('click', e=>{
+  const a = e.target.closest('[data-tab]'); if(!a) return;
+  e.preventDefault(); select(a.dataset.tab);
+  document.getElementById('catalog').scrollIntoView({behavior:'smooth'});
+});
+
+/* применение: фото по клику */
+document.addEventListener('click', e=>{
+  const b = e.target.closest('[data-photo]'); if(!b) return;
+  const m = document.getElementById('m-photo'), img = b.dataset.photo;
+  m.querySelector('.pm-ph').className = 'pm-ph' + (img?'':' ph-empty');
+  m.querySelector('.pm-ph').innerHTML = img ? `<img src="${src(img)}" alt="">` : '<span>фото обновляется</span>';
+  m.querySelector('.pm-cap').textContent = b.textContent;
+  window.openModal && window.openModal('photo');
+});
+
 const st = document.createElement('style');
 st.textContent = `
   /* описание группы — прижато к правому краю */
