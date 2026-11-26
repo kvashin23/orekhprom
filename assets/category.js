@@ -31,7 +31,7 @@ const tile = i => `<a class="ptile rv" ${i.tab?`href="#catalog" data-tab="${i.ta
   <div class="nm">${i.t}</div>${i.m?`<div class="meta">${i.m}</div>`:''}</a>`;
 
 const heroBig = C.heroVideo
-  ? `<video src="${C.heroVideo}" poster="${src(C.hero[0])}" autoplay muted loop playsinline preload="metadata" aria-hidden="true"></video>`
+  ? `<video src="${C.heroVideo}" poster="${src(C.heroPoster||C.hero[0])}" autoplay muted loop playsinline preload="metadata" aria-hidden="true"></video>`
   : `<img src="${src(C.hero[0])}" alt="">`;
 
 const specItem = s => {
