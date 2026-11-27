@@ -90,17 +90,21 @@
   .certs img{width:100%; height:100%; object-fit:contain;}
   @media (max-width:980px){ .q-mgmt{grid-template-columns:1fr; gap:36px;} .certs button{width:170px;} }
 
-  .qsteps{display:grid; grid-template-columns:repeat(3,1fr); border-top:1px solid rgba(255,255,255,.18);}
-  .qsteps > div{padding:34px 34px 0 0;}
-  .qsteps > div + div{padding-left:34px; border-left:1px solid rgba(255,255,255,.18);}
+  .qsteps{display:grid; grid-template-columns:repeat(4,1fr); gap:0; border-top:1px solid rgba(255,255,255,.18);}
+  .qsteps > div{padding:34px 28px 0 0;}
+  .qsteps > div + div{padding-left:28px; border-left:1px solid rgba(255,255,255,.18);}
+  .qsteps h3{font-size:22px!important;}
+  @media (max-width:1100px) and (min-width:901px){ .qsteps{grid-template-columns:1fr 1fr;} .qsteps > div:nth-child(3){padding-left:0; border-left:0;} .qsteps > div:nth-child(n+3){margin-top:34px; border-top:1px solid rgba(255,255,255,.18);} }
   .qsteps .n{font-family:var(--font-head); font-size:64px; color:rgba(255,255,255,.2); line-height:1;}
   .qsteps h3{font-size:24px; margin:28px 0 12px;}
   .qsteps p{color:rgba(255,255,255,.68); font-size:15px;}
   @media (max-width:900px){ .qsteps{grid-template-columns:1fr;} .qsteps > div + div{padding-left:0; border-left:0; border-top:1px solid rgba(255,255,255,.18); margin-top:34px;} }
-  .lab{display:grid; grid-template-columns:repeat(3,1fr); gap:16px; margin-top:56px;}
-  .lab div{border-radius:20px; overflow:hidden; aspect-ratio:4/3;}
+
+  .lab{display:grid; grid-template-columns:1.3fr .7fr; gap:16px; margin-top:56px;}
+  .lab div{border-radius:var(--r); overflow:hidden; aspect-ratio:16/9;}
+  .lab div:last-child{aspect-ratio:auto;}
   .lab img{width:100%; height:100%; object-fit:cover;}
-  @media (max-width:720px){ .lab{grid-template-columns:1fr 1fr;} .lab div:first-child{grid-column:1/-1;} }
+  @media (max-width:720px){ .lab{grid-template-columns:1fr;} .lab div:last-child{aspect-ratio:16/9;} }
 
   .zones{display:grid; grid-template-columns:repeat(2,1fr); gap:12px; margin-top:28px;}
   .zones div{border-radius:16px; padding:18px; background:var(--card); font-size:14px;}
@@ -188,16 +192,16 @@
 
   <!-- QUALITY CONTROL -->
   <section class="dark"><div class="wrap">
-    <div class="sec-head"><div><span class="eyebrow">контроль качества и безопасности</span><h2 class="h-l" style="color:#fff">Многоуровневый контроль на всей цепочке</h2></div></div>
+    <div class="sec-head"><div><span class="eyebrow">контроль качества и безопасности</span><h2 class="h-l" style="color:#fff;max-width:20ch">Надежность начинается с контроля каждой партии</h2><p class="sub" style="color:rgba(255,255,255,.7)">Контроль качества встроен в производственную цепочку</p></div><span class="chip" style="color:#fff;border-color:rgba(255,255,255,.25)">ISO · HACCP · FSSC 22000</span></div>
     <div class="qsteps">
-      <div class="rv"><div class="n">01</div><h3>Контроль поступающего сырья</h3><p>Передовые методы лабораторного контроля на современном оборудовании</p></div>
-      <div class="rv"><div class="n">02</div><h3>Компетентность персонала</h3><p>Постоянное повышение квалификации сотрудников лаборатории и внедрение современных методов анализа</p></div>
-      <div class="rv"><div class="n">03</div><h3>Контроль готовой продукции</h3><p>Каждая партия проходит лабораторное исследование на соответствие нормативной документации и требованиям клиента</p></div>
+      <div class="rv"><div class="n">01</div><h3>Контроль поступающего сырья</h3><p>Проверка поступающих ингредиентов и сырья</p></div>
+      <div class="rv"><div class="n">02</div><h3>Контроль готовой продукции</h3><p>Каждая партия проверяется на соответствие установленным требованиям и спецификациям</p></div>
+      <div class="rv"><div class="n">03</div><h3>Документальное сопровождение</h3><p>Предоставление документов, подтверждающих качество и безопасность продукции</p></div>
+      <div class="rv"><div class="n">04</div><h3>Прослеживаемость и производственные процессы</h3><p>Контроль производственных этапов и соблюдение требований пищевой безопасности</p></div>
     </div>
     <div class="lab">
       <div><img src="https://orekhprom.ru/upload/iblock/570/rh0s8eq1g0uje3akku0fd96hchmxdanl.jpg" alt=""></div>
       <div><img src="https://orekhprom.ru/upload/iblock/431/7aelil0m3zsctmii35r1bka0tribwzho.jpg" alt=""></div>
-      <div><img src="https://orekhprom.ru/upload/uf/aef/drris3pxnsg5kwfkwnjqgvw9f0zzr7aq.jpg" alt=""></div>
     </div>
   </div></section>
 
